@@ -40,7 +40,7 @@ Once you have the repo in your local machine simply run the following commands:
 
 At the moment this is highly subject to change but will updated regularly
 
-
+```
 ├──  bower_components/
 ├──  e2e/
 ├──  gulp/
@@ -90,7 +90,7 @@ At the moment this is highly subject to change but will updated regularly
 ├──  karma.conf.js
 ├──  package.json
 └──  protractor.conf.js
-
+```
 
 # Development Server 
 
