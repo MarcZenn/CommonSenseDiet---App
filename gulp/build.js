@@ -2,12 +2,15 @@
 
 var path = require('path');
 var gulp = require('gulp');
+// look up this plugin ./conf for gulp
 var conf = require('./conf');
 
+// Why does this need to be defined as $? what is gulp-load-plugins?
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
 });
 
+// This task named partials is called in the task below named html. 
 gulp.task('partials', ['markups'], function () {
   return gulp.src([
     path.join(conf.paths.src, '/app/**/*.html'),
@@ -25,6 +28,7 @@ gulp.task('partials', ['markups'], function () {
     .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
 });
 
+// This task named html is calling inject task in the inject.js file. 
 gulp.task('html', ['inject', 'partials'], function () {
   var partialsInjectFile = gulp.src(path.join(conf.paths.tmp, '/partials/templateCacheHtml.js'), { read: false });
   var partialsInjectOptions = {
