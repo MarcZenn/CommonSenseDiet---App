@@ -15,11 +15,11 @@ eager to maintin a robust, collaborative, open-source code base.
 
 # Requirements
 
-* Node
-* Bower
-* Angular
-* Jade
-* Gulp
+* [Node](https://nodejs.org/en/)
+* [Bower](http://bower.io/)
+* [Angular](https://angularjs.org/)
+* [Jade](http://jade-lang.com/)
+* [Gulp](http://gulpjs.com/)
 
 # Installation
 
@@ -108,5 +108,5 @@ When gulp detects a change, it will send a reload command to Browser Sync. Depen
 
 # Developer User Guide
 
-[A closer look at the features present in your source code](user-guide.md)
+[A closer look at the features present in the source code](user-guide.md)
 
