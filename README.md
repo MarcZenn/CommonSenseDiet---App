@@ -1,5 +1,6 @@
 # CommonSenseDiet- A Simple Web-App 
 Version 1.0 12/17/2015
+CURRENTLY UNDER CONSTRUCTION
 
 
 
@@ -38,7 +39,8 @@ Once you have the repo in your local machine simply run the following commands:
 
 # Directory Structure
 
-At the moment this is highly subject to change but will updated regularly
+At the moment this is highly subject to change but will updated regularly 
+
 
 ```
 ├──  bower_components/
@@ -94,14 +96,17 @@ At the moment this is highly subject to change but will updated regularly
 
 # Development Server 
 
-The generator is shipped with the awesome gulp-plugin BrowserSync as the development server.
+Our source code includes the awesome gulp-plugin BrowserSync as the development server.
 
 This allows you to serve your web resources locally to be more reactive and be able to have features like automatic reload of your page when you make a modification.
 
+# Live Reload Of Sources
 
+When you launch your dev server with `gulp serve`, it will launch BrowserSync along with the file watching and pre-processing feature.
 
+When gulp detects a change, it will send a reload command to Browser Sync. Depending on which files have changed (html/js or css) it will reload the whole page or just reload the css and keep your page context up.
 
+# Developer User Guide
 
+[A closer look at the features present in your source code](CommonSenseDiet--App/user-guide.md)
 
-
-CURRENTLY UNDER CONSTRUCTION
