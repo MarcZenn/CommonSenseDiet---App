@@ -3,10 +3,13 @@
     <acme-navbar creation-date="main.creationDate"></acme-navbar>
   </div>
   <div class="jumbotron">
-    <h1 class="header">Is
-    <acme-malarkey class="malarkey-text" extra-values="['Cream Cheese', 'Pasta', 'Soup', 'Milk']"></acme-malarkey>good for me?</h1>
-    <p class="sub-header">
-    </p>
+    <div class="header-container">
+      <ul class="header-list">
+        <li><h1 class="header">Is</h1></li>
+        <li><p><acme-malarkey extra-values="['spinach', 'pasta', 'soup', 'milk', 'broccoli']"></acme-malarkey></p></li>
+        <li><h1 class="header">good for me?</h1></li>
+      <ul> 
+    </div>
     <div class="searchbar-container">
       <input class="searchbar" type="text" placeholder="Search...">
     </div>
@@ -17,8 +20,7 @@
       <a class="btn btn-lg btn-success" ng-click="main.showToastr()">Food Sense</a>
     </p>
   </div>
-<!-- 
-  <div class="col" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
+<!--   <div class="col" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
     <div class="thumbnail">
       <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
       <div class="caption">

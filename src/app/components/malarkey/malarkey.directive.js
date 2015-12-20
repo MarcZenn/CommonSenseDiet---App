@@ -24,8 +24,8 @@
       var watcher;
       var typist = malarkey(el[0], {
         typeSpeed: 80,
-        deleteSpeed: 70,
-        pauseDelay: 800,
+        deleteSpeed: 60,
+        pauseDelay: 3000,
         loop: true,
         postfix: ' '
       });

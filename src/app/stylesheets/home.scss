@@ -1,6 +1,7 @@
 .jumbotron {
   padding: 60px;
   margin-bottom: 30px;
+  margin-top: 30px;
   background-color: white;
   border-radius: 6px;
   text-align: center;
@@ -9,19 +10,33 @@
 .header {
 	font-family: Proxima Nova;
 	font-size: 60px;
-	font-weight: 900;
 	margin: 0;
-  /*background: -webkit-linear-gradient(#FE0FFF,#AF19E8);*/
-  background: -webkit-linear-gradient(#14E8E3,#16FFA7);
+  background: -webkit-linear-gradient(#FE0FFF,#AF19E8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.sub-header {
-	font-family: Arial;
-	color: lightgrey;
+.header-container {
+  position: relative;
+  min-height: 80px;
 
+  ul {
+    float: left;
+    padding-left: 28%;
+    margin: 0;
+
+    li {
+      float: left;
+      position: relative;
+      display: block;
+    }
+  }
 }
+
+.malarkey-text {
+	color: lightgrey;
+}
+
 
 .searchbar-container {	
 	text-align: center;
@@ -43,7 +58,6 @@
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  /*border: 1px solid #E80CA9;*/
   color: white;
   background-color: lightgrey;
   padding: 5px 10px;
