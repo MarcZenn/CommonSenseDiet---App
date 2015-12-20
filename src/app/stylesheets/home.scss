@@ -1,0 +1,61 @@
+.jumbotron {
+  padding: 60px;
+  margin-bottom: 30px;
+  background-color: white;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.home-header {
+	font-family: Futura;
+	font-size: 60px;
+	font-weight: 900;
+}
+
+.searchbar-container {
+	text-align: center;
+}
+
+.searchbar {
+	width: 70%;
+	height: 40px;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  color: white;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+
+.col {
+  float: left;
+  width: 33.33%;
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+
+  .thumbnail {
+    height: 200px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    margin-bottom: 20px;
+
+    .caption {
+      padding: 9px;
+    }
+
+    img.pull-right {
+      width: 50px;
+    }
+  }
+}

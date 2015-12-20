@@ -5,6 +5,7 @@
    * @todo Complete the test
    * This example is not perfect.
    * Test should check if MomentJS have been called
+   * This entire file is meant to help you run unit tests?
    */
   describe('directive navbar', function() {
     // var $window;

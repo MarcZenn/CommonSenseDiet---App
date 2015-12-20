@@ -6,8 +6,8 @@ CURRENTLY UNDER CONSTRUCTION
 
 # What Is It?
 
-The CommonSenseDiet website is a simple way to know if a certain food or 
-dish is either GOOD for you in terms of nutrients....
+The CommonSenseDiet website is the simplest way to know if a certain food or 
+dish is healthy for you...thats it. 
 or BAD for you in terms of adding girth to your waistline. Nothing more. 
 Simply look up your foods/meals and get a YES or NO response. 
 While the developers of this project want to keep this simple, we are 
@@ -39,7 +39,7 @@ Once you have the repo in your local machine simply run the following commands:
 
 # Directory Structure
 
-At the moment this is highly subject to change but will updated regularly 
+At the moment this is highly subject to change but will updated regularly.  
 
 
 ```

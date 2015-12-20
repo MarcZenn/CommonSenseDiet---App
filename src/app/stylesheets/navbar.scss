@@ -1,0 +1,42 @@
+.navbar {
+  position: relative;
+  min-height: 100px;
+  background-color: transparent;
+
+
+  &>a {
+    float: left;
+    color: lightgrey;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 60px;
+    height: 50px;
+  }
+
+  ul {
+    float: right;
+    padding: 0;
+    margin: 0;
+
+    li {
+      float: left;
+      position: relative;
+      display: block;
+
+      a {
+        color: lightgrey;
+        position: relative;
+        display: block;
+        padding: 15px;
+        line-height: 70px;
+      }
+      &.active a {
+        background-color: black;
+      }
+    }
+  }
+}
+
+.acme-navbar-text{
+  color: black;
+}
