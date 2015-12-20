@@ -7,8 +7,7 @@ CURRENTLY UNDER CONSTRUCTION
 # What Is It?
 
 The CommonSenseDiet website is the simplest way to know if a certain food or 
-dish is healthy for you...thats it. 
-or BAD for you in terms of adding girth to your waistline. Nothing more. 
+dish is healthy for you (or not healthy for you) with a simple yes or no...thats it. Nothing more. 
 Simply look up your foods/meals and get a YES or NO response. 
 While the developers of this project want to keep this simple, we are 
 eager to maintin a robust, collaborative, open-source code base. 

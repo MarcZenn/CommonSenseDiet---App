@@ -1,7 +1,8 @@
 .navbar {
   position: relative;
-  min-height: 100px;
+  min-height: 80px;
   background-color: transparent;
+  margin-bottom: 20px;
 
 
   &>a {
@@ -28,7 +29,7 @@
         position: relative;
         display: block;
         padding: 15px;
-        line-height: 70px;
+        line-height: 40px;
       }
       &.active a {
         background-color: black;
