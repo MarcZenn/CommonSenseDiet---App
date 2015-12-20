@@ -107,5 +107,5 @@ When gulp detects a change, it will send a reload command to Browser Sync. Depen
 
 # Developer User Guide
 
-[A closer look at the features present in the source code](user-guide.md)
+[A closer look at the features present in the source code for contributors](user-guide.md)
 

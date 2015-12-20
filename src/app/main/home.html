@@ -1,25 +1,23 @@
-<div class="container">
-
+<section class="container">
   <div>
     <acme-navbar creation-date="main.creationDate"></acme-navbar>
   </div>
-
   <div class="jumbotron">
-    <h1 class="home-header">Is This Good For Me?...</h1>
+    <h1 class="header">Is
+    <acme-malarkey class="malarkey-text" extra-values="['Cream Cheese', 'Pasta', 'Soup', 'Milk']"></acme-malarkey>good for me?</h1>
+    <p class="sub-header">
+    </p>
     <div class="searchbar-container">
       <input class="searchbar" type="text" placeholder="Search...">
     </div>
     <p class="lead">
       <img src="assets/images/yeoman.png" alt="I'm Yeoman">
     </p>
-    <p>
-      If we don't have it, we'll add it. You can look up<acme-malarkey extra-values="['Cream Cheese', 'Pastas', 'Soup', 'Milk']"></acme-malarkey>
-    </p>
     <p class="animated infinite" ng-class="main.classAnimation">
-      <a class="btn btn-lg btn-success" ng-click="main.showToastr()">Common Sense</a>
+      <a class="btn btn-lg btn-success" ng-click="main.showToastr()">Food Sense</a>
     </p>
   </div>
-
+<!-- 
   <div class="col" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
     <div class="thumbnail">
       <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
@@ -29,6 +27,5 @@
         <p><a ng-href="{{ awesomeThing.url }}">{{ awesomeThing.url }}</a></p>
       </div>
     </div>
-  </div>
-
-</div>
+  </div> -->
+</section>

@@ -6,7 +6,7 @@
     .config(routeConfig);
 
   // this function which is self-invoked handles all routing 
-  // for all templates along with the controller it requires. 
+  // for all templates along with the controllers it requires. 
   function routeConfig($routeProvider) {
     $routeProvider
       .when('/', {
