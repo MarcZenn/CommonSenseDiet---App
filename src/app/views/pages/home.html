@@ -2,16 +2,16 @@
   <div>
     <acme-navbar creation-date="main.creationDate"></acme-navbar>
   </div>
-  <div class="jumbotron">
+  <div id="wrapper" class="jumbotron">
     <div class="header-container">
       <ul class="header-list">
         <li><h1 class="header">Is</h1></li>
-        <li><p><acme-malarkey extra-values="['spinach', 'pasta', 'soup', 'milk', 'broccoli']"></acme-malarkey></p></li>
+        <li><p><acme-malarkey extra-values="['agave', 'pasta', 'turkey', 'milk', 'eggs']"></acme-malarkey></p></li>
         <li><h1 class="header">good for me?</h1></li>
       <ul> 
     </div>
     <div class="searchbar-container">
-      <input class="searchbar" type="text" placeholder="Search...">
+      <input class="home-searchbar" type="text" placeholder="Search..." ng-keyup="handleTypeEvent()">
     </div>
     <p class="lead">
       <img src="assets/images/yeoman.png" alt="I'm Yeoman">

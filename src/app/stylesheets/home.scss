@@ -1,3 +1,4 @@
+
 .jumbotron {
   padding: 60px;
   margin-bottom: 30px;
@@ -19,6 +20,7 @@
 .header-container {
   position: relative;
   min-height: 80px;
+  margin-bottom: 30px;
 
   ul {
     float: left;
@@ -42,13 +44,13 @@
 	text-align: center;
 }
 
-.searchbar {
+.home-searchbar {
 	width: 55%;
 	height: 40px;
 	padding: 0 10px 0 10px;
 }
 
-.searchbar:focus {
+.home-searchbar:focus {
 	outline: 1px solid lightgrey;
 }
 

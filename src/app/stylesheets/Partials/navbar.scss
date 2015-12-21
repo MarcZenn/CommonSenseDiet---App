@@ -43,3 +43,14 @@
 .acme-navbar-text{
   color: black;
 }
+
+.nav-searchbar {
+  width: 500px;
+  height: 40px;
+  padding: 0 10px 0 10px;
+  margin: 10px;
+}
+
+.nav-searchbar:focus {
+  outline: 1px solid lightgrey;
+}

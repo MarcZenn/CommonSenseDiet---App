@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+  function MainController($timeout, webDevTec, toastr, $scope) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -35,5 +35,19 @@
         awesomeThing.rank = Math.random();
       });
     }
+
+    // this function is called by the ngKeyup directive in home.html
+    $scope.handleTypeEvent = function() {
+      typeSomethingIn();
+    };
+
+    function typeSomethingIn() {
+      angular.element(document.querySelector('#navSearchBar')).addClass('visible');
+      angular.element(document.querySelector('#wrapper')).addClass('not-visible');
+    };
+
+
+
+
   }
 })();
