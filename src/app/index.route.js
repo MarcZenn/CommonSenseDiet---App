@@ -17,6 +17,15 @@
       .otherwise({
         redirectTo: '/'
       });
+    $routeProvider
+      .when('/about', {
+        templateUrl: 'app/views/pages/about.html',
+        controller: 'MainController',
+        controllerAs: 'main'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
   }
 
 })();

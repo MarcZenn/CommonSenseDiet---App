@@ -10,6 +10,7 @@ The CommonSenseDiet website is the simplest way to know if a certain food or
 dish is healthy for you (or not healthy for you) with a simple yes or no...thats it. Nothing more. 
 Simply look up your foods/meals and get a YES or NO response. What do we know about nutrition?...
 Nothing! We just go off of ingredients and nutrition facts and give you our best, common sense, opinion.
+Eating right is simple...Don't eat junk.
 
 While the developers of this project want to keep this simple, we are 
 eager to maintin a robust, collaborative, open-source code base. 
