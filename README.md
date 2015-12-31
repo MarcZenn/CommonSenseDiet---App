@@ -12,7 +12,7 @@ Simply look up your foods/meals and get a YES or NO response. What do we know ab
 Nothing! We just go off of ingredients and nutrition facts and give you our best, common sense, opinion.
 Eating right is simple...Don't eat junk.
 
-While the developers of this project want to keep this simple, we are 
+While the developers of this project want to keep this app small, we are 
 eager to maintin a robust, collaborative, open-source code base. 
 
 # Requirements

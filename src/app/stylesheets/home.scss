@@ -77,12 +77,17 @@
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  color: white;
-  background-color: #BDBDBD;
-  padding: 15px 10px;
+  color: grey;
+  border: 1px solid #BDBDBD;
+  padding: 10px 10px;
   font-size: 15px;
   line-height: 1.33;
   font-family: Proxima Nova;
+}
+
+.btn:hover {
+  background: #BDBDBD;
+  color: white;
 }
 
 .col {
