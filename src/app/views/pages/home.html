@@ -5,19 +5,17 @@
   <div id="wrapper" class="jumbotron">
     <div class="header-container">
       <ul class="header-list">
-        <li><h1 class="header">Is</h1></li>
-        <li><p><acme-malarkey extra-values="['agave', 'pasta', 'turkey', 'milk', 'eggs']"></acme-malarkey></p></li>
-        <li><h1 class="header">good for me?</h1></li>
+        <li><h1 class="header">Is It Good For Me?</h1></li>
+        <li><p class="sub-header"> A biased yes or no dietary advice site to know if <acme-malarkey extra-values="['agave', 'pasta', 'turkey', 'milk', 'eggs']"></acme-malarkey> is 'good' for you.</p></li>
       <ul> 
     </div>
-    <div class="searchbar-container">
-      <input class="home-searchbar" type="text" placeholder="Search..." ng-keyup="handleTypeEvent()">
-    </div>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman">
-    </p>
+  </div>
+  <div id="move-searchbar" class="searchbar-container">
+    <input class="home-searchbar" type="text" placeholder="Search..." ng-keyup="handleTypeEvent()">
+  </div>
+  <div id="disclaim-btn-container">
     <p class="animated infinite" ng-class="main.classAnimation">
-      <a class="btn btn-lg btn-success" ng-click="main.showToastr()">Food Sense</a>
+      <a class="btn btn-lg btn-success" ng-click="main.showToastr()">Good For Me?</a>
     </p>
   </div>
 <!--   <div class="col" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">

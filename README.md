@@ -8,7 +8,9 @@ CURRENTLY UNDER CONSTRUCTION
 
 The CommonSenseDiet website is the simplest way to know if a certain food or 
 dish is healthy for you (or not healthy for you) with a simple yes or no...thats it. Nothing more. 
-Simply look up your foods/meals and get a YES or NO response. 
+Simply look up your foods/meals and get a YES or NO response. What do we know about nutrition?...
+Nothing! We just go off of ingredients and nutrition facts and give you our best, common sense, opinion.
+
 While the developers of this project want to keep this simple, we are 
 eager to maintin a robust, collaborative, open-source code base. 
 
@@ -40,57 +42,54 @@ Once you have the repo in your local machine simply run the following commands:
 
 At the moment this is highly subject to change but will updated regularly.  
 
-
 ```
-├──  bower_components/
-├──  e2e/
-├──  gulp/
-├──  nodes_modules/
-│
-├──  src/
-│   ├──  app/
-│   │   ├──  components/
-│   │   │   └──  githubContributor/
-│   │   │   │   └──  githubContributor.service.js
-│   │   │   │
-│   │   │   └──  malarkey/
-│   │   │   │   ├──  malarkey.directive.js
-│   │   │   │   └──  malarkey.(scss|styl|less|css)
-│   │   │   │
-│   │   │   └──  navbar/
-│   │   │   │   ├──  navbar.directive.(js|ts|coffee)
-│   │   │   │   ├──  navbar.html
-│   │   │   │   └──  navbar.(scss|styl|less|css)
-│   │   │   │
-│   │   │   └──  webDevTec/
-│   │   │       └──  webDevTec.service.js
-│   │   │
-│   │   ├──  main/
-│   │   │   ├──  main.controller.(js|ts|coffee)
-│   │   │   ├──  main.controller.spec.js
-│   │   │   └──  main.html
-│   │   │
-│   │   └──  index.config.(js|ts|coffee)
-│   │   └──  index.constants.(js|ts|coffee)
-│   │   └──  index.module.(js|ts|coffee)
-│   │   └──  index.route.(js|ts|coffee)
-│   │   └──  index.run.(js|ts|coffee)
-│   │   └──  index.(scss|styl|less|css)
-|   |
-│   ├──  assets/
-│   │   └──  images/
-│   ├──  favico.ico
-│   └──  index.html
-│
-├──  .bowerrc
-├──  .editorconfig
-├──  .gitignore
-├──  .eslintrc
-├──  bower.json
-├──  gulpfile.js
-├──  karma.conf.js
-├──  package.json
-└──  protractor.conf.js
+├── app
+│   ├── components
+│   │   ├── githubContributor
+│   │   │   ├── githubContributor.service.js
+│   │   │   └── githubContributor.service.spec.js
+│   │   ├── malarkey
+│   │   │   ├── malarkey.directive.js
+│   │   │   └── malarkey.directive.spec.js
+│   │   ├── navbar
+│   │   │   ├── navbar.directive.js
+│   │   │   └── navbar.directive.spec.js
+│   │   └── webDevTec
+│   │       ├── webDevTec.service.js
+│   │       └── webDevTec.service.spec.js
+│   ├── index.config.js
+│   ├── index.constants.js
+│   ├── index.module.js
+│   ├── index.route.js
+│   ├── index.run.js
+│   ├── index.scss
+│   ├── main
+│   │   ├── main.controller.js
+│   │   └── main.controller.spec.js
+│   ├── stylesheets
+│   │   ├── Partials
+│   │   │   ├── malarkey.scss
+│   │   │   └── navbar.scss
+│   │   └── home.scss
+│   └── views
+│       ├── pages
+│       │   └── home.html
+│       └── partials
+│           └── navbar.html
+├── assets
+│   └── images
+│       ├── angular.png
+│       ├── browsersync.png
+│       ├── gulp.png
+│       ├── jade.png
+│       ├── jasmine.png
+│       ├── karma.png
+│       ├── node-sass.png
+│       ├── protractor.png
+│       └── yeoman.png
+├── favicon.ico
+└── index.html
+
 ```
 
 # Development Server 

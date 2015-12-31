@@ -6,8 +6,9 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, $scope) {
-    var vm = this;
+  function MainController($timeout, webDevTec, toastr, $scope, $document) {
+    var vm = this,
+      scope = $scope
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
@@ -36,16 +37,17 @@
       });
     }
 
-    // this function is called by the ngKeyup directive in home.html
-    $scope.handleTypeEvent = function() {
-      typeSomethingIn();
+    // This event handler is called by the ngKeyup directive in home.html.
+    scope.handleTypeEvent = function() {
+      typedSomethingIn();
     };
 
-    function typeSomethingIn() {
-      angular.element(document.querySelector('#navSearchBar')).addClass('visible');
+    // Places the searchbar in top left corner of page on key up
+    function typedSomethingIn() {
       angular.element(document.querySelector('#wrapper')).addClass('not-visible');
+      angular.element(document.querySelector('#move-searchbar')).removeClass('searchbar-container').addClass('global-searchbar-container')
+      angular.element(document.querySelector('#disclaim-btn-container')).addClass('not-visible');
     };
-
 
 
 

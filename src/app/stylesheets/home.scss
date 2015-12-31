@@ -1,6 +1,5 @@
 
 .jumbotron {
-  padding: 60px;
   margin-bottom: 30px;
   margin-top: 30px;
   background-color: white;
@@ -9,12 +8,20 @@
 }
 
 .header {
+  display: inline-block;
 	font-family: Proxima Nova;
-	font-size: 60px;
-	margin: 0;
-  background: -webkit-linear-gradient(#FE0FFF,#AF19E8);
+	font-size: 70px;
+  /*background: -webkit-linear-gradient(#1EA63B,#22BD23);*/
+  background-color: #BD0B07;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.sub-header {
+  color: #BDBDBD;
+  font-size: 15px;
+  margin-top: -25px;
+  font-family: arial;
 }
 
 .header-container {
@@ -22,23 +29,15 @@
   min-height: 80px;
   margin-bottom: 30px;
 
-  ul {
-    float: left;
-    padding-left: 28%;
-    margin: 0;
-
     li {
-      float: left;
       position: relative;
       display: block;
     }
-  }
 }
 
 .malarkey-text {
 	color: lightgrey;
 }
-
 
 .searchbar-container {	
 	text-align: center;
@@ -48,10 +47,28 @@
 	width: 55%;
 	height: 40px;
 	padding: 0 10px 0 10px;
+  margin-left: 25px;
 }
 
 .home-searchbar:focus {
 	outline: 1px solid lightgrey;
+}
+
+.global-searchbar-container {
+  display: block;
+  top: 20px;
+  left: 5px;
+  position: absolute;
+  width: 60%;
+}
+
+.global-searchbar-container input:focus {
+  outline: 1px solid lightgrey;
+}
+
+#disclaim-btn-container {
+  width: 100%;
+  text-align: center;
 }
 
 .btn {
@@ -61,10 +78,11 @@
   vertical-align: middle;
   cursor: pointer;
   color: white;
-  background-color: lightgrey;
-  padding: 5px 10px;
+  background-color: #BDBDBD;
+  padding: 15px 10px;
   font-size: 15px;
   line-height: 1.33;
+  font-family: Proxima Nova;
 }
 
 .col {
