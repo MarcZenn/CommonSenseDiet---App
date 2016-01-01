@@ -5,20 +5,24 @@
     .module('commonSenseDietApp')
     .controller('AboutController', AboutController);
 
-  /** @ngInject */
-  function AboutController($timeout, webDevTec, toastr, $scope) {
-    var vm = this,
-      scope = $scope
 
+  function AboutController($timeout, $scope, $location, $anchorScroll) {
+    var scope = $scope
 
-    // Places the searchbar in top left corner of page on key up
-    function typedSomethingIn() {
-      angular.element(document.querySelector('#wrapper')).addClass('not-visible');
-      angular.element(document.querySelector('#move-searchbar')).removeClass('searchbar-container').addClass('global-searchbar-container')
-      angular.element(document.querySelector('#disclaim-btn-container')).addClass('not-visible');
+    // Initiates showDisclaimer from ngClick directive in about.html and calls $anchorScroll
+    // to scroll to disclaimer section.
+    scope.handleClickEvent = function() {
+      $location.hash('scrolled-to');
+      showDisclaimer();
+
+      // call $anchorScroll
+      $anchorScroll();
     };
 
-
-
+    // Makes disclaimer section visible in about.html and removes button.
+    function showDisclaimer() {
+      angular.element(document.querySelector('#show-disclaimer-btn-container')).addClass('not-visible')
+      angular.element(document.querySelector('#scrolled-to')).removeClass('not-visible')
+    };
   }
 })();

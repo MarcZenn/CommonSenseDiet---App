@@ -22,7 +22,7 @@
       .when('/about', {
         templateUrl: 'app/views/pages/about.html',
         controller: 'AboutController',
-        controllerAs: ''
+        controllerAs: 'main'
       })
       .otherwise({
         redirectTo: '/'

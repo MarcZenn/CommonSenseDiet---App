@@ -48,8 +48,5 @@
       angular.element(document.querySelector('#move-searchbar')).removeClass('searchbar-container').addClass('global-searchbar-container')
       angular.element(document.querySelector('#disclaim-btn-container')).addClass('not-visible')
     }
-
-
-
   }
 })();
