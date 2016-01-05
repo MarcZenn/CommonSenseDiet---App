@@ -32,15 +32,16 @@
 
       el.addClass('acme-malarkey');
 
+      // this sets extra food values
       angular.forEach(scope.extraValues, function(value) {
         typist.type(value).pause().delete();
       });
 
-      watcher = scope.$watch('vm.contributors', function() {
-        angular.forEach(vm.contributors, function(contributor) {
-          typist.type(contributor.login).pause().delete();
-        });
-      });
+      // watcher = scope.$watch('vm.contributors', function() {
+      //   angular.forEach(vm.contributors, function(contributor) {
+      //     typist.type(contributor.login).pause().delete();
+      //   });
+      // });
 
       scope.$on('$destroy', function () {
         watcher();
@@ -48,6 +49,7 @@
     }
 
     /** @ngInject */
+    // this receives data from contributors api 
     function MalarkeyController($log, githubContributor) {
       var vm = this;
 
@@ -57,7 +59,7 @@
 
       function activate() {
         return getContributors().then(function() {
-          $log.info('Activated Contributors View');
+          // $log.info('Activated Contributors View');
         });
       }
 

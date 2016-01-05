@@ -6,6 +6,7 @@
     .factory('githubContributor', githubContributor);
 
   /** @ngInject */
+  // Convert this API call to make calls from food data not github contributors.
   function githubContributor($log, $http) {
     var apiHost = 'https://api.github.com/repos/Swiip/generator-gulp-angular';
 

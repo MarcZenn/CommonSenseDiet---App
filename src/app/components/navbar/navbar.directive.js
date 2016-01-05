@@ -10,10 +10,7 @@
     var directive = {
       restrict: 'E',
       templateUrl: 'app/views/partials/navbar.html',
-      scope: {
-          creationDate: '='
-      },
-      controller: NavbarController,
+      // controller: NavbarController,
       controllerAs: 'vm',
       bindToController: true
     };
@@ -21,11 +18,11 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment) {
-      var vm = this;
+    // function NavbarController(moment) {
+    //   var vm = this;
 
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
-    }
+    //   // "vm.creation" is avaible by directive option "bindToController: true"
+    //   vm.relativeDate = moment(vm.creationDate).fromNow();
+    // }
   }
 })();
