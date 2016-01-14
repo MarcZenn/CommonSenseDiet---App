@@ -20,8 +20,7 @@ var flash = require('connect-flash');
 // Schemas
 var Food = require('foodModel');
 
-// Controllers (WRITE INLINE, make sure to require Food Schema)
-
+// Controllers (WRITE INLINE, make sure to require Food Schema, abstract this out into seperate file later)
   // Post New Food
   app.post('/postNewFood',  function(req, res){
     var food = new Food({
@@ -36,7 +35,6 @@ var Food = require('foodModel');
     });
     // Save the food to the database
       post.save(function(err, food){
-
         Food.findOne({_id: food._id}).exec(function(err, food){
           res.send(food)
         });

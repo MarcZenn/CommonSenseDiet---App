@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+// Data model for all food objects
 var foodSchema = mongoose.Schema({
 
   name: {type: String, required: true},
