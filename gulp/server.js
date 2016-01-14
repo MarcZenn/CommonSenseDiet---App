@@ -18,7 +18,7 @@ var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 
 // Schemas
-var Food = require('Food');
+var Food = require('foodModel');
 
 // Controllers (WRITE INLINE, make sure to require Food Schema)
 
