@@ -5,7 +5,7 @@
     .module('commonSenseDietApp')
     .config(routeConfig);
 
-  // this function which is self-invoked handles all routing 
+  // This function which is self-invoked handles all routing 
   // for all templates along with the controllers it requires. 
   function routeConfig($routeProvider) {
     $routeProvider
@@ -23,6 +23,17 @@
         templateUrl: 'app/views/pages/about.html',
         controller: 'AboutController',
         controllerAs: 'main'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+
+      // The only way to navigate to this route is via the URL. No link leads to it. Auth in coming later
+      $routeProvider
+      .when('/submitNewFood', {
+        templateUrl: 'app/views/pages/submitNewFood.html',
+        controller: 'submitNewFoodController',
+        controllerAs: 'submitNewFood'
       })
       .otherwise({
         redirectTo: '/'
