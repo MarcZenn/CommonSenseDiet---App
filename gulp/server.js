@@ -1,5 +1,26 @@
 'use strict';
 
+var express = require('express');
+var bodyParser = require('body-parser');
+
+// require database data modeling
+var mongoose = require('mongoose');
+
+// Express Session allows us to use Cookies to keep track of
+// a user across multiple pages. We also need to be able to load
+// those cookies using the cookie parser
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+
+// Flash allows us to store quick one-time-use messages
+// between views that are removed once they are used.
+// Useful for error messages.
+var flash = require('connect-flash');
+
+// Controllers
+
+
+
 var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
