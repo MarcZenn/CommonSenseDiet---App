@@ -17,9 +17,39 @@ var cookieParser = require('cookie-parser');
 // Useful for error messages.
 var flash = require('connect-flash');
 
-// Controllers
+// Schemas
+var Food = require('Food');
 
+// Controllers (WRITE INLINE, make sure to require Food Schema)
 
+  // Post New Food
+  app.post('/postNewFood',  function(req, res){
+    var food = new Food({
+      title: req.body.title,
+      body: req.body.description,
+      type: req.body.type,
+      url: req.body.url,
+      dateCreated: new Date(),
+      userCreated: req.user._id,
+      time: req.body.time
+
+    });
+    // Save the food to the database
+      post.save(function(err, food){
+
+        Food.findOne({_id: food._id}).exec(function(err, food){
+          res.send(food)
+        });
+
+      });
+    });
+
+  // Get All Foods
+  app.get('/getAllFood', function(req, res){
+    Food.find({}, function(err, allFood){
+      res.send(allFood);
+    });
+  });
 
 var path = require('path');
 var gulp = require('gulp');
