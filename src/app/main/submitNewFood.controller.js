@@ -7,10 +7,8 @@
 
 
   function submitNewFoodController($timeout, $scope, $location, $anchorScroll) {
-    var scope = $scope
-
-    console.log("on submit new foods page");
-  };
 
   }
-})();
+
+  }
+)();

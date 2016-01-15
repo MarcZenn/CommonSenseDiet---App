@@ -17,19 +17,26 @@ var cookieParser = require('cookie-parser');
 // Useful for error messages.
 var flash = require('connect-flash');
 
+
+
 // Use express and set it up
 var app = express();
-// app.set('view engine', 'jade');
-// app.set('views', __dirname + '/views');
-// app.set('scripts', __dirname + '/node_modules/ng-quill/src/');
-// app.use(express.static(__dirname + '/'));
-// app.use(bodyParser.urlencoded({extended: false}));
-// app.use(bodyParser.json())
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json())
+
+// Connect to DB (for messing around in localhost)?
+// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/galactic-collective');
 
 // Schemas
 var Food = require('../src/app/models/foodModel');
 
 // Controllers (WRITE INLINE, make sure to require Food Schema, abstract this out into seperate file later)
+
+
+
+// HTPP routes
   // Post New Food
   app.post('/postNewFood',  function(req, res){
     var food = new Food({
