@@ -22,8 +22,7 @@ var foodSchema = mongoose.Schema({
   glutenFree : {type: Boolean, required: true},
   nutFree : {type: Boolean, required: true},
   yesNoMaybe : {type: String, required: true},
-  reasoning : {type: String, required: true},
-  sourceLink : {type: String, required: true}
+  reasoning : {type: String, required: true}
 
 });
 
