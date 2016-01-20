@@ -34,8 +34,10 @@ out to you if we'd like to incorporate your work. :)
 
 Once you have the repo in your local machine simply run the following commands: 
 
+* If you don't have gulp installed globally run `npm install --global gulp`.
+* run `npm install -g bower` to install bower globally if you don't already have it installed.
 * run `npm install` to install the required dependencies and devdependencies.
-* run `bower install` to install bower
+* run `bower install` to install angular dependencies
 * run `gulp serve` to launch a browser sync server on your source files
 * run `gulp test` to run your unit tests with Karma in watch mode
 

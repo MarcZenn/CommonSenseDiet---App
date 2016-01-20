@@ -7,7 +7,7 @@
 
 
   function submitNewFoodController($timeout, $scope, $location, $anchorScroll) {
-
+  	
   }
 
   }
