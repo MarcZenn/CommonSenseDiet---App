@@ -1,25 +1,31 @@
 <section>
-	<form class="submit-food-form">
-		<input placeholder="yes no maybe", type="text", class="answer-input"></input>
-		<input placeholder="Reason why", type="text", class="carbs-input"></input>
-		<input placeholder="food name", type="text", class="name-input"></input>
-		<input placeholder="food ID", type="text", class="id-input"></input>
-		<input placeholder="food group", type="text", class="food-group-input"></input>
-		<input placeholder="calories", type="number", class="name-input"></input>
-		<input placeholder="serving size", type="number", class="serving-size-input"></input>
-		<input placeholder="total fat", type="number", class="total-fat-input"></input>
-		<input placeholder="Trans Fat", type="number", class="trans-fat-input"></input>
-		<input placeholder="saturated fat", type="number", class="saturated-fat-input"></input>
-		<input placeholder="cholesterol", type="number", class="cholesterol-input"></input>
-		<input placeholder="protein", type="number", class="protein-input"></input>
-		<input placeholder="sodium", type="text", class="sodium-input"></input>
-		<input placeholder="carbohydrates", type="text", class="carbs-input"></input>
-		<input placeholder="sugar", type="number", class="sugar-input"></input>
-		<input placeholder="fiber", type="text", class="fiber-input"></input>
-		<input type="checkbox" value="vegetarian">
-		<input type="checkbox" value="gluten-free">
-		<input type="checkbox" value="vegan">
-		<input type="checkbox" value="nut-free">
+	<div class="submit-new-food-title">
+		<h1> Submit a New Food</h1>
+		<p> Before submitting a food be sure to search for it first! <br/> We might already have it in our database.</p>
+	</div>
+
+	<form class="submit-food-form" ng-submit="submitNewFood()">
+		<input placeholder="Food Name", type="text", class="name-input" ng-model="newFoodFormData.username"></input>
+		<input placeholder="Food ID", type="text", class="id-input" ng-model="newFoodFormData.foodId"></input>
+		<input placeholder="Food Group", type="text", class="food-group-input" ng-model="newFoodFormData.foodGroup"></input>
+		<input placeholder="Yes, No or Maybe", type="text", class="answer-input" ng-model="newFoodFormData.answer"></input>
+		<input placeholder="Reason Why", type="text", class="carbs-input" ng-model="newFoodFormData.reasoning"></input>
+		<input placeholder="serving size", type="number", class="serving-size-input" ng-model="newFoodFormData.servingSize"></input>
+		<input placeholder="calories", type="number", class="name-input" ng-model="newFoodFormData.calories"></input>
+		<input placeholder="total fat", type="number", class="total-fat-input" ng-model="newFoodFormData.totalFat"></input>
+		<input placeholder="Trans Fat", type="number", class="trans-fat-input" ng-model="newFoodFormData.transFat"></input>
+		<input placeholder="saturated fat", type="number", class="saturated-fat-input"  ng-model="newFoodFormData.saturatedFat"></input>
+		<input placeholder="cholesterol", type="number", class="cholesterol-input" ng-model="newFoodFormData.cholesterol"></input>
+		<input placeholder="protein", type="number", class="protein-input" ng-model="newFoodFormData.protein"></input>
+		<input placeholder="sodium", type="text", class="sodium-input" ng-model="newFoodFormData.sodium"></input>
+		<input placeholder="carbohydrates", type="text", class="carbs-input" ng-model="newFoodFormData.carbs"></input>
+		<input placeholder="sugar", type="number", class="sugar-input" ng-model="newFoodFormData.sugar"></input>
+		<input placeholder="fiber", type="text", class="fiber-input" ng-model="newFoodFormData.fiber"></input>
+		<input type="checkbox" value="vegetarian" ng-model="newFoodFormData.vegetarian"> vegetarian
+		<input type="checkbox" value="gluten-free" ng-model="newFoodFormData.glutenFree"> gluten free
+		<input type="checkbox" value="vegan" ng-model="newFoodFormData.vegan"> vegan
+		<input type="checkbox" value="nut-free" ng-model="newFoodFormData.nutFree"> nut free
+		<input type="submit" id="submit-new-food-btn">
 	</form>
 
 </section>

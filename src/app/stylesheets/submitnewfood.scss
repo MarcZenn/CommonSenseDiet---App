@@ -1,10 +1,68 @@
 .submit-food-form {
 	width: 90%;
-	border: 1px solid lightgrey;
 	padding: 1rem;
 	margin: auto;
+	text-align: center;
 
-	input {
-		width: 100%;
+	input{
+		outline: none;
+		border: 1px solid lightgrey;
+		width: 90%;
+		height: 40px;
+		padding: 0.5rem;
+		margin: 0.5rem;
+	}
+
+	input:nth-child(5) {
+		height: 150px;
+	}
+	input:nth-child(21) {
+	 	padding: 50px;
+		height: 50px;
+		width: 70%;
+		display: block;
+	}
+	input:focus {
+		outline:none;
+		border-color: #BD0B07;
+    	box-shadow: 0 0 2px #BD0B07;
+	}	
+}
+
+#submit-new-food-btn {
+	padding: 50px;
+	height: 50px;
+	width: 70%;
+	display: block;
+	margin: auto;
+	background: white;
+	border: 1px solid #BD0B07;
+	border-radius: 5px;
+	color: #BD0B07;
+	line-height: 1px;
+	font-size: 30px;
+
+	&:hover {
+		background: #BD0B07;
+		color: white;
+	}
+}
+
+.submit-new-food-title {
+	width: 90%;
+	margin: 20px auto;
+	text-align: center;
+
+
+	h1 {
+		font-family: Futura;
+		font-size: 60px;
+		color: grey;
+	}
+	p {
+		font-family: Montserrat;
+		color: #BD0B07;
+		opacity: 0.5;
+		font-size: 25px;
 	}
 }
