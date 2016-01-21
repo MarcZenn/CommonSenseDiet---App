@@ -5,7 +5,7 @@
 	</div>
 
 	<form class="submit-food-form" ng-submit="submitNewFood()">
-		<input placeholder="Food Name", type="text", class="name-input" ng-model="newFoodFormData.username"></input>
+		<input placeholder="Food Name", type="text", class="name-input" ng-model="newFoodFormData.foodName"></input>
 		<input placeholder="Food ID", type="text", class="id-input" ng-model="newFoodFormData.foodId"></input>
 		<input placeholder="Food Group", type="text", class="food-group-input" ng-model="newFoodFormData.foodGroup"></input>
 		<input placeholder="Yes, No or Maybe", type="text", class="answer-input" ng-model="newFoodFormData.answer"></input>
@@ -17,10 +17,10 @@
 		<input placeholder="saturated fat", type="number", class="saturated-fat-input"  ng-model="newFoodFormData.saturatedFat"></input>
 		<input placeholder="cholesterol", type="number", class="cholesterol-input" ng-model="newFoodFormData.cholesterol"></input>
 		<input placeholder="protein", type="number", class="protein-input" ng-model="newFoodFormData.protein"></input>
-		<input placeholder="sodium", type="text", class="sodium-input" ng-model="newFoodFormData.sodium"></input>
-		<input placeholder="carbohydrates", type="text", class="carbs-input" ng-model="newFoodFormData.carbs"></input>
+		<input placeholder="sodium", type="number", class="sodium-input" ng-model="newFoodFormData.sodium"></input>
+		<input placeholder="carbohydrates", type="number", class="carbs-input" ng-model="newFoodFormData.carbs"></input>
 		<input placeholder="sugar", type="number", class="sugar-input" ng-model="newFoodFormData.sugar"></input>
-		<input placeholder="fiber", type="text", class="fiber-input" ng-model="newFoodFormData.fiber"></input>
+		<input placeholder="fiber", type="number", class="fiber-input" ng-model="newFoodFormData.fiber"></input>
 		<input type="checkbox" value="vegetarian" ng-model="newFoodFormData.vegetarian"> vegetarian
 		<input type="checkbox" value="gluten-free" ng-model="newFoodFormData.glutenFree"> gluten free
 		<input type="checkbox" value="vegan" ng-model="newFoodFormData.vegan"> vegan

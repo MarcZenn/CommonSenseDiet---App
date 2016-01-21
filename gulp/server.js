@@ -40,14 +40,26 @@ var Food = require('../src/app/models/foodModel');
   // Post New Food
   app.post('/postNewFood',  function(req, res){
     var food = new Food({
-      title: req.body.title,
-      body: req.body.description,
-      type: req.body.type,
-      url: req.body.url,
-      dateCreated: new Date(),
-      userCreated: req.user._id,
-      time: req.body.time
-
+      foodName: req.body.foodName,
+      foodId: req.body.foodId,
+      foodGroup: req.body.foodGroup,
+      answer: req.body.answer,
+      reasoning: req.body.reasoning,
+      servingSize: req.body.servingSize,
+      calories: req.body.calories,
+      totalFat: req.body.totalFat,
+      transFat: req.body.transFat,
+      saturatedFat: req.body.saturatedFat,
+      cholesterol: req.body.cholesterol,
+      protein: req.body.protein,
+      sodium: req.body.sodium,
+      carbohydrates: req.body.carbohydrates,
+      sugar: req.body.sugar,
+      fiber: req.body.fiber,
+      vegetarian: req.body.vegetarian,
+      glutenFree: req.body.glutenFree,
+      vegan: req.body.vegan,
+      nutFree: req.body.nutFree
     });
     // Save the food to the database
       post.save(function(err, food){
