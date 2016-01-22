@@ -13,7 +13,7 @@ var foodSchema = mongoose.Schema({
   totalFat: {type: Number, required: true},
   transFat: {type: Number, required: true},
   saturatedFat: {type: Number, required: true},
-  cholesterol: r{type: Number, required: true},
+  cholesterol: {type: Number, required: true},
   protein: {type: Number, required: true},
   sodium: {type: Number, required: true},
   carbohydrates: {type: Number, required: true},
