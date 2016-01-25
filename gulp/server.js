@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json())
 
 // Connect to DB (for messing around in localhost)?
-// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:3000');
+// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost');
 
 
 

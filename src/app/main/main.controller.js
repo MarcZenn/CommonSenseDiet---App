@@ -7,10 +7,8 @@
 
   /** @ngInject */
   function MainController($timeout, webDevTec, toastr) {
+    // Basically main = $scope (controllerAs syntax)
     var main = this;
-    //   scope = $scope
-
-    // var main = this;
 
     main.classAnimation = '';
     // vm.awesomeThings = [];

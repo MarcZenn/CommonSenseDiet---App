@@ -29,10 +29,17 @@ var handleNewFoodController = {
 			});
 			food.save(function(err, food){
 				if(err){
-					res.send(err);
+					var errorMessage = 'An error occured, please try again';
+					req.flash('error', errorMessage);
+					res.set('Content-Type', 'application/json'); // tell Angular that this is JSON
+					res.send(JSON.stringify({error: err}));
+					// res.send({err: 'Problem saving new food to MongoDB'})
+					// res.send(err);
 				}
 				else {
-					res.send(food);
+					res.set('Content-Type', 'application/json'); // tell Angular that this is JSON
+					res.send(JSON.stringify({success : food}));
+					// res.send(food);
 				}
 			});
 	}

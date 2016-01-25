@@ -7,7 +7,7 @@
 
 
   function AboutController($timeout, $location, anchorSmoothScroll) {
-    // this is using controllerAs syntax
+    // Basically about = $scope (controllerAs syntax)
     var about = this;
 
     // Initiates showDisclaimer from ngClick directive in about.html and calls $anchorScroll
