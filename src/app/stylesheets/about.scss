@@ -37,6 +37,9 @@
 	text-align: center;
 	top: 85%;
 	padding: 20px;
+	&:active {
+		outline: none;
+	}
 }
 
 .arrow-label {

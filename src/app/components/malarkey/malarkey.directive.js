@@ -37,11 +37,11 @@
         typist.type(value).pause().delete();
       });
 
-      // watcher = scope.$watch('vm.contributors', function() {
-      //   angular.forEach(vm.contributors, function(contributor) {
-      //     typist.type(contributor.login).pause().delete();
-      //   });
-      // });
+      watcher = scope.$watch('vm.contributors', function() {
+        angular.forEach(vm.contributors, function(contributor) {
+          typist.type(contributor.login).pause().delete();
+        });
+      });
 
       scope.$on('$destroy', function () {
         watcher();

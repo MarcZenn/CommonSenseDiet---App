@@ -2,7 +2,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-
+  
 // require database data modeling
 var mongoose = require('mongoose');
 
@@ -27,55 +27,59 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json())
 
 // Connect to DB (for messing around in localhost)?
-// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/galactic-collective');
+// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:3000');
 
-// Schemas
-var Food = require('../src/app/models/foodModel');
 
-// Controllers (WRITE INLINE, make sure to require Food Schema, abstract this out into seperate file later)
 
+// Controllers 
+var handleNewFoodController = require('./backend_controllers/handleNewFoodController.js');
 
 
 // HTPP routes
-  // Post New Food
-  app.post('/postNewFood',  function(req, res){
-    var food = new Food({
-      foodName: req.body.foodName,
-      foodId: req.body.foodId,
-      foodGroup: req.body.foodGroup,
-      answer: req.body.answer,
-      reasoning: req.body.reasoning,
-      servingSize: req.body.servingSize,
-      calories: req.body.calories,
-      totalFat: req.body.totalFat,
-      transFat: req.body.transFat,
-      saturatedFat: req.body.saturatedFat,
-      cholesterol: req.body.cholesterol,
-      protein: req.body.protein,
-      sodium: req.body.sodium,
-      carbohydrates: req.body.carbohydrates,
-      sugar: req.body.sugar,
-      fiber: req.body.fiber,
-      vegetarian: req.body.vegetarian,
-      glutenFree: req.body.glutenFree,
-      vegan: req.body.vegan,
-      nutFree: req.body.nutFree
-    });
-    // Save the food to the database
-      post.save(function(err, food){
-        Food.findOne({_id: food._id}).exec(function(err, food){
-          res.send(food)
-        });
+// Access form data and Post
+// app.post('/postNewFood',  function(req, res){
+//   var food = new Food({
+//     foodName: req.body.foodName,
+//     foodId: req.body.foodId,
+//     foodGroup: req.body.foodGroup,
+//     answer: req.body.answer,
+//     reasoning: req.body.reasoning,
+//     servingSize: req.body.servingSize,
+//     calories: req.body.calories,
+//     totalFat: req.body.totalFat,
+//     transFat: req.body.transFat,
+//     saturatedFat: req.body.saturatedFat,
+//     cholesterol: req.body.cholesterol,
+//     protein: req.body.protein,
+//     sodium: req.body.sodium,
+//     carbohydrates: req.body.carbohydrates,
+//     sugar: req.body.sugar,
+//     fiber: req.body.fiber,
+//     vegetarian: req.body.vegetarian,
+//     glutenFree: req.body.glutenFree,
+//     vegan: req.body.vegan,
+//     nutFree: req.body.nutFree
+//   });
+//   // Save the food to the database
+//     food.save(function(err, food){
+//       if(err){
+//         res.send(err);
+//       }
+//       else{
+//         res.send(food);
+//       }
 
-      });
-    });
+//     });
+//   });
 
-  // Get All Foods
-  app.get('/getAllFood', function(req, res){
-    Food.find({}, function(err, allFood){
-      res.send(allFood);
-    });
+app.post('/postNewFood', handleNewFoodController.postNewFood)
+
+// Get All Foods
+app.get('/getAllFood', function(req, res){
+  Food.find({}, function(err, allFood){
+    res.send(allFood);
   });
+});
 
 var path = require('path');
 var gulp = require('gulp');

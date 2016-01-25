@@ -1,3 +1,7 @@
+.home-container {
+  overflow-x: hidden;
+  width: 100%;
+}
 
 .jumbotron {
   margin-bottom: 30px;
@@ -5,13 +9,13 @@
   background-color: white;
   border-radius: 6px;
   text-align: center;
+  width: 100%;
 }
 
 .header {
   display: inline-block;
 	font-family: Montserrat;
 	font-size: 70px;
-  /*background: -webkit-linear-gradient(#1EA63B,#22BD23);*/
   background-color: #BD0B07;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -27,7 +27,7 @@ var foodSchema = mongoose.Schema({
 });
 
 // Our user model
-var Food = mongoose.model('food', foodSchema);
+var Food = mongoose.model('Food', foodSchema);
 
 // Make user model available through exports/require
 module.exports = Food;

@@ -6,11 +6,13 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, $scope) {
-    var vm = this,
-      scope = $scope
+  function MainController($timeout, webDevTec, toastr) {
+    var main = this;
+    //   scope = $scope
 
-    vm.classAnimation = '';
+    // var main = this;
+
+    main.classAnimation = '';
     // vm.awesomeThings = [];
     // vm.creationDate = 1450389822870;
     // vm.showToastr = showToastr;
@@ -20,14 +22,14 @@
     function activate() {
       // getWebDevTec();
       $timeout(function() {
-        vm.classAnimation = 'pulse';
+        main.classAnimation = 'pulse';
       }, 4000);
     }
 
     // This function not being used for now. Understand better later. 
     function showToastr() {
       toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-      vm.classAnimation = '';
+      main.classAnimation = '';
     }
 
     // This function along with service no longer present on home page. Repurpose for other page. 
@@ -40,7 +42,7 @@
     // }
 
     // This event handler is called by the ngKeyup directive in home.html.
-    scope.handleTypeEvent = function() {
+    main.handleTypeEvent = function() {
       typedSomethingIn();
     };
 

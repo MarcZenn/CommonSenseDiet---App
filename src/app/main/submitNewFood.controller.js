@@ -1,31 +1,22 @@
 (function() {
   'use strict';
 
-  angular
-    .module('commonSenseDietApp')
-    .controller('submitNewFoodController', submitNewFoodController);
+	angular
+		.module('commonSenseDietApp')
+		.controller('submitNewFoodController', submitNewFoodController);
 
 
-  function submitNewFoodController($timeout, $scope, $location, $anchorScroll, $https) {
+	function submitNewFoodController($timeout, $location, $http, $log) {
+		// here I am using controllerAs syntax. same thing as $scope.
+		var newFood = this;
 
-  	$scope.submitNewFood = function() {
-  		// Add user authentication later so users can't find this page without admin access
+		newFood.submitFood = function() {
+		// Add user authentication later so users can't find this page without admin access
+			$http.post('/postNewFood', newFood.formData)
+				.then(function(res) {
+					$log(res.body)
+				})
+		}
+	}
 
-  		console.log(food submitted)
-
-  		$http.post('/submitNewFood', $scope.newFoodFormData)
-  			.then(function(response) {
-
-  				// if http request is not successful...
-  				if () {
-  					console.log("error submitting form")
-  					// if everything is ok then...
-  				} else {
-  					
-  				}
-  			})
-  	}
-  }
-
-  }
-)();
+})();
