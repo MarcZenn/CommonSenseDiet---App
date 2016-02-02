@@ -37,42 +37,43 @@ var handleNewFoodController = require('./backend_controllers/handleNewFoodContro
 
 // HTPP routes
 // Access form data and Post
-// app.post('/postNewFood',  function(req, res){
-//   var food = new Food({
-//     foodName: req.body.foodName,
-//     foodId: req.body.foodId,
-//     foodGroup: req.body.foodGroup,
-//     answer: req.body.answer,
-//     reasoning: req.body.reasoning,
-//     servingSize: req.body.servingSize,
-//     calories: req.body.calories,
-//     totalFat: req.body.totalFat,
-//     transFat: req.body.transFat,
-//     saturatedFat: req.body.saturatedFat,
-//     cholesterol: req.body.cholesterol,
-//     protein: req.body.protein,
-//     sodium: req.body.sodium,
-//     carbohydrates: req.body.carbohydrates,
-//     sugar: req.body.sugar,
-//     fiber: req.body.fiber,
-//     vegetarian: req.body.vegetarian,
-//     glutenFree: req.body.glutenFree,
-//     vegan: req.body.vegan,
-//     nutFree: req.body.nutFree
-//   });
-//   // Save the food to the database
-//     food.save(function(err, food){
-//       if(err){
-//         res.send(err);
-//       }
-//       else{
-//         res.send(food);
-//       }
+app.post('/postNewFood',  function(req, res){
+  var food = new Food({
+    foodName: req.body.foodName,
+    foodId: req.body.foodId,
+    foodGroup: req.body.foodGroup, 
+    answer: req.body.answer,
+    reasoning: req.body.reasoning,
+    servingSize: req.body.servingSize,
+    calories: req.body.calories,
+    totalFat: req.body.totalFat,
+    transFat: req.body.transFat,
+    saturatedFat: req.body.saturatedFat,
+    cholesterol: req.body.cholesterol,
+    protein: req.body.protein,
+    sodium: req.body.sodium,
+    carbohydrates: req.body.carbohydrates,
+    sugar: req.body.sugar,
+    fiber: req.body.fiber,
+    vegetarian: req.body.vegetarian,
+    glutenFree: req.body.glutenFree,
+    vegan: req.body.vegan,
+    nutFree: req.body.nutFree
+  });
+  // Save the food to the database
+    food.save(function(err, data){
+      if(err){
+        res.send(400, err.message);
+      }
+      else{
+        console.log('success')
+        res.send(data);
+      }
 
-//     });
-//   });
+    });
+  });
 
-app.post('/postNewFood', handleNewFoodController.postNewFood)
+// app.post('/postNewFood', handleNewFoodController.postNewFood)
 
 // Get All Foods
 app.get('/getAllFood', function(req, res){
