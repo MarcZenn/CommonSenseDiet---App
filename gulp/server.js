@@ -2,7 +2,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-  
+
 // require database data modeling
 var mongoose = require('mongoose');
 
@@ -27,11 +27,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json())
 
 // Connect to DB (for messing around in localhost)?
-// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:3000');
+// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/commonSenseDietApp');
 
 
 
-// Controllers 
+// Controllers
 var handleNewFoodController = require('./backend_controllers/handleNewFoodController.js');
 
 
@@ -41,7 +41,7 @@ app.post('/postNewFood',  function(req, res){
   var food = new Food({
     foodName: req.body.foodName,
     foodId: req.body.foodId,
-    foodGroup: req.body.foodGroup, 
+    foodGroup: req.body.foodGroup,
     answer: req.body.answer,
     reasoning: req.body.reasoning,
     servingSize: req.body.servingSize,

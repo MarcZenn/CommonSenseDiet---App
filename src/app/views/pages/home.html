@@ -4,7 +4,7 @@
       <ul class="header-list">
         <li><h1 class="header">Is It Good For Me?</h1></li>
         <li><p class="sub-header"> A simple, yes or no response, dietary advice site to know if <acme-malarkey extra-values="['agave', 'pasta', 'turkey', 'milk', 'eggs']"></acme-malarkey> is 'good' for you.</p></li>
-      <ul> 
+      <ul>
     </div>
   </div>
   <div id="move-searchbar" class="searchbar-container">
@@ -15,15 +15,35 @@
       <a class="btn btn-lg btn-success" href="#/about">Uh?</a>
     </p>
   </div>
-  <div class="search-results-container not-visible">
-    <ul>
-      <li><img src="#"/></li>
-      <li><p>Title</p></li>
-      <li><p>Description</p></li>
-    </ul>
-  </div>
+
+  <section class="search-results-container not-visible">
+    <div>
+      <ul class="search-results-list">
+        <!-- <li ng-repeat="limitTo: 10"><img src="#"/> -->
+        <li>
+          <p class="result-name">Food Name</p>
+          <p class="result-id">
+            Food ID
+          </p>
+          <p class="result-answer">
+            answer
+          </p>
+        </li>
+        <li>
+          <p class="result-name">Food Name</p>
+          <p class="result-id">
+            Food ID
+          </p>
+          <p class="result-answer">
+            answer
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <!-- commented markup below is for later use -->
-  
+
 <!--   <div class="col" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
     <div class="thumbnail">
       <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
@@ -34,4 +54,12 @@
       </div>
     </div>
   </div> -->
+
+<!-- <section class="search-results-container">
+
+</section> -->
+
+
+
+
 </section>
