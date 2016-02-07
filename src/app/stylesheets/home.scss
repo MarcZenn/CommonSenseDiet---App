@@ -14,7 +14,8 @@
 
 .header {
   display: inline-block;
-	font-family: Montserrat;
+  font-family: Montserrat;
+  font-family: copperplate;
 	font-size: 70px;
   background-color: #BD0B07;
   -webkit-background-clip: text;
@@ -43,7 +44,7 @@
 	color: lightgrey;
 }
 
-.searchbar-container {	
+.searchbar-container {
 	text-align: center;
 }
 
@@ -120,4 +121,52 @@
 
 .search-results-container {
   width: 100%;
+}
+
+.search-results-container{
+  width: 100%;
+  text-align: left;
+  padding: 0;
+}
+
+.search-results-list{
+  display:inline-block;
+  width: 50%;
+  list-style-type: none;
+  padding: 0 40px;
+
+  li{
+    border-left: 2px solid #f5f5f5;
+    padding: 10px;
+    text-align: left;
+    margin: 45px 0;
+    -webkit-box-shadow: -16px 7px 21px -8px rgba(0,0,0,0.05);
+    -moz-box-shadow: -16px 7px 21px -8px rgba(0,0,0,0.05);
+    box-shadow: -16px 7px 21px -8px rgba(0,0,0,0.05);
+
+
+    &:hover{
+      background-color: #f5f5f5;
+      border-radius: 4px;
+    }
+  }
+}
+
+.result-name, .result-id, .result-answer {
+  font-family: Futura;
+  font-size: 30px;
+  color: #f6d239;
+  margin: 0 0 0 20px;
+}
+
+.result-id {
+  color: #b4afaf;
+  font-size: 15px;
+  margin: 5px 0 0 25px;
+}
+
+.result-answer{
+  color: grey;
+  font-size:15px;
+  margin: 5px 0 0 0;
 }

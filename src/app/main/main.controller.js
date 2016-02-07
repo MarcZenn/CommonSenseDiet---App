@@ -6,9 +6,10 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
-    // Basically main = $scope (controllerAs syntax)
+  function MainController($timeout, webDevTec, toastr, $document) {
+   // using controllerAs syntax here. same thing as $scope.
     var main = this;
+
 
     main.classAnimation = '';
     // vm.awesomeThings = [];
@@ -24,13 +25,13 @@
       }, 4000);
     }
 
-    // This function not being used for now. Understand better later. 
+    // This function not being used for now. Understand better later.
     function showToastr() {
       toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
       main.classAnimation = '';
     }
 
-    // This function along with service no longer present on home page. Repurpose for other page. 
+    // This function along with service no longer present on home page. Repurpose for other page.
     // function getWebDevTec() {
     //   vm.awesomeThings = webDevTec.getTec();
 
@@ -46,9 +47,16 @@
 
     // Places the searchbar in top left corner of page on key up
     function typedSomethingIn() {
-      angular.element(document.querySelector('#wrapper')).addClass('not-visible')
-      angular.element(document.querySelector('#move-searchbar')).removeClass('searchbar-container').addClass('global-searchbar-container')
-      angular.element(document.querySelector('#disclaim-btn-container')).addClass('not-visible')
+      // set DOM selectors to variables using angular $document service.
+      var wrapper = angular.element($document[0].querySelector('#wrapper'));
+      var moveSearchbar = angular.element($document[0].querySelector('#move-searchbar'))
+      var disclaimerContainer = angular.element($document[0].querySelector('#disclaim-btn-container'))
+      var searchResults = angular.element($document[0].querySelector('.search-results-container'));
+      // Apply jqLite events to DOM selectors
+      wrapper.addClass('not-visible')
+      moveSearchbar.removeClass('searchbar-container').addClass('global-searchbar-container')
+      disclaimerContainer.addClass('not-visible')
+      searchResults.removeClass('not-visible')
     }
   }
 })();
