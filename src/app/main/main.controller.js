@@ -31,7 +31,8 @@
       main.classAnimation = '';
     }
 
-    // This function along with service no longer present on home page. Repurpose for other page.
+    // This function along with service no longer present on home page.
+    // Repurpose for other page.
     // function getWebDevTec() {
     //   vm.awesomeThings = webDevTec.getTec();
 
@@ -41,17 +42,18 @@
     // }
 
     // This event handler is called by the ngKeyup directive in home.html.
-    main.handleTypeEvent = function() {
-      typedSomethingIn();
+    main.handleKeyupEvent = function() {
+      initializeSearch();
     };
 
     // Places the searchbar in top left corner of page on key up
-    function typedSomethingIn() {
+    function initializeSearch() {
       // set DOM selectors to variables using angular $document service.
       var wrapper = angular.element($document[0].querySelector('#wrapper'));
       var moveSearchbar = angular.element($document[0].querySelector('#move-searchbar'))
       var disclaimerContainer = angular.element($document[0].querySelector('#disclaim-btn-container'))
       var searchResults = angular.element($document[0].querySelector('.search-results-container'));
+      
       // Apply jqLite events to DOM selectors
       wrapper.addClass('not-visible')
       moveSearchbar.removeClass('searchbar-container').addClass('global-searchbar-container')
