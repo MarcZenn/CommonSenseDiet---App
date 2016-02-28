@@ -13,7 +13,6 @@
 		newFood.submitFood = function() {
 		// Add user authentication later so users can't find this page without admin access
 
-
 			$http.post('/postNewFood', newFood.formData)
 				.then(function(res, err) {
 					// headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
