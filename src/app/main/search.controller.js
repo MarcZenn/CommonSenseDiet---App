@@ -10,5 +10,7 @@
     // this is using controllerAs syntax. same thing as $scope.
     var search = this;
 
+    $http.get('/api/allFoods')
+
   }
 })();

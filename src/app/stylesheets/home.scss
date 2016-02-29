@@ -15,9 +15,9 @@
 .header {
   display: inline-block;
   font-family: Montserrat;
-  font-family: copperplate;
 	font-size: 70px;
-  background-color: #BD0B07;
+  background: -webkit-linear-gradient(#BD0B07, #FF790D);
+  color: #bd0b07;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -61,14 +61,24 @@
 
 .global-searchbar-container {
   display: block;
-  top: 20px;
-  left: 5px;
+  top: 0px;
+  left: 85px;
   position: absolute;
   width: 60%;
+  border: none;
+
+  .home-searchbar{
+    margin: 10px 0;
+    height: 50px;
+    border:none;
+    border-left: 1px solid grey;
+  }
 }
 
 .global-searchbar-container input:focus {
   outline: 1px solid lightgrey;
+  background: lightgrey;
+  border:none;
 }
 
 #disclaim-btn-container {
