@@ -7,8 +7,8 @@
       <ul>
     </div>
   </div>
-  <div id="move-searchbar" class="searchbar-container">
-    <input class="home-searchbar" type="text" placeholder="Search..." ng-keyup="main.handleKeyupEvent()">
+  <div ng-controller="SearchController" id="move-searchbar" class="searchbar-container">
+    <input class="home-searchbar" type="text" ng-model="search" ng-model-options="{ debounce: 800}" placeholder="Search..." ng-keyup="main.handleKeyupEvent()">
   </div>
   <div id="disclaim-btn-container">
     <p class="animated infinite" ng-class="main.classAnimation">

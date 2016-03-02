@@ -6,11 +6,19 @@
     .controller('SearchController', SearchController);
 
 
-  function AboutController($timeout, $location, $rootScope, $http){
+  function SearchController($timeout, $location, $rootScope, $http, $log){
     // this is using controllerAs syntax. same thing as $scope.
     var search = this;
 
-    $http.get('/api/allFoods')
+    // $http.get('/api/allFoods')
+    search.$watch('search', function() {
+      fetch();
+    })
+
+    function fetch() {
+      $log('mike sucks ass');
+      console.log('ugh');
+    }
 
   }
 })();
