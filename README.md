@@ -1,4 +1,4 @@
-# CommonSenseDiet- A Simple Web-App 
+# CommonSenseDiet- A Simple Web-App
 Version 1.0 12/17/2015
 CURRENTLY UNDER CONSTRUCTION
 
@@ -6,33 +6,32 @@ CURRENTLY UNDER CONSTRUCTION
 
 # What Is It?
 
-The CommonSenseDiet website is the simplest way to know if a certain food or 
-dish is healthy for you (or not healthy for you) with a simple yes or no...thats it. Nothing more. 
+The CommonSenseDiet website is the simplest way to know if a certain food or
+dish is healthy for you (or not healthy for you) with a simple yes or no...thats it. Nothing more.
 Simply look up your foods/meals and get a YES or NO response. What do we know about nutrition?...
 Nothing! We just go off of ingredients and nutrition facts and give you our best, common sense, opinion.
 Eating right is simple...Don't eat junk.
 
-While the developers of this project want to keep this app small, we are 
-eager to maintin a robust, collaborative, open-source code base. 
+While the developers of this project want to keep this app small, we are
+eager to maintin a robust, collaborative, open-source code base.
 
 # Requirements
 
 * [Node](https://nodejs.org/en/)
 * [Bower](http://bower.io/)
 * [Angular](https://angularjs.org/)
-* [Jade](http://jade-lang.com/)
 * [Gulp](http://gulpjs.com/)
 
 # Installation
 
-If you would like to contribute to our project please fork 
-this repository or clone it down locally using the GitHub clone link 
-provided. All pull requests will be reviewed by our team and we'll reach 
-out to you if we'd like to incorporate your work. :) 
+If you would like to contribute to our project please fork
+this repository or clone it down locally using the GitHub clone link
+provided. All pull requests will be reviewed by our team and we'll reach
+out to you if we'd like to incorporate your work. :)
 
-# Quickstart 
+# Quickstart
 
-Once you have the repo in your local machine simply run the following commands: 
+Once you have the repo in your local machine simply run the following commands:
 
 * If you don't have gulp installed globally run `npm install --global gulp`.
 * run `npm install -g bower` to install bower globally if you don't already have it installed.
@@ -95,7 +94,7 @@ At the moment this is highly subject to change but will updated regularly.
 
 ```
 
-# Development Server 
+# Development Server
 
 Our source code includes the awesome gulp-plugin BrowserSync as the development server.
 
@@ -110,4 +109,3 @@ When gulp detects a change, it will send a reload command to Browser Sync. Depen
 # Developer User Guide
 
 [A closer look at the features present in the source code for contributors](user-guide.md)
-

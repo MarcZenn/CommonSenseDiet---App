@@ -14,7 +14,7 @@
     // to scroll to disclaimer section.
     about.handleClickEvent = function($event, eID, anchorSmoothScroll) {
       $event.preventDefault();
-      // console.log('ass')
+
       showDisclaimer();
 
       $location.hash('scrolled-to');

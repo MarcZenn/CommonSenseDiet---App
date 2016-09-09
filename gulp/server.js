@@ -3,7 +3,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
-// require database data modeling
+// require database data modeling via mongoose
 var mongoose = require('mongoose');
 
 // Express Session allows us to use Cookies to keep track of
@@ -36,7 +36,7 @@ app.use(bodyParser.json())
 var handleNewFoodController = require('./backend_controllers/handleNewFoodController.js');
 
 
-// HTPP routes
+// HTTP routes
 // Access form data and Post
 app.post('/postNewFood',  function(req, res){
   var food = new Food({
@@ -86,7 +86,6 @@ app.get('/getAllFood', function(req, res){
 var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
-
 var browserSync = require('browser-sync');
 var browserSyncSpa = require('browser-sync-spa');
 
@@ -121,7 +120,8 @@ function browserSyncInit(baseDir, browser) {
   browserSync.instance = browserSync.init({
     startPath: '/',
     server: server,
-    browser: browser
+    browser: browser,
+    port: 8080
   });
 }
 
