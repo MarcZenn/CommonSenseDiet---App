@@ -12,12 +12,12 @@ var _ = require('lodash');
 var browserSync = require('browser-sync');
 
 
-// This taks named inject-reload reloads the browser when changes are saved but why call inject? 
+// This taks named inject-reload reloads the browser when changes are saved but why call inject?
 gulp.task('inject-reload', ['inject'], function() {
   browserSync.reload();
 });
 
-// I'm not sure what this inject task does and why it gets called when browsersync reloads. 
+// I'm not sure what this inject task does and why it gets called when browsersync reloads.
 gulp.task('inject', ['scripts', 'styles'], function () {
   var injectStyles = gulp.src([
     path.join(conf.paths.tmp, '/serve/app/**/*.css'),
