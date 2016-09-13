@@ -6,6 +6,7 @@
     .directive('acmeMalarkey', acmeMalarkey);
 
   /** @ngInject */
+  // Here we declare and define the Malarkey directive
   function acmeMalarkey(malarkey) {
     var directive = {
       restrict: 'E',
@@ -19,7 +20,7 @@
     };
 
     return directive;
-
+    
     function linkFunc(scope, el, attr, vm) {
       var watcher;
       var typist = malarkey(el[0], {
@@ -49,7 +50,7 @@
     }
 
     /** @ngInject */
-    // this receives data from contributors api 
+    // this receives data from contributors api
     function MalarkeyController($log, githubContributor) {
       var vm = this;
 
