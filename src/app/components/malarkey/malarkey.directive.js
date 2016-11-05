@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  
+
   // TODO:: Abstract MalarkeyController out of here!
 
   // This is a Directive...At a high level, directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that tell AngularJS's HTML compiler ($compile) to attach a specified behavior to that DOM element. See home.html to see the element where this directive is anchored. What does it mean to "compile" an HTML template? For AngularJS, "compilation" means attaching directives to the HTML to make it interactive. The reason we use the term "compile".
@@ -46,8 +46,14 @@
 
       // vm.contributors is an array defined below in the MalarkeyController. Much like the forEach above, this one loops through the contributors array and calls typist to animate the typing of foods on the home page. Notice it is defined but not called until later.
       watcher = scope.$watch('vm.contributors', function() {
-        angular.forEach(vm.contributors, function(contributor) {
-          typist.type(contributor.login).pause().delete();
+        // vm.contributors will be undefined until $destroy.
+        if(!vm.contributors.list) {
+          vm.contributors.list = []
+        }
+        angular.forEach(vm.contributors.list.item, function(contributor) {
+          contributor = contributor.name.split('UPC')[0].replace(/\,/g,"").toLowerCase();
+          console.log(contributor)
+          typist.type(contributor).pause().delete();
         });
       });
 
@@ -68,14 +74,14 @@
       activate();
 
       function activate() {
-        return getContributors().then(function() {
-          // $log.info('Activated Contributors View');
+        return getFoodNamesList().then(function() {
+          $log.info('Activated Foods List');
         });
       }
 
       // I have no idea how this directive has access to githubContributor.service.js BUT I suspect it has to do with the fact that both this directive and the service are registered to the same angular module.('commonSenseDietApp'). i.e. "The service factory function generates the single object or function that represents the service to the rest of the application." - https://docs.angularjs.org/guide/services
-      function getContributors() {
-        return githubContributor.getContributors(10).then(function(data) {
+      function getFoodNamesList(watcher) {
+        return githubContributor.getFoodNamesList(20).then(function(data) {
           vm.contributors = data;
 
           return vm.contributors;
@@ -84,5 +90,4 @@
     }
 
   }
-
 })();

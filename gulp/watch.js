@@ -15,7 +15,7 @@ gulp.task('watch', ['markups', 'inject'], function () {
   // watch markup
   gulp.watch([path.join(conf.paths.src, '/*.html'), 'bower.json'], ['inject-reload']);
 
-  // watch styles inside src folder and public folder
+  // watch styles inside src folder AND public folder
   gulp.watch([
     path.join(conf.paths.src, '/app/**/*.css'),
     path.join(conf.paths.src, '/app/**/*.scss'),
