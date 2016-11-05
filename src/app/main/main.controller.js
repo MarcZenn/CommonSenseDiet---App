@@ -1,6 +1,7 @@
 (function() {
   'use strict';
 
+  // Controllers are "classes" or "constructor functions" that are responsible for providing the application behavior that supports the declarative markup in the template. The recommended way of declaring Controllers is using the array notation. Unlike services, there can be many instances of the same type of controller in an application. Moreover, additional dependencies are made available to Controllers like $scope.
   angular
     .module('commonSenseDietApp')
     .controller('MainController', MainController);
@@ -53,7 +54,7 @@
       var moveSearchbar = angular.element($document[0].querySelector('#move-searchbar'))
       var disclaimerContainer = angular.element($document[0].querySelector('#disclaim-btn-container'))
       var searchResults = angular.element($document[0].querySelector('.search-results-container'));
-      
+
       // Apply jqLite events to DOM selectors
       wrapper.addClass('not-visible')
       moveSearchbar.removeClass('searchbar-container').addClass('global-searchbar-container')

@@ -12,11 +12,15 @@ function isOnlyChange(event) {
 
 gulp.task('watch', ['markups', 'inject'], function () {
 
+  // watch markup
   gulp.watch([path.join(conf.paths.src, '/*.html'), 'bower.json'], ['inject-reload']);
 
+  // watch styles inside src folder and public folder
   gulp.watch([
     path.join(conf.paths.src, '/app/**/*.css'),
-    path.join(conf.paths.src, '/app/**/*.scss')
+    path.join(conf.paths.src, '/app/**/*.scss'),
+    path.join(conf.paths.src, '../public/**/*.scss'),
+    path.join(conf.paths.src, '../public/**/*.css')
   ], function(event) {
     if(isOnlyChange(event)) {
       gulp.start('styles-reload');
@@ -25,6 +29,7 @@ gulp.task('watch', ['markups', 'inject'], function () {
     }
   });
 
+  // watch JS file (scripts)
   gulp.watch(path.join(conf.paths.src, '/app/**/*.js'), function(event) {
     if(isOnlyChange(event)) {
       gulp.start('scripts-reload');
