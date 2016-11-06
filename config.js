@@ -1,0 +1,25 @@
+// Dotenv is a zero-dependency module that loads environment variables from the .env file into process.env. object. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.
+var dotenv = require('dotenv');
+dotenv.load();
+
+
+// Shared env vars in all environments - Using env vars enables you to separate your source code from your application configuration (or config, for short). This is good practice because config varies substantially across your app deploys, but your code generally does not. This is a clean way of properly setting env variables.
+var shared = {
+  apiUrl: process.env.API_URL,
+  apiKey: process.env.API_KEY,
+  debug: process.env.APP_DEBUG || true
+};
+
+var environments = {
+  "devEnvironment": {
+    "api_url": shared.apiUrl,
+    "api_key": shared.apiKey
+  },
+  "prodEnvironment": {
+    "api_url": shared.apiUrl,
+    "api_key": shared.apiKey
+  }
+}
+
+
+module.exports = environments;

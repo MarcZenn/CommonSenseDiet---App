@@ -11,17 +11,5 @@
     // this is using controllerAs syntax
     var about = this;
 
-    // Initiates showDisclaimer from ngClick directive in about.html and calls $anchorScroll
-    // to scroll to disclaimer section. (Deprecated!!!!)
-    about.handleClickEvent = function($event, eID, anchorSmoothScroll) {
-      $event.preventDefault();
-
-      showDisclaimer();
-
-      $location.hash('scrolled-to');
-
-      // call anchorScroll
-      anchorSmoothScroll.scrollTo(eID);
-    };
   }
 })();

@@ -18,7 +18,6 @@ var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 
 
-
 // Use express and set it up
 var app = express();
 app.set('views', __dirname + '/views');
@@ -28,8 +27,6 @@ app.use(bodyParser.json())
 
 // Connect to DB (for messing around in localhost)?
 // mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost');
-
-
 
 
 // Controllers
@@ -129,11 +126,11 @@ browserSync.use(browserSyncSpa({
   selector: '[ng-app]'// Only needed for angular apps
 }));
 
-gulp.task('serve', ['watch'], function () {
+gulp.task('serve', ['setenvconstants','watch'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
 });
 
-gulp.task('serve:dist', ['build'], function () {
+gulp.task('serve:dist', ['setenvconstants','build'], function () {
   browserSyncInit(conf.paths.dist);
 });
 

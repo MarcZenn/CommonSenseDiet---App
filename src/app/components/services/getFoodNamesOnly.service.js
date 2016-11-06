@@ -8,14 +8,12 @@
 
   /** @ngInject */
   // Angular services are substitutable objects that are wired together using dependency injection(DI). You can use services to organize and share code across your app.
-  function getFoodNamesOnly($log, $http) {
-
-    // Must hide this!!
-    var ndbApiKey = 'oSZ9f2ly7gkJo0A7fcRtd9z6AEGJaXIgPhNM6lhV'
+  function getFoodNamesOnly($log, $http, devEnvironment) {
 
     // Here we define a service and define a config variable (apiHost) and a method function.
     var service = {
-      ndbApiKey: ndbApiKey,
+      ndbApiKey: devEnvironment.api_key,
+      ndbApiUrl: devEnvironment.api_url,
       getFoodNamesList: getFoodNamesList
     };
 
@@ -28,7 +26,7 @@
         limit = 30;
       }
       // Here we actually hit the API using our apiHost config variable but not without concatenating a limit integer and our API key. We utilize an angular try-catch and depending on if successful or not we display error getFoodNamesFail() or return data returnFoodNamesList() to our malarkey.directive.js controller. For a list of all request parameters visit - https://ndb.nal.usda.gov/ndb/doc/apilist/API-LIST.md
-      return $http.get('http://api.nal.usda.gov/ndb/list?format=json&It=f' + '&max=' + limit + '&sort=n&offset=15&api_key=' + ndbApiKey)
+      return $http.get(service.ndbApiUrl + '/ndb/list?format=json&It=f' + '&max=' + limit + '&sort=n&offset=15&api_key=' + service.ndbApiKey)
           .then(returnFoodNamesList)
           .catch(getFoodNamesFail);
 
@@ -37,7 +35,7 @@
       }
 
       function getFoodNamesFail(err) {
-        return $log.error(error.data);
+        return $log.error(err.data);
       }
     }
   }
