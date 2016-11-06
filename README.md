@@ -47,9 +47,9 @@ At the moment this is highly subject to change but will updated regularly.
 ```
 ├── app
 │   ├── components
-│   │   ├── githubContributor
-│   │   │   ├── githubContributor.service.js
-│   │   │   └── githubContributor.service.spec.js
+│   │   ├── getFoodNamesOnly
+│   │   │   ├── getFoodNamesOnly.service.js
+│   │   │   └── getFoodNamesOnly.service.spec.js
 │   │   ├── malarkey
 │   │   │   ├── malarkey.directive.js
 │   │   │   └── malarkey.directive.spec.js

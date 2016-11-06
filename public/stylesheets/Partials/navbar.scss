@@ -3,7 +3,6 @@
   min-height: 80px;
   background-color: transparent;
 
-
   &>a {
     float: left;
     color: lightgrey;
@@ -26,13 +25,19 @@
         color: lightgrey;
         position: relative;
         display: block;
-        font-size: 12px;
+        font-size: 13px;
         font-family: Arial;
-        padding: 15px;
+        padding: 15px 15px 0 15px;
         line-height: 40px;
       }
       &.active a {
         background-color: none;
+      }
+
+      p {
+        margin: 0;
+        font-size: 8px;
+        color: lightgrey;
       }
     }
   }
@@ -44,8 +49,8 @@
   top: 0;
 
   img{
-    width: 50px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
   }
 }
 

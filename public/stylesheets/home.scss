@@ -13,17 +13,18 @@
 }
 
 .header {
-  display: inline-block;
-  font-family: Lato;
-	font-size: 70px;
-  color: #f71a0e;
+  img {
+    display: block;
+    width: 35%;
+    margin: 50px auto;
+  }
 }
 
 .sub-header {
   color: #BDBDBD;
   font-size: 20px;
-  margin-top: -25px;
-  font-family: arial;
+  margin-top: -10px;
+  font-weight: 100;
   font-family: Raleway;
 }
 

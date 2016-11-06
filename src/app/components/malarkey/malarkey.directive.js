@@ -28,7 +28,6 @@
 
     // Here we use the malarkey library to set typespeed animation it seems but its not passed as it is accessible via the parent function. We also pass in el, attr,(not clear where these are defined yet), the scope object native to Angular, and vm wich is 'controller-as' syntax for the MalarkeyContoller defined in the directive.
     function linkFunc(scope, el, attr, vm) {
-      var watcher;
       var typist = malarkey(el[0], {
         typeSpeed: 80,
         deleteSpeed: 60,
@@ -37,39 +36,39 @@
         postfix: ' '
       });
 
+      // Here I believe we are setting our directive to a class selector?????
       el.addClass('acme-malarkey');
 
-      // This iterates over extra food values specified in the directive.
+      // This iterates over extra food values specified in the directive as an attribute.
       angular.forEach(scope.extraValues, function(value) {
         typist.type(value).pause().delete();
       });
 
-      // vm.contributors is an array defined below in the MalarkeyController. Much like the forEach above, this one loops through the contributors array and calls typist to animate the typing of foods on the home page. Notice it is defined but not called until later.
-      watcher = scope.$watch('vm.contributors', function() {
+      // vm.foodnameslist is an array defined below in the MalarkeyController. Much like the forEach above, this one loops through the foodnameslist array (the data returned from our API service) and calls typist to animate the typing of each item on the home page. Notice it is defined but not called until the $destroy event.
+      var watcher = scope.$watch('vm.foodnameslist', function() {
         // vm.contributors will be undefined until $destroy.
-        if(!vm.contributors.list) {
-          vm.contributors.list = []
+        if(!vm.foodnameslist.list) {
+          vm.foodnameslist.list = []
         }
-        angular.forEach(vm.contributors.list.item, function(contributor) {
-          contributor = contributor.name.split('UPC')[0].replace(/\,/g,"").toLowerCase();
-          console.log(contributor)
-          typist.type(contributor).pause().delete();
+        angular.forEach(vm.foodnameslist.list.item, function(foodName) {
+          foodName = foodName.name.split('UPC')[0].replace(/\,/g,"").toLowerCase();
+          typist.type(foodName).pause().delete();
         });
       });
 
-      // This calls the watcher() above when the destroy event is triggered.Removes the current scope (and all of its children) from the parent scope. Removal implies that calls to $digest() will no longer propagate to the current scope and its children. Removal also implies that the current scope is eligible for garbage collection.The $destroy() is usually used by directives such as ngRepeat for managing the unrolling of the loop. Just before a scope is destroyed, a $destroy event is broadcasted on this scope. Application code can register a $destroy event handler that will give it a chance to perform any necessary cleanup.
+      // This calls the watcher() above when the destroy event is triggered.Removes the current scope (and all of its children) from the parent scope. Removal implies that calls to $digest() will no longer propagate to the current scope and its children. Removal also implies that the current scope is eligible for garbage collection.The $destroy() is usually used by directives such as ngRepeat for managing the unrolling of the loop. Just before a scope is destroyed, a $destroy event is broadcasted on this scope. Application code can register a $destroy event handler that will give it a chance to perform any necessary cleanup. All this to mean that it's akin to an init function?????
       scope.$on('$destroy', function () {
         watcher();
       });
     }
 
     /** @ngInject */
-    // This receives data from contributors API. As far as I can tell it uses a service to return this API data as you can see in the getContributors() function which uses the file githubContributor.service.js. I'm not sure how that file is being imported into here.
-    function MalarkeyController($log, githubContributor) {
+    // This receives data from contributors API. It uses our getFoodNamesOnly.service.js. to return this API data as you can see in the getFoodNamesList() function. I'm not sure how that file is being imported into here.
+    function MalarkeyController($log, getFoodNamesOnly) {
       var vm = this;
 
       // this.contributors
-      vm.contributors = [];
+      vm.foodnameslist = [];
 
       activate();
 
@@ -79,12 +78,11 @@
         });
       }
 
-      // I have no idea how this directive has access to githubContributor.service.js BUT I suspect it has to do with the fact that both this directive and the service are registered to the same angular module.('commonSenseDietApp'). i.e. "The service factory function generates the single object or function that represents the service to the rest of the application." - https://docs.angularjs.org/guide/services
+      // I have no idea how this directive has access to getFoodNamesOnly.service.js..BUT I suspect it has to do with the fact that both this directive and the service are registered to the same angular module.('commonSenseDietApp'). i.e. "The service factory function generates the single object or function that represents the service to the rest of the application." - https://docs.angularjs.org/guide/services
       function getFoodNamesList(watcher) {
-        return githubContributor.getFoodNamesList(20).then(function(data) {
-          vm.contributors = data;
-
-          return vm.contributors;
+        return getFoodNamesOnly.getFoodNamesList(20).then(function(data) {
+          vm.foodnameslist = data;
+          return vm.foodnameslist;
         });
       }
     }

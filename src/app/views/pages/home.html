@@ -2,17 +2,17 @@
   <div id="wrapper" class="jumbotron">
     <div class="header-container">
       <ul class="header-list">
-        <li><h1 class="header">Is It Good For Me?</h1></li>
-        <li><p class="sub-header"> A simple, yes or no response to the question. Is <acme-malarkey extra-values="['agave', 'pasta', 'turkey', 'milk', 'eggs']"></acme-malarkey> 'good' for me?</p></li>
+        <li class="header"><img src="../../../assets/images/text-logo2.png"/></li>
+        <li><p class="sub-header"> A simple, yes or no response to the question. Is <acme-malarkey extra-values="['agave', 'pasta', 'turkey', 'milk', 'eggs']"></acme-malarkey> good for me? <a href="http://www.urbandictionary.com/define.php?term=Goodle">*</a></p></li>
       <ul>
     </div>
   </div>
   <div ng-controller="SearchController" id="move-searchbar" class="searchbar-container">
-    <input class="home-searchbar" type="text" ng-model="search" ng-model-options="{ debounce: 800}" placeholder="Search..." ng-keyup="main.handleKeyupEvent()">
+    <input class="home-searchbar" type="text" ng-model="search" ng-model-options="{ debounce: 1000}" placeholder="Search..." ng-keyup="main.handleKeyupEvent()">
   </div>
   <div id="disclaim-btn-container">
     <p class="animated infinite" ng-class="main.classAnimation">
-      <a class="btn btn-lg btn-success" href="#/about">Uh?</a>
+      <a class="btn btn-lg btn-success" href="#/about">UH..</a>
     </p>
   </div>
 
@@ -44,7 +44,7 @@
 
   <!-- commented markup below is for later use -->
 
-<!--   <div class="col" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
+  <!-- <div class="col" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
     <div class="thumbnail">
       <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
       <div class="caption">

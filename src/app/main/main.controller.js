@@ -14,7 +14,7 @@
 
     main.classAnimation = '';
     // vm.awesomeThings = [];
-    // vm.creationDate = 1450389822870;
+    main.creationDate = 1450389822870;
     // vm.showToastr = showToastr;
 
     activate();

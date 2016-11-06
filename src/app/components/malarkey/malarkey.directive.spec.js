@@ -13,10 +13,10 @@
     var el;
 
     beforeEach(module('commonSenseDietApp'));
-    beforeEach(inject(function($compile, $rootScope, githubContributor, $q, _$log_) {
+    beforeEach(inject(function($compile, $rootScope, getFoodNamesOnly, $q, _$log_) {
       $log = _$log_;
 
-      spyOn(githubContributor, 'getContributors').and.callFake(function() {
+      spyOn(getFoodNamesOnly, 'getFoodNamesList').and.callFake(function() {
         return $q.when([{}, {}, {}, {}, {}, {}]);
       });
 
@@ -34,8 +34,8 @@
     it('should have isolate scope object with instanciate members', function() {
       expect(vm).toEqual(jasmine.any(Object));
 
-      expect(vm.contributors).toEqual(jasmine.any(Array));
-      expect(vm.contributors.length).toEqual(6);
+      expect(vm.foodnameslist).toEqual(jasmine.any(Array));
+      expect(vm.foodnameslist.length).toEqual(6);
     });
 
     it('should log a info', function() {

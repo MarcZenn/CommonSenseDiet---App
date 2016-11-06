@@ -1,15 +1,13 @@
 <nav class="navbar">
-
   <ul>
     <li><input id="navSearchBar" class="nav-searchbar not-visible" type="text" placeholder="Search..."></li>
-    <li class="active navLogo"><a ng-href="#/"><img src="../../../assets/images/navLogo.png"/></a></li>
+    <li class="active navLogo"><a ng-href="#/">
+      <img src="../../../assets/images/symbol-logo2.png"/></a>
+      <p>Created {{ vm.relativeDate }}.</p>
+    </li>
     <li><a ng-href="#/">Home</a></li>
     <li><a ng-href="#/about">About</a></li>
     <li><a ng-href="#">Contact</a></li>
-  </ul>
-
-  <ul class="acme-navbar-text">
-  	<!-- line below commented out for styling purposes -->
-    <!-- <li>Application was created {{ vm.relativeDate }}.</li> -->
+    <li><a ng-href="#/disclaimer">Disclaimer</a></li>
   </ul>
 </nav>
