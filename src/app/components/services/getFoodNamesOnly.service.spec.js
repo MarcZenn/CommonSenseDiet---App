@@ -5,12 +5,16 @@
     var getFoodNamesOnly;
     var $httpBackend;
     var $log;
+    var service;
+    var limit;
 
     beforeEach(module('commonSenseDietApp'));
-    beforeEach(inject(function(_getFoodNamesOnly_, _$httpBackend_, _$log_) {
+    beforeEach(inject(function(_getFoodNamesOnly_, _$httpBackend_, _$log_, _service_, _limit_) {
       getFoodNamesOnly = _getFoodNamesOnly_;
       $httpBackend = _$httpBackend_;
       $log = _$log_;
+      service = _service_;
+      limit = _limit_
     }));
 
     it('should be registered', function() {
@@ -29,7 +33,7 @@
       });
 
       it('should return data', function() {
-        $httpBackend.when('GET',  getFoodNamesOnly.'http://api.nal.usda.gov/ndb/list?format=json&It=f' + '&max=' + limit + '&sort=n&offset=15&api_key=' + ndbApiKey).respond(200, [{pprt: 'value'}]);
+        $httpBackend.when('GET',  getFoodNamesOnly.service.ndbApiUrl + '/ndb/list?format=json&It=f' + '&max=' + limit + '&sort=n&offset=15&api_key=' + service.ndbApiKey).respond(200, [{pprt: 'value'}]);
         var data;
         getFoodNamesOnly.getFoodNamesList(1).then(function(fetchedData) {
           data = fetchedData;
@@ -41,7 +45,7 @@
       });
 
       it('should define a limit per page as default value', function() {
-        $httpBackend.when('GET',  getFoodNamesOnly.'http://api.nal.usda.gov/ndb/list?format=json&It=f' + '&max=' + limit + '&sort=n&offset=15&api_key=' + ndbApiKey).respond(200, new Array(30));
+        $httpBackend.when('GET',  getFoodNamesOnly.service.ndbApiUrl + '/ndb/list?format=json&It=f' + '&max=' + limit + '&sort=n&offset=15&api_key=' + service.ndbApiKey).respond(200, new Array(30));
         var data;
         getFoodNamesOnly.getFoodNamesList().then(function(fetchedData) {
           data = fetchedData;
@@ -52,7 +56,7 @@
       });
 
       it('should log a error', function() {
-        $httpBackend.when('GET',  getFoodNamesOnly.'http://api.nal.usda.gov/ndb/list?format=json&It=f' + '&max=' + limit + '&sort=n&offset=15&api_key=' + ndbApiKey).respond(500);
+        $httpBackend.when('GET',  getFoodNamesOnly.service.ndbApiUrl + '/ndb/list?format=json&It=f' + '&max=' + limit + '&sort=n&offset=15&api_key=' + service.ndbApiKey).respond(500);
         getFoodNamesOnly.getFoodNamesList(1);
         $httpBackend.flush();
         expect($log.error.logs).toEqual(jasmine.stringMatching('XHR Failed for'));

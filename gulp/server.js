@@ -30,55 +30,54 @@ app.use(bodyParser.json())
 
 
 // Controllers
-var handleNewFoodController = require('./backend_controllers/handleNewFoodController.js');
+// var handleNewFoodController = require('./backend_controllers/handleNewFoodController.js');
 
 
 // HTTP routes
 // Access form data and Post
-app.post('/postNewFood',  function(req, res){
-  var food = new Food({
-    foodName: req.body.foodName,
-    foodId: req.body.foodId,
-    foodGroup: req.body.foodGroup,
-    answer: req.body.answer,
-    reasoning: req.body.reasoning,
-    servingSize: req.body.servingSize,
-    calories: req.body.calories,
-    totalFat: req.body.totalFat,
-    transFat: req.body.transFat,
-    saturatedFat: req.body.saturatedFat,
-    cholesterol: req.body.cholesterol,
-    protein: req.body.protein,
-    sodium: req.body.sodium,
-    carbohydrates: req.body.carbohydrates,
-    sugar: req.body.sugar,
-    fiber: req.body.fiber,
-    vegetarian: req.body.vegetarian,
-    glutenFree: req.body.glutenFree,
-    vegan: req.body.vegan,
-    nutFree: req.body.nutFree
-  });
-  // Save the food to the database
-    food.save(function(err, data){
-      if(err){
-        res.send(400, err.message);
-      }
-      else{
-        console.log('success')
-        res.send(data);
-      }
-
-    });
-  });
+// app.post('/postNewFood',  function(req, res){
+//   var food = new Food({
+//     foodName: req.body.foodName,
+//     foodId: req.body.foodId,
+//     foodGroup: req.body.foodGroup,
+//     answer: req.body.answer,
+//     reasoning: req.body.reasoning,
+//     servingSize: req.body.servingSize,
+//     calories: req.body.calories,
+//     totalFat: req.body.totalFat,
+//     transFat: req.body.transFat,
+//     saturatedFat: req.body.saturatedFat,
+//     cholesterol: req.body.cholesterol,
+//     protein: req.body.protein,
+//     sodium: req.body.sodium,
+//     carbohydrates: req.body.carbohydrates,
+//     sugar: req.body.sugar,
+//     fiber: req.body.fiber,
+//     vegetarian: req.body.vegetarian,
+//     glutenFree: req.body.glutenFree,
+//     vegan: req.body.vegan,
+//     nutFree: req.body.nutFree
+//   });
+//   // Save the food to the database
+//     food.save(function(err, data){
+//       if(err){
+//         res.send(400, err.message);
+//       }
+//       else{
+//         console.log('success')
+//         res.send(data);
+//       }
+//     });
+// });
 
 // app.post('/postNewFood', handleNewFoodController.postNewFood)
 
 // Get All Foods
-app.get('/getAllFood', function(req, res){
-  Food.find({}, function(err, allFood){
-    res.send(allFood);
-  });
-});
+// app.get('/getAllFood', function(req, res){
+//   Food.find({}, function(err, allFood){
+//     res.send(allFood);
+//   });
+// });
 
 var path = require('path');
 var gulp = require('gulp');
@@ -112,6 +111,7 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
    */
+   
   // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true});
 
   browserSync.instance = browserSync.init({

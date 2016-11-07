@@ -7,9 +7,9 @@
     .controller('AboutController', AboutController);
 
 
-  function AboutController($timeout, $location, $rootScope, $document){
-    // this is using controllerAs syntax
-    var about = this;
-
-  }
+  // function AboutController($timeout, $location, $rootScope, $document){
+  //   // this is using controllerAs syntax
+  //   var about = this;
+  //
+  // }
 })();
