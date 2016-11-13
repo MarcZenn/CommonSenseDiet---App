@@ -21,9 +21,7 @@
     // About Page
     $routeProvider
       .when('/about', {
-        templateUrl: 'app/views/pages/about.html',
-        controller: 'AboutController',
-        controllerAs: 'about'
+        templateUrl: 'app/views/pages/about.html'
       })
       .otherwise({
         redirectTo: '/'

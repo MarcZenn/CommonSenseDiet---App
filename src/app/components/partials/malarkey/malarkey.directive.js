@@ -20,7 +20,7 @@
       },
       template: '&nbsp;',
       link: linkFunc,
-      controller: MalarkeyController,
+      controller: 'MalarkeyController',
       controllerAs: 'vm'
     };
 
@@ -45,7 +45,7 @@
       });
 
       // vm.foodnameslist is an array defined below in the MalarkeyController. Much like the forEach above, this one loops through the foodnameslist array (the data returned from our API service) and calls typist to animate the typing of each item on the home page. Notice it is defined but not called until the $destroy event.
-      var watcher = scope.$watch('vm.foodnameslist', function() {
+      var watcher = scope.$watch('vm.foodnameslist', function(vm) {
         // vm.contributors will be undefined until $destroy.
         if(!vm.foodnameslist.list) {
           vm.foodnameslist.list = []
@@ -62,31 +62,5 @@
         watcher();
       });
     }
-
-    /** @ngInject */
-    // This receives data from contributors API. It uses our getFoodNamesOnly.service.js. to return this API data as you can see in the getFoodNamesList() function. I'm not sure how that file is being imported into here.
-    function MalarkeyController($log, getFoodNamesOnly) {
-      var vm = this;
-
-      // this.contributors
-      vm.foodnameslist = [];
-
-      activate();
-
-      function activate() {
-        return getFoodNamesList().then(function() {
-          $log.info('Activated Foods List');
-        });
-      }
-
-      // I have no idea how this directive has access to getFoodNamesOnly.service.js..BUT I suspect it has to do with the fact that both this directive and the service are registered to the same angular module.('commonSenseDietApp'). i.e. "The service factory function generates the single object or function that represents the service to the rest of the application." - https://docs.angularjs.org/guide/services
-      function getFoodNamesList() {
-        return getFoodNamesOnly.getFoodNamesList(20).then(function(data) {
-          vm.foodnameslist = data;
-          return vm.foodnameslist;
-        });
-      }
-    }
-
   }
 })();
