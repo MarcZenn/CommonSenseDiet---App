@@ -7,9 +7,14 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider) {
+  function config($logProvider, $httpProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
+
+    // For Access-Control-Allow-Origin and Set-Cookie header
+    $httpProvider.defaults.useXDomain = true;
+    $httpProvider.defaults.headers.common = 'Content-Type: application/json';
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
   }
 
 })();

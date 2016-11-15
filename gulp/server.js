@@ -1,7 +1,10 @@
 'use strict';
 
 var express = require('express');
+var cors = require('cors');
 var bodyParser = require('body-parser');
+var http = require('http')
+
 
 // require database data modeling via mongoose
 var mongoose = require('mongoose');
@@ -20,73 +23,21 @@ var flash = require('connect-flash');
 
 // Use express and set it up
 var app = express();
+app.use(cors());
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/'));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
 
 // Connect to DB (for messing around in localhost)?
 // mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost');
 
-
-// Controllers
-// var handleNewFoodController = require('./backend_controllers/handleNewFoodController.js');
-
-
-// HTTP routes
-// Access form data and Post
-// app.post('/postNewFood',  function(req, res){
-//   var food = new Food({
-//     foodName: req.body.foodName,
-//     foodId: req.body.foodId,
-//     foodGroup: req.body.foodGroup,
-//     answer: req.body.answer,
-//     reasoning: req.body.reasoning,
-//     servingSize: req.body.servingSize,
-//     calories: req.body.calories,
-//     totalFat: req.body.totalFat,
-//     transFat: req.body.transFat,
-//     saturatedFat: req.body.saturatedFat,
-//     cholesterol: req.body.cholesterol,
-//     protein: req.body.protein,
-//     sodium: req.body.sodium,
-//     carbohydrates: req.body.carbohydrates,
-//     sugar: req.body.sugar,
-//     fiber: req.body.fiber,
-//     vegetarian: req.body.vegetarian,
-//     glutenFree: req.body.glutenFree,
-//     vegan: req.body.vegan,
-//     nutFree: req.body.nutFree
-//   });
-//   // Save the food to the database
-//     food.save(function(err, data){
-//       if(err){
-//         res.send(400, err.message);
-//       }
-//       else{
-//         console.log('success')
-//         res.send(data);
-//       }
-//     });
-// });
-
-// app.post('/postNewFood', handleNewFoodController.postNewFood)
-
-// Get All Foods
-// app.get('/getAllFood', function(req, res){
-//   Food.find({}, function(err, allFood){
-//     res.send(allFood);
-//   });
-// });
-
 var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 var browserSyncSpa = require('browser-sync-spa');
-
 var util = require('util');
-
 var proxyMiddleware = require('http-proxy-middleware');
 
 function browserSyncInit(baseDir, browser) {
@@ -99,10 +50,14 @@ function browserSyncInit(baseDir, browser) {
     };
   }
 
-  var server = {
-    baseDir: baseDir,
-    routes: routes
-  };
+  // var server = {
+  //   baseDir: baseDir,
+  //   routes: routes,
+  //   middleware: function (req, res, next) {
+  //       res.setHeader('Access-Control-Allow-Origin', '*');
+  //       next();
+  //   }
+  // };
 
   /*``
    * You can add a proxy to your backend by uncommenting the line below.
@@ -111,14 +66,24 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
    */
-   
+
   // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true});
 
   browserSync.instance = browserSync.init({
-    startPath: '/',
-    server: server,
+    // startPath: '/',
+    cors: true,
     browser: browser,
-    port: 8080
+    port: 8080,
+    server: {
+      baseDir: baseDir,
+      routes: routes,
+      middleware: function (req, res, next) {
+          res.setHeader('Access-Control-Allow-Origin', '*');
+          res.setHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Accept");
+          res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+          next();
+      }
+    },
   });
 }
 

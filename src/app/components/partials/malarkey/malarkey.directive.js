@@ -45,14 +45,14 @@
       });
 
       // vm.foodnameslist is an array defined below in the MalarkeyController. Much like the forEach above, this one loops through the foodnameslist array (the data returned from our API service) and calls typist to animate the typing of each item on the home page. Notice it is defined but not called until the $destroy event.
-      var watcher = scope.$watch('vm.foodnameslist', function(vm) {
+      var watcher = scope.$watch('vm.foodnameslist', function() {
         // vm.contributors will be undefined until $destroy.
         if(!vm.foodnameslist.list) {
           vm.foodnameslist.list = []
         }
         angular.forEach(vm.foodnameslist.list.item, function(foodName) {
           foodName = foodName.name.split('UPC')[0].replace(/\,/g,"").toLowerCase();
-
+          console.log(foodName)
           typist.type(foodName).pause().delete();
         });
       });

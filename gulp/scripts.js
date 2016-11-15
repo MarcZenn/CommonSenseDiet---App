@@ -17,8 +17,7 @@ gulp.task('scripts', function() {
   return buildScripts();
 });
 
-// I need to understand what these pipes do to all the .js files within /app. Why is this
-// called twice by the two tasks above? What calls each one of them.
+// I need to understand what these pipes do to all the .js files within /app. Why is this called twice by the two tasks above?
 function buildScripts() {
   return gulp.src(path.join(conf.paths.src, '/app/**/*.js'))
     .pipe($.eslint())

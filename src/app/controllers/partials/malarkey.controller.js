@@ -11,7 +11,7 @@
       function MalarkeyController($log, getFoodNamesOnly) {
         var vm = this;
 
-        // this.contributors
+        // this.foodnameslist
         vm.foodnameslist = [];
 
         activate();

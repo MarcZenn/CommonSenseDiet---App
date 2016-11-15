@@ -30,12 +30,14 @@
           .then(returnFoodNamesList)
           .catch(getFoodNamesFail);
 
+
       function returnFoodNamesList(response) {
         return response.data;
       }
 
       function getFoodNamesFail(err) {
-        return $log.error(err.data);
+        // return $log.error(err.data);
+        return console.log(err.headers);
       }
     }
   }
