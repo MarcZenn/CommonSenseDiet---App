@@ -7,3 +7,5 @@ coverage/
 dist/
 .env
 /src/app/config.js
+.editorconfig
+config.json
