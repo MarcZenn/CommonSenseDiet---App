@@ -8,10 +8,10 @@
     </div>
   </div>
   <div ng-controller="SearchController" id="move-searchbar" class="searchbar-container">
-    <input class="home-searchbar" type="text" ng-model="search" ng-model-options="{ debounce: 1000}" placeholder="Search..." ng-keyup="main.handleKeyupEvent()">
+    <input class="home-searchbar" type="text" ng-model="search" ng-model-options="{ debounce: 1000}" placeholder="Search..." ng-keyup="vm.handleKeyupEvent()">
   </div>
   <div id="disclaim-btn-container">
-    <p class="animated infinite" ng-class="main.classAnimation">
+    <p class="animated infinite" ng-class="vm.classAnimation">
       <a class="btn btn-lg btn-success" href="#/about">UH..</a>
     </p>
   </div>
