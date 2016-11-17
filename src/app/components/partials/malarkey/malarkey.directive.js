@@ -21,13 +21,14 @@
       template: '&nbsp;',
       link: linkFunc,
       controller: 'MalarkeyController',
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      bindToController: true // because the scope is isolated
     };
 
     return directive;
 
     // Here we use the malarkey library to set typespeed animation it seems but its not passed as it is accessible via the parent function. We also pass in el, attr,(not clear where these are defined yet), the scope object native to Angular, and vm wich is 'controller-as' syntax for the MalarkeyContoller defined in the directive.
-    function linkFunc(scope, el, attr, vm) {
+    function linkFunc(scope, el, attr, vm, $log) {
       var typist = malarkey(el[0], {
         typeSpeed: 80,
         deleteSpeed: 60,
@@ -40,7 +41,7 @@
       el.addClass('acme-malarkey');
 
       // This iterates over extra food values specified in the directive as an attribute.
-      angular.forEach(scope.extraValues, function(value) {
+      angular.forEach(vm.extraValues, function(value) {
         typist.type(value).pause().delete();
       });
 
@@ -48,11 +49,11 @@
       var watcher = scope.$watch('vm.foodnameslist', function() {
         // vm.contributors will be undefined until $destroy.
         if(!vm.foodnameslist.list) {
-          vm.foodnameslist.list = []
+          vm.foodnameslist.list = [];
         }
+
         angular.forEach(vm.foodnameslist.list.item, function(foodName) {
           foodName = foodName.name.split('UPC')[0].replace(/\,/g,"").toLowerCase();
-          console.log(foodName)
           typist.type(foodName).pause().delete();
         });
       });

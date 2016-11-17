@@ -8,23 +8,23 @@
 
   /** @ngInject */
   function MainController($timeout, $document) {
-   // using controllerAs syntax here. same thing as $scope.
-    var main = this;
+    // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures.
+    var vm = this;
 
 
-    main.classAnimation = '';
-    main.creationDate = 1450389822870;
+    vm.classAnimation = '';
+    vm.creationDate = 1450389822870;
 
     activate();
 
     function activate() {
       $timeout(function() {
-        main.classAnimation = 'pulse';
+        vm.classAnimation = 'pulse';
       }, 10000);
     }
 
     // This event handler is called by the ngKeyup directive in home.html.
-    main.handleKeyupEvent = function() {
+    vm.handleKeyupEvent = function() {
       initializeSearch();
     };
 

@@ -8,10 +8,10 @@
 
 
       /** @ngInject */
-      function MalarkeyController($log, getFoodNamesOnly) {
+      function MalarkeyController($log, getFoodNamesOnly, $scope) {
+        // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures.
         var vm = this;
 
-        // this.foodnameslist
         vm.foodnameslist = [];
 
         activate();
@@ -26,7 +26,8 @@
         function getFoodNamesList() {
           return getFoodNamesOnly.getFoodNamesList(20).then(function(data) {
             vm.foodnameslist = data;
-            return vm.foodnameslist;
+
+            return vm.foodnameslist ;
           });
         }
       }

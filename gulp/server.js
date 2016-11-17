@@ -50,15 +50,6 @@ function browserSyncInit(baseDir, browser) {
     };
   }
 
-  // var server = {
-  //   baseDir: baseDir,
-  //   routes: routes,
-  //   middleware: function (req, res, next) {
-  //       res.setHeader('Access-Control-Allow-Origin', '*');
-  //       next();
-  //   }
-  // };
-
   /*``
    * You can add a proxy to your backend by uncommenting the line below.
    * You just have to configure a context which will we redirected and the target url.
@@ -70,7 +61,7 @@ function browserSyncInit(baseDir, browser) {
   // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true});
 
   browserSync.instance = browserSync.init({
-    // startPath: '/',
+    startPath: '/',
     cors: true,
     browser: browser,
     port: 8080,
