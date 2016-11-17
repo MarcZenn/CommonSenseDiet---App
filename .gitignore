@@ -6,4 +6,4 @@ coverage/
 .tmp/
 dist/
 .env
-../src/app/config.js
+/src/app/config.js
