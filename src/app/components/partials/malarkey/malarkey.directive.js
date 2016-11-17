@@ -28,7 +28,7 @@
     return directive;
 
     // Here we use the malarkey library to set typespeed animation it seems but its not passed as it is accessible via the parent function. We also pass in el, attr,(not clear where these are defined yet), the scope object native to Angular, and vm wich is 'controller-as' syntax for the MalarkeyContoller defined in the directive.
-    function linkFunc(scope, el, attr, vm, $log) {
+    function linkFunc(scope, el, attr, vm) {
       var typist = malarkey(el[0], {
         typeSpeed: 80,
         deleteSpeed: 60,
