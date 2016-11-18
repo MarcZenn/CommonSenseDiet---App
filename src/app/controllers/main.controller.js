@@ -7,7 +7,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, $document) {
+  function MainController($timeout, $scope) {
     // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures.
     var vm = this;
 
@@ -16,31 +16,15 @@
     vm.creationDate = 1450389822870;
 
     activate();
-
+    // this timeout needs to be canceled!
     function activate() {
       $timeout(function() {
         vm.classAnimation = 'pulse';
       }, 10000);
     }
 
-    // This event handler is called by the ngKeyup directive in home.html.
-    vm.handleKeyupEvent = function() {
-      initializeSearch();
-    };
-
-    // Places the searchbar in top left corner of page on key up
-    function initializeSearch() {
-      // set DOM selectors to variables using angular $document service.
-      var wrapper = angular.element($document[0].querySelector('#wrapper'));
-      var moveSearchbar = angular.element($document[0].querySelector('#move-searchbar'))
-      var disclaimerContainer = angular.element($document[0].querySelector('#disclaim-btn-container'))
-      var searchResults = angular.element($document[0].querySelector('.search-results-container'));
-
-      // Apply jqLite events to DOM selectors
-      wrapper.addClass('not-visible')
-      moveSearchbar.removeClass('searchbar-container').addClass('global-searchbar-container')
-      disclaimerContainer.addClass('not-visible')
-      searchResults.removeClass('not-visible')
-    }
+    $scope.$on('$destroy', function () {
+      $timeout.cancel(activate)
+    });
   }
 })();

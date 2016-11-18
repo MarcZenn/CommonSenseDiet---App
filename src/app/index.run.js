@@ -7,7 +7,6 @@
     .run(runBlock);
 
   /** @ngInject */
-  // $log is angular's console.log.
   function runBlock($log) {
 
     $log.debug('runBlock end');

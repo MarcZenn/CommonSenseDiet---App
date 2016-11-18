@@ -1,7 +1,6 @@
 .navbar {
   position: relative;
   min-height: 80px;
-  background-color: transparent;
 
   &>a {
     float: left;
@@ -58,13 +57,24 @@
   color: black;
 }
 
-.nav-searchbar {
-  width: 500px;
-  height: 40px;
-  padding: 0 10px 0 10px;
-  margin: 10px;
+.global-searchbar-container {
+  display: block;
+  top: 0px;
+  left: 120px;
+  position: absolute;
+  width: 60%;
+  border: none;
+
+  .home-searchbar{
+    margin: 10px 0;
+    height: 50px;
+    border:none;
+    border-left: 1px solid grey;
+  }
 }
 
-.nav-searchbar:focus {
+.global-searchbar-container input:focus {
   outline: 1px solid lightgrey;
+  border:none;
+  font-size: 14px;
 }

@@ -39,4 +39,14 @@ body, html{
 	font-weight: 800;
 	color: grey;
 	line-height: 2;
+
+	span {
+		font-size: 25px;
+		color: #FF790D;
+	}
+
+	span.highlight {
+		font-size: 20px;
+		color: #FF790D;
+	}
 }
