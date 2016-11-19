@@ -1,3 +1,16 @@
 <div id="move-searchbar" class="searchbar-container">
-  <input class="home-searchbar" type="text" ng-model="search" ng-model-options="{ debounce: 1000}" placeholder="Search..." ng-keyup="vm.handleKeyupEvent()">
+  <input class="home-searchbar" type="text" ng-model="vm.searchterm" ng-model-options="{ debounce: 200}" placeholder="Search..." ng-keyup="vm.handleKeyupEvent()">
+  <img class="search-icon not-visible" src="../../.././assets/images/search_icon_1.png"/>
+</div>
+
+
+<div class="search-results-container not-visible">
+  <ul class="search-results-list">
+    <li ng-repeat="searchItem in vm.searchresultsarray | limitTo: 25">
+      <p class="result-name">{{searchItem.name}}</p>
+      <p class="result-id">
+        Group: <span>{{searchItem.group}}</span>
+      </p>
+    </li>
+  </ul>
 </div>

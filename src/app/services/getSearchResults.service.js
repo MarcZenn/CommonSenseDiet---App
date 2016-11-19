@@ -4,39 +4,35 @@
   // Application developers are free to define their own services by registering the service's name and service factory function, with an Angular module. This makes it available to the rest of the app.
   angular
     .module('commonSenseDietApp')
-    .factory('getFoodNamesOnly', getFoodNamesOnly);
+    .factory('getSearchResults', getSearchResults);
 
   /** @ngInject */
   // Angular services are substitutable objects that are wired together using dependency injection(DI). You can use services to organize and share code across your app via global templating.
-  function getFoodNamesOnly($log, $http, devEnvironment) {
+  function getSearchResults($log, $http, devEnvironment) {
 
     // Here we define a service and a method function and access our API variables from .env.
     var service = {
       ndbApiKey: devEnvironment.api_key,
       ndbApiUrl: devEnvironment.api_url,
-      getFoodNamesList: getFoodNamesList
+      getSearchResultsList: getSearchResultsList
     };
 
     return service;
 
     // Here we define the service's main functionality. Notice we pass in 'limit' as an argument. This is defined inside malarkey.directive.js as a integer which is also where this function gets invoked.
-    function getFoodNamesList(limit) {
-      // If no limit passed then just manually set limit to avoid undefined.
-      if(!limit) {
-        limit = 30;
-      }
+    function getSearchResultsList(searchterm) {
 
-      // Here we calling the NDB Food List API using our .env variables but not without concatenating a limit integer and our API key. We utilize an angular try-catch and depending on if successful or not we display error getFoodNamesFail() or return data returnFoodNamesList() to malarkey.controller.js. For a list of all request parameters visit - https://ndb.nal.usda.gov/ndb/doc/apilist/API-LIST.md
-      return $http.get(service.ndbApiUrl + '/ndb/list?format=json&It=f' + '&max=' + limit + '&sort=n&offset=15&api_key=' + service.ndbApiKey)
-          .then(returnFoodNamesList)
-          .catch(getFoodNamesFail);
+      // Here we hittind the NDB search API using our .env variables but not without concatenating our searchterm query and our API key. We utilize an angular try-catch and depending on if successful or not we display error or return the data to search.contrller.js. For a list of all query parameters and settings visit - https://ndb.nal.usda.gov/ndb/doc/apilist/API-SEARCH.md
+      return $http.get(service.ndbApiUrl + '/ndb/search/?format=json&q=' + searchterm + '&sort=n&api_key=' + service.ndbApiKey)
+          .then(returnSearchResultsList)
+          .catch(getSearchResultsList);
 
 
-      function returnFoodNamesList(response) {
+      function returnSearchResultsList(response) {
         return response.data;
       }
 
-      function getFoodNamesFail(err) {
+      function getSearchResultsList(err) {
         return $log.error(err.data);
       }
     }

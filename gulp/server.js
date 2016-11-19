@@ -25,7 +25,7 @@ var flash = require('connect-flash');
 var app = express();
 app.use(cors());
 app.set('views', __dirname + '/views');
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
 

@@ -56,25 +56,3 @@
 .acme-navbar-text{
   color: black;
 }
-
-.global-searchbar-container {
-  display: block;
-  top: 0px;
-  left: 120px;
-  position: absolute;
-  width: 60%;
-  border: none;
-
-  .home-searchbar{
-    margin: 10px 0;
-    height: 50px;
-    border:none;
-    border-left: 1px solid grey;
-  }
-}
-
-.global-searchbar-container input:focus {
-  outline: 1px solid lightgrey;
-  border:none;
-  font-size: 14px;
-}

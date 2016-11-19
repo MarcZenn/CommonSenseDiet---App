@@ -8,7 +8,7 @@
 
   /** @ngInject */
   // Here we declare and define the Malarkey directive. malarkey is a library that came with the gulp generator. I'm not exactly sure what it does yet but it's passed here to acmeMalarkey as an argument and used later on in linkFunc(). When you create a directive, it is restricted to attribute and elements only by default. In order to create directives that are triggered by class name, you need to use the restrict option. (restrict : E)
-  function acmeMalarkey(malarkey, $log) {
+  function acmeMalarkey(malarkey) {
     var directive = {
       restrict: 'E',
       scope: {

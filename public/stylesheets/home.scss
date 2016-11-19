@@ -43,20 +43,6 @@
 	color: lightgrey;
 }
 
-.searchbar-container {
-	text-align: center;
-}
-
-.home-searchbar {
-	width: 55%;
-	height: 40px;
-	padding: 0 10px 0 10px;
-  margin-left: 25px;
-}
-
-.home-searchbar:focus {
-	outline: 1px solid lightgrey;
-}
 
 #disclaim-btn-container {
   width: 100%;
@@ -104,59 +90,4 @@
       width: 50px;
     }
   }
-}
-
-.search-results-container {
-  width: 100%;
-}
-
-.search-results-container{
-  width: 100%;
-  text-align: left;
-  padding: 0;
-}
-
-.search-results-list{
-  display:inline-block;
-  width: 65%;
-  list-style-type: none;
-  padding: 0 40px;
-
-  li{
-    border-right: 2px solid #f5f5f5;
-    padding: 10px;
-    text-align: left;
-    margin: 45px 0;
-    -webkit-box-shadow: 15px 7px 21px -8px rgba(0,0,0,0.05);
-    -moz-box-shadow: 15px 7px 21px -8px rgba(0,0,0,0.05);
-    box-shadow: 15px 7px 21px -8px rgba(0,0,0,0.05);
-
-
-    &:hover{
-      background-color: #f5f5f5;
-      border-radius: 4px;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
-    }
-  }
-}
-
-.result-name, .result-id, .result-answer {
-  font-family: Futura;
-  font-size: 30px;
-  color: #f6d239;
-  margin: 0 0 0 20px;
-}
-
-.result-id {
-  color: #b4afaf;
-  font-size: 15px;
-  margin: 5px 0 0 25px;
-}
-
-.result-answer{
-  color: grey;
-  font-size:15px;
-  margin: 5px 0 0 0;
 }
