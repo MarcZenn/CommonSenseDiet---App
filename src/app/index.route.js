@@ -36,12 +36,12 @@
         redirectTo: '/'
       });
 
-    // The only way to navigate to this route is via the URL. No link leads to it yet. Auth in coming later...
+    // Contact Us Page
     $routeProvider
-    .when('/submitNewFood', {
-      templateUrl: 'app/views/pages/submitNewFood.html',
-      controller: 'submitNewFoodController',
-      controllerAs: 'newFood'
+    .when('/contact', {
+      templateUrl: 'app/views/pages/contact.html',
+      controller: 'ContactController',
+      controllerAs: 'vm'
     })
     .otherwise({
       redirectTo: '/'

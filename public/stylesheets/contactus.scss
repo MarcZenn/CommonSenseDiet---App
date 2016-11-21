@@ -1,16 +1,21 @@
-.submit-food-form {
+.contact-us-form {
 	width: 90%;
 	padding: 1rem;
 	margin: auto;
 	text-align: center;
 
-	input{
+	input, textarea{
 		outline: none;
 		border: 1px solid lightgrey;
 		width: 90%;
 		height: 40px;
 		padding: 0.5rem;
-		margin: 0.5rem;
+		margin: 20px 0.5rem;
+	}
+
+	textarea {
+		height: 150px;
+		margin: 20px 0 50px 0;
 	}
 
 	input:nth-child(5) {
@@ -24,12 +29,16 @@
 	}
 	input:focus {
 		outline:none;
-		border-color: #BD0B07;
-    	box-shadow: 0 0 2px #BD0B07;
-	}	
+		border-color: #FF790D;
+	}
+
+	textarea:focus {
+		outline:none;
+		border-color: #FF790D;
+	}
 }
 
-#submit-new-food-btn {
+#submit-contact-form-btn {
 	padding: 50px;
 	height: 50px;
 	width: 70%;
@@ -43,12 +52,13 @@
 	font-size: 30px;
 
 	&:hover {
+		cursor: pointer;
 		background: #BD0B07;
 		color: white;
 	}
 }
 
-.submit-new-food-title {
+.contact-us-title {
 	width: 90%;
 	margin: 20px auto;
 	text-align: center;

@@ -1,0 +1,14 @@
+<section>
+	<div class="contact-us-title">
+		<h1>Contact Us</h1>
+	</div>
+
+	<form class="contact-us-form" ng-submit="vm.submitForm()">
+		<input placeholder="Name" type="text" ng-model="vm.name"></input>
+		<input placeholder="Email" type="email" ng-model="vm.email"></input>
+		<input placeholder="Headline" type="text" ng-model="vm.headline"></input>
+		<textarea placeholder="Message" type="textbox" ng-model="vm.message"></textarea>
+
+		<input type="submit" id="submit-contact-form-btn">
+	</form>
+</section>

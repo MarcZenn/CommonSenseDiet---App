@@ -7,13 +7,10 @@
     .directive('primarySearch', primarySearch);
 
   /** @ngInject */
-  // Here we declare and define the Malarkey directive. malarkey is a library that came with the gulp generator. I'm not exactly sure what it does yet but it's passed here to acmeMalarkey as an argument and used later on in linkFunc(). When you create a directive, it is restricted to attribute and elements only by default. In order to create directives that are triggered by class name, you need to use the restrict option. (restrict : E)
-  function primarySearch($log, $document, $timeout) {
+  // Here we declare and define the Malarkey directive. malarkey is a library that came with the gulp generator. I'm not exactly sure what it does yet but it's passed here to acmeMalarkey as an argument and used later on in linkFunc().
+  function primarySearch($log, $document, $timeout, Paginator) {
     var directive = {
       restrict: 'E',
-      // scope: {
-      //   ngModel: '='
-      // },
       templateUrl: 'app/views/partials/primary-search.html',
       link: linkFunc,
       controller: 'SearchController',
@@ -31,8 +28,11 @@
       };
 
       var timer;
+      vm.pager = {};
+      vm.setPage = setPage;
+      vm.totalResults = 0;
 
-      // Places the searchbar in top left corner of page on keyup then init API service methods
+      // Places the searchbar in top left corner of page on keyup then init API service methods and initialize to page 1 for Paginator service.
       function initializeSearch() {
 
         // Apply jqLite events to DOM selectors
@@ -40,35 +40,56 @@
         angular.element($document[0].querySelector('#move-searchbar')).removeClass('searchbar-container').addClass('global-searchbar-container');
         angular.element($document[0].querySelector('#disclaim-btn-container')).addClass('not-visible');
         angular.element($document[0].querySelector('.search-results-container')).removeClass('not-visible');
-        angular.element($document[0].querySelector('.navbar')).addClass('lightgrey-bg');
-        angular.element($document[0].querySelector('.navLogo')).addClass('not-visible');
+        angular.element($document[0].querySelector('.navbar')).addClass('lightgrey-bg').addClass('bottom-border-grey');
         angular.element($document[0].querySelector('.search-icon')).removeClass('not-visible');
 
         // Wait until search input value is defined and longer than 4 letters before sending to controller.
-        if(vm.searchterm && vm.searchterm.length >= 2) {
+        if(vm.searchterm && vm.searchterm.length >= 4) {
           // It takes a split second for the view model to update with the entire input value thus the timeout below..must refactor this!
           timer = $timeout(function() {
-            return vm.activate(vm.searchterm)
-          }, 200);
+            return vm.activate(vm.searchterm).then(function() {
+              $log.info('Polling API');
+            });
+          }, 1000);
+
+
         }
       }
 
+      // Watch API data from controller. When defined format and make it available to the 'view-model'. What is returned here is what we ng-repeat over to display search results.
       var watcher = scope.$watch('vm.searchresultsarray', function() {
         // vm.searchresultsarray will be undefined until the $destroy event below.
         if(!vm.searchresultsarray) {
           vm.searchresultsarray = [];
         }
 
-
         // TODO:: employ smarter string filtering..maybe lib or native helper
         angular.forEach(vm.searchresultsarray, function(searchResult) {
           searchResult.name = searchResult.name.split(/UPC:|gtin:/g)[0].replace(/\,/g,"").toLowerCase();
+          searchResult.name = searchResult.name.charAt(0).toUpperCase() + searchResult.name.slice(1);
         });
 
-        if(vm.searchresultsarray.length > 0) {
-          return vm.searchresultsarray;
+        if (vm.searchresultsarray.length > 0) {
+          $log.log(vm.searchresultsarray.length);
+          // Invoke pagination if search results are in.
+          vm.setPage(1, vm.searchresultsarray.length);
         }
       });
+
+      // Paginate search results using our Paginator.service.js
+      function setPage(page, length) {
+        if(page < 1 || page > vm.pager.totalPages) {
+          return;
+        }
+        // total number of search results
+        vm.totalResults = length;
+        // current page
+        vm.page = page;
+        // get pager object from service
+        vm.pager = Paginator.getPaginator(length, page);
+        // get current page of items
+        vm.items =  vm.searchresultsarray.slice(vm.pager.startIndex, vm.pager.endIndex + 1);
+      }
 
       // Always be sure to cancel out your $timeouts at the $destroy event.
       scope.$on('$destroy', function () {

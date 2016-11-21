@@ -71,7 +71,7 @@
 .global-searchbar-container {
   display: block;
   top: 0px;
-  left: 50px;
+  left: 100px;
   position: absolute;
   width: 60%;
   border: none;
@@ -87,6 +87,10 @@
     width: 53px;
     height: 53px;
     margin: 0 0 -21px 0;
+
+		&:hover {
+			cursor: pointer;
+		}
   }
 }
 

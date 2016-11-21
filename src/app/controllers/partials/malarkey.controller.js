@@ -18,7 +18,7 @@
 
         function activate() {
           return getFoodNamesList().then(function() {
-            $log.info('Activated Foods List');
+            $log.info('Activated Foods List Typer');
           });
         }
 

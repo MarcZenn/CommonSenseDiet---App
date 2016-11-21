@@ -1,5 +1,5 @@
 /*
-   global malarkey:false, 
+   global malarkey:false,
    moment:false
 */
 (function() {
