@@ -5,7 +5,6 @@
     .module('commonSenseDietApp')
     .config(routeConfig);
 
-  // This function which is self-invoked handles all routing for all templates along with the controllers it requires. Using controller as syntax as well.
   function routeConfig($routeProvider) {
     // Home Page
     $routeProvider
@@ -31,6 +30,15 @@
     $routeProvider
       .when('/disclaimer', {
         templateUrl: 'app/views/pages/disclaimer.html'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+
+    // Privacy Policy Page
+    $routeProvider
+      .when('/privacy-policy', {
+        templateUrl: 'app/views/pages/privacy-policy.html'
       })
       .otherwise({
         redirectTo: '/'

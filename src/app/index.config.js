@@ -11,8 +11,6 @@
     // Enable log
     $logProvider.debugEnabled(true);
 
-    // $httpProvider.useApplyAsync(true);
-
     // For Access-Control-Allow-Origin and Set-Cookie header
     $httpProvider.defaults.useXDomain = true;
     $httpProvider.defaults.headers.common = 'Content-Type: application/json';

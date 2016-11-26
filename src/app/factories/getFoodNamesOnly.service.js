@@ -8,14 +8,14 @@
 
   /** @ngInject */
   // Angular services are substitutable objects that are wired together using dependency injection(DI). You can use services to organize and share code across your app via global templating.
-  function getFoodNamesOnly($log, $http, devEnvironment) {
+  function getFoodNamesOnly($log, $http, ENV_VARS) {
 
     // Here we define a service and a method function and access our API variables from .env.
     var service = {
-      ndbApiKey: devEnvironment.api_key,
-      ndbApiUrl: devEnvironment.api_url,
+      ndbApiKey: ENV_VARS.apiKey,
+      ndbApiUrl: ENV_VARS.apiUrl,
       getFoodNamesList: getFoodNamesList
-    };
+    }
 
     return service;
 

@@ -2,19 +2,20 @@
   <div id="wrapper" class="jumbotron">
     <div class="header-container">
       <ul class="header-list">
-        <li class="header"><img src="../../../assets/images/text-logo-3.png"/></li>
-        <li><p class="sub-header"> A simple, yes or no response to the question. Is<acme-malarkey extra-values="['agave', 'pasta', 'milk']"></acme-malarkey> good for me? <a href="http://www.urbandictionary.com/define.php?term=Goodle">*</a></p></li>
+        <li class="header"><img src="../../../assets/images/text-logo-5.png"/></li>
+        <li><p class="sub-header"> A simple, yes or no response to the question. Is<acme-malarkey extra-values="['agave', 'olive oil', 'whole milk']"></acme-malarkey> good for me? <a href="http://www.urbandictionary.com/define.php?term=Goodle">*</a></p></li>
       <ul>
     </div>
   </div>
 
-  <div>
-    <primary-search></primary-search>
-  </div>
+  <primary-search></primary-search>
 
-  <div id="disclaim-btn-container">
-    <p class="animated infinite" ng-class="vm.classAnimation">
+  <div class="home-buttons">
+    <div class="animated infinite" ng-class="vm.classAnimation">
+      <a ng-click="vm.handleKeyupEvent()" class="btn btn-lg btn-success">SEARCH</a>
+    </div>
+    <div class="animated infinite" ng-class="vm.classAnimation">
       <a class="btn btn-lg btn-success" href="#/about">UH..</a>
-    </p>
+    </div>
   </div>
 </section>

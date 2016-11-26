@@ -7,8 +7,8 @@
 
   /** @ngInject */
   // Angular services are substitutable objects that are wired together using dependency injection(DI). You can use services to organize and share code across your app via global templating.
-  function Paginator(_, $log) {
-    // service definition
+  function Paginator(_) {
+    // Service definition
     var service = {
       getPaginator: getPaginator
     };
@@ -29,12 +29,11 @@
       var endPage;
 
       if (totalPages <= 10 ) {
-        // less than 10 total pages so show all?
+        // Only show less than or exactly 10 if there are only 10 pages needed.
         startPage = 1;
         endPage = totalPages;
-        
       } else {
-        // more than 10 total pages so calculate start and end pages
+        // Show more than 10 pages so calculate start and end pages
         if (currentPage <= 6) {
           startPage = 1;
           endPage = 10;
@@ -47,14 +46,14 @@
         }
       }
 
-      // calculate start and end item indexes
+      // Calculate start and end item indexes
       var startIndex = (currentPage - 1) * pageSize;
       var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
 
-      // create an array of pages to ng-repeat in the pager control
+      // Create an array of pages to ng-repeat in the pager controls
       var pages = _.range(startPage, endPage + 1);
 
-      // return object with all pager properties required by the view
+      // Return object with all pager properties required by the view-model
         return {
             totalItems: totalItems,
             currentPage: currentPage,

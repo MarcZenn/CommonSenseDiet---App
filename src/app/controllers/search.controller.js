@@ -7,13 +7,16 @@
     .controller('SearchController', SearchController);
 
 
-  function SearchController($document, $scope, getSearchResults, $log){
+  function SearchController($document, $scope, getSearchResults, $log, getNutritionalData){
     // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures!
     var vm = this;
 
     vm.searchresultsarray = [];
 
-    // Called from search.directive.js. Get data from getSearchResults.service.js API call and set to scope.
+    /* For Search Results Listing -
+     *
+     * Called from search.directive.js upon ngkeyup. It will take the search query and init a new API call to get data from getSearchResults.service.js and set what gets returned to the "view-model".
+     */
     vm.activate = function(searchterm) {
       return getSearchResults.getSearchResultsList(searchterm).then(function(data) {
         // Be sure to check that data exists first.
@@ -22,7 +25,28 @@
 
           return vm.searchresultsarray;
         } else {
+
           $log.log('....loading API results');
+        }
+      });
+    }
+
+
+    /* For Nutritional Breakdown Page -
+     *
+     * This is a click event handler for the primary-search.html template (ngclick). When a search result is clicked on it will take that result's ID (ndbno) and init a new API call to grab the rest of the nutritional data for that specific food.
+     */
+    vm.goToSearchResult = function(id) {
+
+      return getNutritionalData.getSearchResultNutritionData(id).then(function(data) {
+        // Be sure to check that data exists first.
+        if(data) {
+          // vm.searchresultsarray = data.list.item;
+          $log.log(id);
+          // return vm.searchresultsarray;
+        } else {
+
+          $log.log('....fail');
         }
       });
     }
