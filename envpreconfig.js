@@ -22,7 +22,8 @@ var production = {
 // Set variables
 var environments = {
   "development": {
-    "ENV_VARS": shared
+    "ENV_VARS": shared,
+    "test": true
   },
   "staging": {
     "ENV_VARS": shared

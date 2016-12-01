@@ -43,10 +43,9 @@
         if(data) {
           // Send data to custom service answer.service.js and share service with answer.controller.js. Best way to share data between controllers.
           answerService.addFoodNutritionData(data);
-          return $location.path('answer');
         } else {
 
-          $log.log('....fail');
+          $log.log('could not get nutrtional data');
         }
       });
     }

@@ -13,8 +13,15 @@
 
     vm.foodInfo = answerService.foodInfo;
 
+    // TODO:: This watch function must fire or it will shit out. Single Point of Failure...not good. Find a 'backup' way to call this. 
     $scope.$watch('vm.foodInfo', function() {
-      $log.log(vm.foodInfo);
+       // Watch vm.foodInfo and when it houses data call algorithm.
+
+       // Inside algorithm service, return an answer and save answer to localstorage.
+
+      // Once all the above is done, redirect to answer page and choose answer variable value depending on what the algorithm returns.
+      var answer = 'yes'
+      return $location.path(answer);
     });
 
   }

@@ -6,7 +6,7 @@ coverage/
 .tmp/
 dist/
 .env
-/src/app/config.js
+/src/app/modules/config.js
 .editorconfig
 config.json
 .DS_Store
