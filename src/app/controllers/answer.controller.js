@@ -7,11 +7,15 @@
     .controller('AnswerController', AnswerController);
 
 
-  function AnswerController(){
+  function AnswerController($log, answerService, $scope){
     // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures!
     var vm = this;
 
+    vm.foodInfo = answerService.foodInfo;
 
+    $scope.$watch('vm.foodInfo', function() {
+      $log.log(vm.foodInfo);
+    });
 
   }
 })();

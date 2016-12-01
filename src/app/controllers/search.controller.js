@@ -7,7 +7,7 @@
     .controller('SearchController', SearchController);
 
 
-  function SearchController($document, $scope, getSearchResults, $log, getNutritionalData){
+  function SearchController($document, $scope, getSearchResults, $log, getNutritionalData, answerService, $location){
     // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures!
     var vm = this;
 
@@ -41,8 +41,9 @@
       return getNutritionalData.getSearchResultNutritionData(id).then(function(data) {
         // This check is flawed. Haven't been able to fix. Still working on it.
         if(data) {
-          // send data to custom directive. use directive to fill page data.
-          $log.log(data);
+          // Send data to custom service answer.service.js and share service with answer.controller.js. Best way to share data between controllers.
+          answerService.addFoodNutritionData(data);
+          return $location.path('answer');
         } else {
 
           $log.log('....fail');
