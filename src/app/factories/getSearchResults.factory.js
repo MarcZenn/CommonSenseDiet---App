@@ -23,7 +23,7 @@
     function getSearchResultsList(searchterm) {
 
       // Here we hit the NDB search API using our .env variables but not without concatenating our searchterm query and our API key. We utilize an angular try-catch and depending on if successful or not we display error or return the data to search.contrller.js. For a list of all query parameters and settings visit - https://ndb.nal.usda.gov/ndb/doc/apilist/API-SEARCH.md
-      return $http.get(service.ndbApiUrl + '/ndb/search/?format=json&q=' + searchterm + '&api_key=' + service.ndbApiKey)
+      return $http.get(service.ndbApiUrl + '/ndb/search/?format=json&q=' + searchterm + '&sort=r&api_key=' + service.ndbApiKey)
           .then(returnSearchResultsList)
           .catch(getSearchResultsListFail);
 

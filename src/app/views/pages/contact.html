@@ -3,11 +3,28 @@
 		<h1>Contact Us</h1>
 	</div>
 
-	<form class="contact-us-form" ng-submit="vm.submitForm()">
-		<input placeholder="Name" type="text" ng-model="vm.name"></input>
-		<input placeholder="Email" type="email" ng-model="vm.email"></input>
-		<input placeholder="Headline" type="text" ng-model="vm.headline"></input>
-		<textarea placeholder="Message" type="textbox" ng-model="vm.message"></textarea>
+	<form class="contact-us-form" name="contactUsForm" ng-submit="vm.processContactForm()">
+		<div class="form-group">
+			<input placeholder="name" type="text" name="name" ng-model="vm.name" class="form-control" required />
+			<span class="label label-danger" ng-show="vm.submitted && contact-us-form.name.$error.required">Required!</span>
+		</div>
+
+		<div class="form-group">
+			<input placeholder="Email" type="email" name="email" ng-model="vm.email" class="form-control" required />
+			<span class="label label-danger" ng-show="vm.submitted && contact-us-form.email.$error.required">Required!</span>
+      <span class="label label-danger" ng-show="vm.submitted && contact-us-form.$error.email">Invalid email!</span>
+		</div>
+
+		<div class="form-group">
+			<input name="headline" placeholder="Headline" type="text" ng-model="vm.headline" class="form-control" required/>
+			<span class="label label-danger" ng-show="vm.submitted && contact-us-form.headline.$error.required">Required!</span>
+		</div>
+
+		<div class="form-group">
+			<textarea name="message" placeholder="Message" type="textbox" ng-model="vm.message" class="form-control" required></textarea>
+			<span class="label label-danger" ng-show="vm.submitted && contact-us-form.subjectList.$error.required">Required!</span>
+		</div>
+
 
 		<input type="submit" id="submit-contact-form-btn">
 	</form>

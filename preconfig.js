@@ -8,6 +8,18 @@ var shared = {
   debug: process.env.APP_DEBUG || true
 };
 
+var development = {
+  // variables...
+};
+
+var staging = {
+  // variables..
+};
+var production = {
+  // variables..
+};
+
+// Set variables
 var environments = {
   "development": {
     "ENV_VARS": shared

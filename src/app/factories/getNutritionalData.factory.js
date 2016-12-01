@@ -22,17 +22,16 @@
     // Here we define the service's main functionality. This is defined inside malarkey.directive.js as a integer which is also where this function gets invoked.
     function getSearchResultNutritionData(id) {
 
-      // Here we hittind the NDB search API using our .env variables but not without concatenating our search query and our API key. We utilize an angular try-catch and depending on if successful or not we display error or return the data to search.contrller.js. For a list of all query parameters and settings visit - https://ndb.nal.usda.gov/ndb/doc/apilist/API-SEARCH.md
-      return $http.get(service.ndbApiUrl + '/ndb/search/?format=json&q=' + searchterm + '&sort=n&api_key=' + service.ndbApiKey)
-          .then(returnNutritionaData)
-          .catch(getNutritionaDataFail);
+      // Here we hitting the NDB search API using our .env variables but not without concatenating our search query and our API key. We utilize an angular try-catch and depending on if successful or not we display error or return the data to search.contrller.js. For a list of all query parameters and settings visit - https://ndb.nal.usda.gov/ndb/doc/apilist/API-SEARCH.md
+      return $http.get(service.ndbApiUrl + '/ndb/reports/?ndbno=' + id + '&type=b&format=json&api_key=' + service.ndbApiKey)
+          .then(returnNutritionalData)
+          .catch(getNutritionalDataFail);
 
-
-      function returnNutritionaData(response) {
+      function returnNutritionalData(response) {
         return response.data;
       }
 
-      function getNutritionaDataFail(err) {
+      function getNutritionalDataFail(err) {
         return $log.error(err.data);
       }
     }

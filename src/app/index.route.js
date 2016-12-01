@@ -17,6 +17,28 @@
         redirectTo: '/'
       });
 
+    // Contact Us Page
+    $routeProvider
+    .when('/contact', {
+      templateUrl: 'app/views/pages/contact.html',
+      controller: 'ContactController',
+      controllerAs: 'vm'
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+
+    // Contact Us Page
+    $routeProvider
+    .when('/answer?', {
+      templateUrl: 'app/views/pages/answer.html',
+      controller: 'answerController',
+      controllerAs: 'vm'
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+
     // About Page
     $routeProvider
       .when('/about', {
@@ -43,17 +65,6 @@
       .otherwise({
         redirectTo: '/'
       });
-
-    // Contact Us Page
-    $routeProvider
-    .when('/contact', {
-      templateUrl: 'app/views/pages/contact.html',
-      controller: 'ContactController',
-      controllerAs: 'vm'
-    })
-    .otherwise({
-      redirectTo: '/'
-    });
   }
 
 })();

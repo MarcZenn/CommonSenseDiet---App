@@ -19,7 +19,7 @@
      */
     vm.activate = function(searchterm) {
       return getSearchResults.getSearchResultsList(searchterm).then(function(data) {
-        // Be sure to check that data exists first.
+        // This check is flawed. Haven't been able to fix. Still working on it.
         if(data) {
           vm.searchresultsarray = data.list.item;
 
@@ -39,11 +39,10 @@
     vm.goToSearchResult = function(id) {
 
       return getNutritionalData.getSearchResultNutritionData(id).then(function(data) {
-        // Be sure to check that data exists first.
+        // This check is flawed. Haven't been able to fix. Still working on it.
         if(data) {
-          // vm.searchresultsarray = data.list.item;
-          $log.log(id);
-          // return vm.searchresultsarray;
+          // send data to custom directive. use directive to fill page data.
+          $log.log(data);
         } else {
 
           $log.log('....fail');

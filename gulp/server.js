@@ -5,6 +5,7 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 var http = require('http')
 
+var contactController = require('.././api/http/controllers/contactcontroller.js');
 
 // require database data modeling via mongoose
 var mongoose = require('mongoose');
@@ -29,6 +30,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
 
+app.post('/submitContactUsForm', contactController.contactUs);
 // Connect to DB (for messing around in localhost)?
 // mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost');
 
