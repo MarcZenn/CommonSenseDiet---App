@@ -15,6 +15,6 @@
 
 
   angular
-    .module('commonSenseDietApp', ['ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ngRoute', 'envconfig.module', 'underscore']);
+    .module('commonSenseDietApp', ['ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ngRoute', 'envconfig.module', 'underscore', 'LocalStorageModule']);
 
 })();

@@ -7,7 +7,7 @@
     .controller('SearchController', SearchController);
 
 
-  function SearchController($document, $scope, getSearchResults, $log, getNutritionalData, answerService, $location){
+  function SearchController($document, $scope, getSearchResults, $log, getNutritionalData, answerService, $controller, $rootScope) {
     // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures!
     var vm = this;
 
@@ -41,14 +41,23 @@
       return getNutritionalData.getSearchResultNutritionData(id).then(function(data) {
         // This check is flawed. Haven't been able to fix. Still working on it.
         if(data) {
-          // Send data to custom service answer.service.js and share service with answer.controller.js. Best way to share data between controllers.
+          // Send data to custom service answer.service.js which will save to localStorage - (shared service between this controller and answer.controller.js).
           answerService.addFoodNutritionData(data);
+
+          var checkLocalStorage = $rootScope.$on('LocalStorageModule.notification.setitem', function() {
+            // Use injected answer.controller.js and call it's method. passing current scope to commmon controller
+            return $controller('AnswerController',{$scope: $scope}).getLocalStorageData();
+          });
+
+          // Clear $rootScope listener to avoid memory leaks.
+          $scope.$on('$destroy', checkLocalStorage);
         } else {
 
-          $log.log('could not get nutrtional data');
+          $log.log("could not get food's nutrition data from API");
         }
       });
     }
 
   }
+
 })();

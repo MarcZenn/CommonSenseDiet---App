@@ -7,24 +7,30 @@
 
   /** @ngInject */
   // This particular service is being treated like a constructor and is essentially returning an instance of our API data once defined.
-  function answerService($log) {
+  function answerService($log,localStorageService, $location, $rootScope) {
     // Service definition
     var service = {
-      foodInfo: '',
       addFoodNutritionData: addFoodNutritionData
     };
 
     return service;
 
     function addFoodNutritionData(data) {
+      // Save data to sessionstorage here inside service and broadcast event to $rootScope
       if(data) {
-        service.foodInfo = data;
+        if(localStorageService.isSupported) {
+          // clear current localStorage & sessionStorage
+          localStorageService.clearAll();
 
-        // Save data to localstorage here inside service and set to service.foodInfo
+          // save food's nutritional data in sessionStorage(localStorage)
+          localStorageService.set('foodData', data);
 
+          // broadcast an event to all scopes
+          $rootScope.$broadcast('LocalStorageModule.notification.setitem');
 
+          return false;
 
-
+        } // else if localStorage is not supported...
 
 
       }
