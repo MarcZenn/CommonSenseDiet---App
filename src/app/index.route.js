@@ -57,7 +57,7 @@
 
     // Answer Page
     $routeProvider
-    .when('/:answer', {
+    .when('/answer', {
       templateUrl: 'app/views/pages/answer.html',
       controller: 'AnswerController',
       controllerAs: 'vm'

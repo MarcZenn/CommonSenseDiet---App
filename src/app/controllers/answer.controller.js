@@ -7,27 +7,29 @@
     .controller('AnswerController', AnswerController);
 
 
-  function AnswerController($log, answerService, $rootScope, localStorageService, $location){
+  function AnswerController($log, localStorageService, $location){
     // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures!
     var vm = this;
 
     vm.stored;
+    vm.yesNoMaybe;
 
     // This gets called from the search.controller.js $rootScope listener.
     vm.getLocalStorageData = function() {
       // Retrieve data that answer.service.js saved into sessionStorage
       if(localStorageService.get('foodData')) {
+
         vm.stored = localStorageService.get('foodData');
+        vm.yesNoMaybe = localStorageService.get('answer');
 
         $log.log(vm.stored);
+        $log.log(vm.yesNoMaybe);
 
-        // Once all the above is done, redirect to answer page and choose answer variable value depending on what the algorithm returns.
-        var answer = 'yes'
-        return $location.path(answer);
+        return $location.path('answer');
 
       } else {
 
-        $log.log('data was not saved to sessionStorage');
+        $log.log('No data in localStorage or sessionStorage!');
       }
     };
 
