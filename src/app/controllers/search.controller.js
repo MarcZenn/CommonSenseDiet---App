@@ -15,7 +15,7 @@
 
     /* For Search Results Listing -
      *
-     * Called from search.directive.js upon ngkeyup. It will take the search query and init a new API call to get data from getSearchResults.service.js and set what gets returned to the "view-model".
+     * Called from search.directive.js upon ngkeyup. It will take the search query and init a new API call to get a list of foods based on the search query from getSearchResults.service.js then set what gets returned to the "view-model" vm.
      */
     vm.activate = function(searchterm) {
       return getSearchResults.getSearchResultsList(searchterm).then(function(data) {
@@ -31,21 +31,20 @@
       });
     }
 
-
     /* For Nutritional Breakdown Page -
      *
-     * This is a click event handler for the primary-search.html template (ngclick). When a search result is clicked on it will take that result's ID (ndbno) and init a new API call to grab the rest of the nutritional data for that specific food.
+     * This is a click event handler for the primary-search.html template (ngclick).   * When a search result is clicked on, it will take that result's ID (ndbno) and init a new API call to grab the rest of the nutritional data for that specific food. It then takes that data and passes it to our algorithm service/sessionStorage service which returns a promise with a 'yes', 'no', or 'mabye' string for answer.controller.js to use.
      */
     vm.goToSearchResult = function(id) {
 
       vm.foodNutritionData = null;
 
       return getNutritionalData.getSearchResultNutritionData(id).then(function(data) {
-        // This check is flawed. Haven't been able to fix. Still working on it.
+
         vm.foodNutritionData = data;
 
         if (vm.foodNutritionData) {
-          // send data to service algorithm answer.service.js which will save to sessionStorage and return a promise.
+          // send data to service algorithm answer.service.js which will save the food's nutrition data to sessionStorage and return a promise.
           answerService.yesNoMaybePromise(vm.foodNutritionData).then(function(answer) {
             if (answer) {
               $controller('AnswerController',{$scope: $scope}).getLocalStorageData();
