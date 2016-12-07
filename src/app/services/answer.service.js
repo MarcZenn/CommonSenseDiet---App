@@ -67,7 +67,18 @@
           your recommended daily caloric intake. This assumes that the more of something you can eat without exceeding your recommended caloric intake
           the, healthier it is for you. Based on where a certain food falls on
           that spectrum, we will take that number and call it our "Layer 2 Score".
-        - Third, We will consider protein versus carbs and complex carbs. 
+        - Third, We will consider protein versus carbs and complex carbs. It seems that
+          the relationship between these two is that they are inverses of each other. In
+          other words, the more protein over carbs a food has the better it is for you
+          while the more carbs over proteins a food has the worse it is for you. But what
+          if the foods have equal amounts of each? Seeing as how really any carb intake
+          whatsoever is not recommended as healthy for you, we will offset this by
+          counting every carb as 2. So if a food has 10 carb per serving, it will really
+          count as 20 carbs per serving. (This 2x factor will require some heavy empirical
+          evidence that carbs are really, really bad for you). Our "Layer 3 Score" will
+          consist of carbs per serving times 2 divided protein per serving. The idea here is that really any carbs are bad for you and thus our "Layer 3 Score"  should aim to be in the negatives. If it is then we will add that to our overall score as a postive
+          number. If the "Layer 3 Score " is in the positives then we will subtract
+          that nubmer from our overall score.
         - Fourth, the algorithm will consider that food's food group. This will
           require a list of the bad food groups and the good groups and assign
           an int?
