@@ -7,7 +7,7 @@
     .controller('SearchController', SearchController);
 
 
-  function SearchController($document, $scope, getSearchResults, $log, getNutritionalData, $location, $controller, $rootScope, answerService) {
+  function SearchController($document, $scope, getSearchResults, $log, getNutritionalData, $location, $rootScope, answerService) {
     // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures!
     var vm = this;
 
@@ -47,7 +47,8 @@
           // send data to service algorithm answer.service.js which will save the food's nutrition data to sessionStorage and return a promise.
           answerService.yesNoMaybePromise(vm.foodNutritionData).then(function(answer) {
             if (answer) {
-              $controller('AnswerController',{$scope: $scope}).getLocalStorageData();
+              // We initialize the AnswerController when we redirect to its page answer.html. That controller will handle building our answer page and displaying food data from sessionStorage.
+              return $location.path('answer');
             }
           });
 
