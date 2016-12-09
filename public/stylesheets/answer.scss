@@ -41,7 +41,7 @@
 }
 
 .table-of-nutrients {
-  width: 98%;
+  width: 97%;
   margin: 35px auto 0 auto;
   border: 1px solid lightgrey;
 
@@ -55,6 +55,8 @@
         margin: 0;
         border-bottom: 1px solid lightgrey;
         border-right: 1px solid lightgrey;
+        background-color: #FA8422;
+        color: white;
       }
     }
   }
@@ -70,6 +72,10 @@
         margin: 0;
         border-bottom: 1px solid lightgrey;
         border-right: 1px solid lightgrey;
+      }
+
+      td.table-of-nutrients-subheader {
+        background: lightgrey;
       }
     }
   }

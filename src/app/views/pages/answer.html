@@ -7,7 +7,7 @@
   <div class="table-of-nutrients-wrapper">
     <h2>Table of Nutrients <br /><span>Nutrient values and weights are for every 100 grams of <i>{{ vm.stored.report.food.name }}</i></span></h2>
 
-    <table class="table-of-nutrients">
+    <table class="table-of-nutrients" cellspacing="0" cellpadding="0">
       <thead>
         <tr>
           <th>Nutrient</th>
@@ -18,16 +18,37 @@
       </thead>
       <tbody>
         <tr>
-          <td colspan="100">Proximates</td>
+          <td class="table-of-nutrients-subheader" colspan="100">Proximates</td>
         </tr>
         <tr ng-repeat="nutrient in vm.stored.report.food.nutrients">
           <td ng-if="nutrient.group == 'Proximates'">{{ nutrient.name }}</td>
           <td ng-if="nutrient.group == 'Proximates'">{{ nutrient.unit }}</td>
-          <td ng-if="nutrient.group == 'Proximates'">ass</td>
-          <td ng-if="nutrient.group == 'Proximates'">ass</td>
+          <td ng-if="nutrient.group == 'Proximates'">test</td>
+          <td ng-if="nutrient.group == 'Proximates'">test</td>
         </tr>
         <tr>
           <td colspan="100">Minerals</td>
+        </tr>
+        <tr ng-repeat="nutrient in vm.stored.report.food.nutrients">
+          <td ng-if="nutrient.group == 'Minerals'">{{ nutrient.name }}</td>
+          <td ng-if="nutrient.group == 'Minerals'">{{ nutrient.unit }}</td>
+          <td ng-if="nutrient.group == 'Minerals'">test</td>
+          <td ng-if="nutrient.group == 'Minerals'">test</td>
+        </tr>
+        <tr>
+          <td class="table-of-nutrients-subheader" colspan="100">Vitamins</td>
+        </tr>
+        <tr ng-repeat="nutrient in vm.stored.report.food.nutrients">
+          <td ng-if="nutrient.group == 'Vitamins'">{{ nutrient.name }}</td>
+          <td ng-if="nutrient.group == 'Vitamins'">{{ nutrient.unit }}</td>
+          <td ng-if="nutrient.group == 'Vitamins'">test</td>
+          <td ng-if="nutrient.group == 'Vitamins'">test</td>
+        </tr>
+        <tr>
+          <td class="table-of-nutrients-subheader" colspan="100">Lipids</td>
+        </tr>
+        <tr>
+          <td class="table-of-nutrients-subheader" colspan="100">Amino Acids</td>
         </tr>
       </tbody>
     </table>
