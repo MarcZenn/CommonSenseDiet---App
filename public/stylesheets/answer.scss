@@ -1,0 +1,76 @@
+.answer-content{
+
+}
+
+.the-answer {
+  background-color: #ff0000;
+  padding: 30px 100px;
+
+  h1 {
+    font-family: Rubik;
+    font-size:  150px;
+    color: white;
+  }
+
+ p {
+   font-family: Raleway;
+   font-size:  20px;
+   color: white;
+ }
+}
+
+.table-of-nutrients-wrapper {
+  width: 100%;
+  padding: 35px 0;
+
+  h2 {
+    font-size: 45px;
+    font-family: Montserrat;
+    color: grey;
+    margin: 0 0 0 20px;
+
+    span {
+      font-size: 20px;
+      font-family: Bungee Hairline;
+
+      i {
+        color: #FA8422;
+      }
+    }
+  }
+}
+
+.table-of-nutrients {
+  width: 98%;
+  margin: 35px auto 0 auto;
+  border: 1px solid lightgrey;
+
+  thead {
+    tr {
+      text-align: left;
+
+      th {
+        padding: 10px;
+        font-family: Montserrat;
+        margin: 0;
+        border-bottom: 1px solid lightgrey;
+        border-right: 1px solid lightgrey;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      text-align: left;
+
+      td {
+        color: grey;
+        padding: 10px;
+        font-family: Montserrat;
+        margin: 0;
+        border-bottom: 1px solid lightgrey;
+        border-right: 1px solid lightgrey;
+      }
+    }
+  }
+}

@@ -1,7 +1,40 @@
+<section class="answer-content">
+  <div class="the-answer text-center">
+    <h1>{{ vm.yesNoMaybe }}</h1>
+    <p>some message about why this answer is this answer...</p>
+  </div>
+
+  <div class="table-of-nutrients-wrapper">
+    <h2>Table of Nutrients <br /><span>Nutrient values and weights are for every 100 grams of <i>{{ vm.stored.report.food.name }}</i></span></h2>
+
+    <table class="table-of-nutrients">
+      <thead>
+        <tr>
+          <th>Nutrient</th>
+          <th>Unit</th>
+          <th>For Every 100 Grams of {{ vm.stored.report.food.name }}..</th>
+          <th>Hex</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="100">Proximates</td>
+        </tr>
+        <tr ng-repeat="nutrient in vm.stored.report.food.nutrients">
+          <td ng-if="nutrient.group == 'Proximates'">{{ nutrient.name }}</td>
+          <td ng-if="nutrient.group == 'Proximates'">{{ nutrient.unit }}</td>
+          <td ng-if="nutrient.group == 'Proximates'">ass</td>
+          <td ng-if="nutrient.group == 'Proximates'">ass</td>
+        </tr>
+        <tr>
+          <td colspan="100">Minerals</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 
-<p>
-  {{ vm.stored }}
-</p>
+
 
 <include-footer></include-footer>
