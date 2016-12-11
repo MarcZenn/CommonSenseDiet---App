@@ -19,14 +19,18 @@
      */
     vm.activate = function(searchterm) {
       return getSearchResults.getSearchResultsList(searchterm).then(function(data) {
-        // This check is flawed. Haven't been able to fix. Still working on it.
-        if(data) {
+        
+        if(data && data.list) {
+
           vm.searchresultsarray = data.list.item;
 
           return vm.searchresultsarray;
+
         } else {
 
-          $log.log('....loading API results');
+          vm.searchresultsarray = data.errors.error;
+
+          return vm.searchresultsarray;
         }
       });
     }

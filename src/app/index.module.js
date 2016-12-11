@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  // TODO:: Learn how to deploy this damn thing....(heroku)
+  // TODO:: Learn how to deploy this damn thing....(heroku & codeship)
   // TODO:: Buy domain for this site and configure to heroku.
   // TODO:: HTTPS
   // TODO:: Add Google Analytics and Adsense - https://www.google.com/adsense/start/

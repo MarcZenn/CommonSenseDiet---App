@@ -2,40 +2,103 @@
 
 }
 
+.red {
+  background-color: #FA8422;
+}
+
+.green {
+  background-color: #417B0B;
+}
+
 .the-answer {
-  background-color: #ff0000;
-  padding: 30px 100px;
+  padding: 125px 0;
+  border-top: 1px solid lightgrey;
+  position: relative;
 
   h1 {
     font-family: Rubik;
-    font-size:  150px;
+    font-size:  200px;
     color: white;
+    text-transform: uppercase;
+    margin: 20px auto;
   }
 
  p {
    font-family: Raleway;
    font-size:  20px;
    color: white;
+   margin: 0 auto;
+ }
+
+ span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #FA8422;
+  background-color: white;
+  font-family: Bungee Hairline;
+  text-transform: lowercase;
+  font-size: 17px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid white;
  }
 }
 
 .table-of-nutrients-wrapper {
   width: 100%;
-  padding: 35px 0;
+  padding: 45px 0;
 
   h2 {
     font-size: 45px;
     font-family: Montserrat;
     color: grey;
-    margin: 0 0 0 20px;
+    margin: 0 0 20px 20px;
+  }
 
-    span {
-      font-size: 20px;
-      font-family: Bungee Hairline;
+ ul {
+   margin: 0 0 20px 20px;
+   padding: 0;
+  //  display: flex;
 
-      i {
-        color: #FA8422;
-      }
+   li {
+     display: inline-block;
+     width: 15%;
+     margin: 10px 10px 0 0;
+     flex: 1;
+
+     label {
+       font-size: 15px;
+       font-family: Raleway;
+       color: black;
+       display: block;
+
+       p {
+         color: grey;
+         font-family: Raleway;
+         display: block;
+         text-transform: lowercase;
+          word-wrap: break-word;
+       }
+     }
+   }
+ }
+
+  span {
+    border-radius: 5px;
+    background-color: #C8D4BD;
+    color: #62774E;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-family: Helvetica;
+    margin: 0 20px;
+    display: inline-block;
+
+    p {
+      color: white;
+      text-transform: lowercase;
+      margin: 5px 0;
+      display: inline;
     }
   }
 }
@@ -55,7 +118,7 @@
         margin: 0;
         border-bottom: 1px solid lightgrey;
         border-right: 1px solid lightgrey;
-        background-color: #FA8422;
+        background-color: #62774E;
         color: white;
       }
     }

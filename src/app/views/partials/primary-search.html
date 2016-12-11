@@ -6,12 +6,17 @@
 
 <!-- Search Results -->
 <section class="search-results-container not-visible">
-  <ul ng-if="vm.items.length" class="search-results-list">
+  <ul ng-if="vm.items.length > 1" class="search-results-list">
     <li ng-repeat="searchResult in vm.items" ng-click="vm.goToSearchResult(searchResult.ndbno)">
       <p class="result-name">{{searchResult.name}}</p>
       <p class="result-id">
         <span>{{searchResult.group}}</span>
       </p>
+    </li>
+  </ul>
+  <ul ng-if="vm.items[0].message" class="no-search-results">
+    <li>
+      <p class="result-name">{{ vm.items[0].message }}</p>
     </li>
   </ul>
 </section>

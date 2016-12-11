@@ -34,6 +34,12 @@ a {
   border-bottom: 1px solid lightgrey;
 }
 
+.dashboardbox {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+}
 
 /*
  * Fonts & Text Formatting
@@ -50,4 +56,12 @@ a {
 
 .text-right {
   text-align: right;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #FFFFFF;
 }

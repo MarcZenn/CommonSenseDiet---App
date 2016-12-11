@@ -30,14 +30,20 @@
         padding: 15px 15px 0 15px;
         line-height: 40px;
       }
+
       &.active a {
         background-color: none;
       }
 
       p {
         margin: 0;
-        font-size: 8px;
+        font-size: 10px;
+        font-family: Lato;
         color: lightgrey;
+
+        span {
+          color: #417B0B;
+        }
       }
     }
   }

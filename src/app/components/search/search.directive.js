@@ -44,6 +44,7 @@
         angular.element($document[0].querySelector('.home-buttons')).addClass('not-visible');
         angular.element($document[0].querySelector('.search-results-container')).removeClass('not-visible');
         angular.element($document[0].querySelector('.navbar')).addClass('lightgrey-bg').addClass('bottom-border-grey');
+        angular.element($document[0].querySelector('.navbar ul li p')).addClass('lightgrey-bg').addClass('not-visible');
         angular.element($document[0].querySelector('.search-icon')).removeClass('not-visible');
 
         // It takes a split second for the view model to update with the entire input value thus the timeout below..must refactor this! Research onkeyup "view-model" updates.
@@ -64,9 +65,11 @@
 
         // TODO:: employ smarter string filtering..maybe lib or native helper
         angular.forEach(vm.searchresultsarray, function(searchResult) {
-          searchResult.name = searchResult.name.split(/UPC:|gtin:/g)[0].replace(/\,/g,"").toLowerCase();
+          if (searchResult.name) {
+            searchResult.name = searchResult.name.split(/UPC:|gtin:/g)[0].replace(/\,/g,"").toLowerCase();
 
-          searchResult.name = searchResult.name.charAt(0).toUpperCase() + searchResult.name.slice(1);
+            searchResult.name = searchResult.name.charAt(0).toUpperCase() + searchResult.name.slice(1);
+          }
         });
 
         // Invoke pagination via "setPage()" function below. Once search results are in, display search results via Paginator service.
