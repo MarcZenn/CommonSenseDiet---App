@@ -11,7 +11,6 @@
   // TODO:: Make a list of beta testers and send invites.
   // TODO:: 'variable-ize' css colors
   // TODO:: Seek IP patent for algorithm once past beta testing.
-  // TODO:: handle 404 routes with custom 404 page.
   // TODO:: Consider switching Food Data provider to these guys - https://www.labelinsight.com/developers/pricing
 
 

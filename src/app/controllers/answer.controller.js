@@ -15,6 +15,7 @@
     vm.stored;
     vm.yesNoMaybe;
 
+    // Chosen table of contents sub-category groups. There are more but not all foods have every one but these in NDB.
     vm.nutrientGroups = {
       proximates: false,
       minerals: false,
@@ -58,12 +59,7 @@
           }
         });
 
-
-
-
-
         $log.log(vm.stored.report);
-        $log.log(vm.yesNoMaybe);
 
       } else {
 
