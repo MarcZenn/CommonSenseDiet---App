@@ -1,7 +1,7 @@
 <section class="answer-content">
-  <div class="the-answer text-center {{ vm.yesNoMaybe == 'yes' ? 'green' : 'red' }}">
-    <span>{{ vm.stored.report.food.name }}</span>
-    <h1>{{ vm.yesNoMaybe }}</h1>
+  <div class="the-answer text-center {{ vm.yesNoMaybe == 'yes' ? 'green' : 'orange' }}">
+    <span class="{{ vm.yesNoMaybe == 'yes' ? 'orange' : 'green' }}">{{ vm.stored.report.food.name }}</span>
+    <h1>{{ vm.yesNoMaybe }}!</h1>
     <p>Oink Oink...</p>
   </div>
 
@@ -39,6 +39,7 @@
         <label>Short Description <p>{{vm.stored.report.food.sd}}</p></label>
       </li>
     </ul>
+
     <span>Information provided by food manufacturers is label data. Manufacturers are responsible for descriptions, nutrient data and ingredient information. USDA calculated nutrient values and weights are for every 100 grams of <p>{{ vm.stored.report.food.name }}</p></span>
 
     <table class="table-of-nutrients" cellspacing="0" cellpadding="0">
@@ -46,7 +47,7 @@
         <tr>
           <th>Nutrient</th>
           <th>For Every 100 Grams of <br />{{ vm.stored.report.food.name }}..</th>
-          <th>Hex</th>
+          <th ng-repeat="measure in vm.stored.report.food.nutrients[0].measures">{{ measure.label }} <span ng-if="measure.eqv">{{ measure.eqv }}g</span></th>
         </tr>
       </thead>
       <tbody>
@@ -56,7 +57,7 @@
         <tr ng-repeat="nutrient in vm.stored.report.food.nutrients">
           <td ng-if="nutrient.group == 'Proximates'">{{ nutrient.name }}</td>
           <td ng-if="nutrient.group == 'Proximates'">{{ nutrient.value }} {{ nutrient.unit }}</td>
-          <td ng-if="nutrient.group == 'Proximates'">test</td>
+          <td ng-if="nutrient.group == 'Proximates' && vm.stored.report.food.nutrients[0].measures.length >= 1" ng-repeat="measure in nutrient.measures">{{ measure.value }}</td>
         </tr>
         <tr>
           <td ng-if="vm.nutrientGroups.minerals" class="table-of-nutrients-subheader" colspan="100">Minerals</td>
@@ -64,7 +65,7 @@
         <tr ng-repeat="nutrient in vm.stored.report.food.nutrients">
           <td ng-if="nutrient.group == 'Minerals'">{{ nutrient.name }}</td>
           <td ng-if="nutrient.group == 'Minerals'">{{ nutrient.value }} {{ nutrient.unit }}</td>
-          <td ng-if="nutrient.group == 'Minerals'">test</td>
+          <td ng-if="nutrient.group == 'Minerals' && vm.stored.report.food.nutrients[0].measures.length >= 1" ng-repeat="measure in nutrient.measures">{{ measure.value }}</td>
         </tr>
         <tr>
           <td ng-if="vm.nutrientGroups.vitamins" class="table-of-nutrients-subheader" colspan="100">Vitamins</td>
@@ -72,7 +73,7 @@
         <tr ng-repeat="nutrient in vm.stored.report.food.nutrients">
           <td ng-if="nutrient.group == 'Vitamins'">{{ nutrient.name }}</td>
           <td ng-if="nutrient.group == 'Vitamins'">{{ nutrient.value }} {{ nutrient.unit }}</td>
-          <td ng-if="nutrient.group == 'Vitamins'">test</td>
+          <td ng-if="nutrient.group == 'Vitamins' && vm.stored.report.food.nutrients[0].measures.length >= 1" ng-repeat="measure in nutrient.measures">{{ measure.value }}</td>
         </tr>
         <tr>
           <td ng-if="vm.nutrientGroups.lipids" class="table-of-nutrients-subheader" colspan="100">Lipids</td>
@@ -80,7 +81,7 @@
         <tr ng-repeat="nutrient in vm.stored.report.food.nutrients">
           <td ng-if="nutrient.group == 'Lipids'">{{ nutrient.name }}</td>
           <td ng-if="nutrient.group == 'Lipids'">{{ nutrient.value }} {{ nutrient.unit }}</td>
-          <td ng-if="nutrient.group == 'Lipids'">test</td>
+          <td ng-if="nutrient.group == 'Lipids' && vm.stored.report.food.nutrients[0].measures.length >= 1" ng-repeat="measure in nutrient.measures">{{ measure.value }}</td>
         </tr>
         <tr>
           <td ng-if="vm.nutrientGroups.aminoAcids" class="table-of-nutrients-subheader" colspan="100">Amino Acids</td>
@@ -88,7 +89,7 @@
         <tr ng-repeat="nutrient in vm.stored.report.food.nutrients">
           <td ng-if="nutrient.group == 'Amino Acids'">{{ nutrient.name }}</td>
           <td ng-if="nutrient.group == 'Amino Acids'">{{ nutrient.value }} {{ nutrient.unit }}</td>
-          <td ng-if="nutrient.group == 'Amino Acids'">test</td>
+          <td ng-if="nutrient.group == 'Amino Acids' && vm.stored.report.food.nutrients[0].measures.length >= 1" ng-repeat="measure in nutrient.measures">{{ measure.value }}</td>
         </tr>
         <tr>
           <td ng-if="vm.nutrientGroups.other" class="table-of-nutrients-subheader" colspan="100">Other</td>
@@ -96,13 +97,26 @@
         <tr ng-repeat="nutrient in vm.stored.report.food.nutrients">
           <td ng-if="nutrient.group == 'Other'">{{ nutrient.name }}</td>
           <td ng-if="nutrient.group == 'Other'">{{ nutrient.value }} {{ nutrient.unit }}</td>
-          <td ng-if="nutrient.group == 'Other'">test</td>
+          <td ng-if="nutrient.group == 'Other' && vm.stored.report.food.nutrients[0].measures.length >= 1" ng-repeat="measure in nutrient.measures">{{ measure.value }}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
 
+<!-- TODO: Place huge banner ad here. -->
+<section class="text-center">
+  <h1>Place Huge Banner Ad Here :)</h1>
+</section>
+
+<section class="sources-of-data-wrapper" ng-if="vm.stored.report.sources.length">
+  <h3>Sources of Data</h3>
+  <ul>
+    <li ng-repeat="source in vm.stored.report.sources">
+      <p>{{source.authors}}, <strong>{{source.title}}</strong> {{source.year}}, {{source.vol}}, {{source.iss}}</p>
+    </li>
+  </ul>
+</section>
 
 
 

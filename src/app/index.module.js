@@ -13,7 +13,6 @@
   // TODO:: Seek IP patent for algorithm once past beta testing.
   // TODO:: handle 404 routes with custom 404 page.
   // TODO:: Consider switching Food Data provider to these guys - https://www.labelinsight.com/developers/pricing
-  // TODO:: Build out the markup and styling for the search result page based on the data
 
 
   angular

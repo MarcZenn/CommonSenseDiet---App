@@ -14,7 +14,8 @@
       controllerAs: 'vm'
     })
     .otherwise({
-      redirectTo: '/'
+      controller: 'Error404Controller',
+      templateUrl: 'app/views/errors/404.html'
     });
 
     // About Page
@@ -23,7 +24,8 @@
       templateUrl: 'app/views/pages/about.html'
     })
     .otherwise({
-      redirectTo: '/'
+      controller: 'Error404Controller',
+      templateUrl: 'app/views/errors/404.html'
     });
 
     // Disclaimer Page
@@ -32,7 +34,8 @@
       templateUrl: 'app/views/pages/disclaimer.html'
     })
     .otherwise({
-      redirectTo: '/'
+      controller: 'Error404Controller',
+      templateUrl: 'app/views/errors/404.html'
     });
 
     // Privacy Policy Page
@@ -41,7 +44,8 @@
       templateUrl: 'app/views/pages/privacy-policy.html'
     })
     .otherwise({
-      redirectTo: '/'
+      controller: 'Error404Controller',
+      templateUrl: 'app/views/errors/404.html'
     });
 
     // Contact Us Page
@@ -52,7 +56,8 @@
       controllerAs: 'vm'
     })
     .otherwise({
-      redirectTo: '/'
+      controller: 'Error404Controller',
+      templateUrl: 'app/views/errors/404.html'
     });
 
     // Answer Page
@@ -63,7 +68,8 @@
       controllerAs: 'vm'
     })
     .otherwise({
-      redirectTo: '/'
+      controller: 'Error404Controller',
+      templateUrl: 'app/views/errors/404.html'
     });
 
   }

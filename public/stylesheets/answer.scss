@@ -1,19 +1,15 @@
-.answer-content{
-
-}
-
-.red {
-  background-color: #FA8422;
-}
-
-.green {
-  background-color: #417B0B;
-}
-
 .the-answer {
   padding: 125px 0;
   border-top: 1px solid lightgrey;
   position: relative;
+
+  &.green {
+    background-color: #06D90D;
+  }
+
+  &.orange {
+    background-color: #FA8422;
+  }
 
   h1 {
     font-family: Rubik;
@@ -34,14 +30,22 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  color: #FA8422;
   background-color: white;
-  font-family: Bungee Hairline;
+  font-family: Open Sans;
   text-transform: lowercase;
+  text-transform: capitalize;
   font-size: 17px;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid white;
+
+  &.green {
+    color: #06D90D;
+  }
+
+  &.orange {
+    color: #FA8422;
+  }
  }
 }
 
@@ -51,6 +55,7 @@
 
   h2 {
     font-size: 45px;
+    font-weight: 200;
     font-family: Montserrat;
     color: grey;
     margin: 0 0 20px 20px;
@@ -59,7 +64,7 @@
  ul {
    margin: 0 0 20px 20px;
    padding: 0;
-  //  display: flex;
+   display: flex;
 
    li {
      display: inline-block;
@@ -72,13 +77,14 @@
        font-family: Raleway;
        color: black;
        display: block;
+       word-wrap: break-word;
 
        p {
          color: grey;
          font-family: Raleway;
          display: block;
          text-transform: lowercase;
-          word-wrap: break-word;
+         word-wrap: break-word;
        }
      }
    }
@@ -115,6 +121,7 @@
       th {
         padding: 10px;
         font-family: Montserrat;
+        font-weight: 200;
         margin: 0;
         border-bottom: 1px solid lightgrey;
         border-right: 1px solid lightgrey;
@@ -131,7 +138,8 @@
       td {
         color: grey;
         padding: 10px;
-        font-family: Montserrat;
+        font-family: Open Sans;
+        font-weight: 200;
         margin: 0;
         border-bottom: 1px solid lightgrey;
         border-right: 1px solid lightgrey;
@@ -139,6 +147,32 @@
 
       td.table-of-nutrients-subheader {
         background: lightgrey;
+      }
+    }
+  }
+}
+
+.sources-of-data-wrapper {
+  width: 100%;
+  padding: 45px 0;
+
+  h3 {
+    font-size: 45px;
+    font-weight: 200;
+    font-family: Montserrat;
+    color: grey;
+    margin: 0 0 20px 20px;
+  }
+
+  ul {
+    width: 100%;
+    list-style-type: decimal;
+
+
+    li {
+      p {
+        font-family: Open Sans;
+        font-size: 12px;
       }
     }
   }
