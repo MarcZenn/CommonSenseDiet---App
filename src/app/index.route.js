@@ -21,7 +21,7 @@
     // About Page
     $routeProvider
     .when('/about', {
-      templateUrl: 'app/views/pages/about.html'
+      templateUrl: 'app/views/static/about.html'
     })
     .otherwise({
       controller: 'Error404Controller',
@@ -31,7 +31,7 @@
     // Disclaimer Page
     $routeProvider
     .when('/disclaimer', {
-      templateUrl: 'app/views/pages/disclaimer.html'
+      templateUrl: 'app/views/static/disclaimer.html'
     })
     .otherwise({
       controller: 'Error404Controller',
@@ -41,7 +41,7 @@
     // Privacy Policy Page
     $routeProvider
     .when('/privacy-policy', {
-      templateUrl: 'app/views/pages/privacy-policy.html'
+      templateUrl: 'app/views/static/privacy-policy.html'
     })
     .otherwise({
       controller: 'Error404Controller',
@@ -66,6 +66,16 @@
       templateUrl: 'app/views/pages/answer.html',
       controller: 'AnswerController',
       controllerAs: 'vm'
+    })
+    .otherwise({
+      controller: 'Error404Controller',
+      templateUrl: 'app/views/errors/404.html'
+    });
+
+    // Algorithm Explainer Page
+    $routeProvider
+    .when('/how-it-works', {
+      templateUrl: 'app/views/static/how-it-works.html'
     })
     .otherwise({
       controller: 'Error404Controller',

@@ -36,10 +36,12 @@
  |
  | yesNoMaybeAlgorithm().then(function() {
  |
- |  - Determine a list of the top 50 worst nutritional datapoints for you
- |    and a list of the top 50 best based on highly reputable sources. This
+ |  - Each food will start with a "Health Score" of 100 points. That represents
+      the highest health score possible for any given food which means its ultra
+      healthy for you.
+    - Determine a list of the top 30 worst nutrients and minerals for you
+ |    and a list of the top 30 healthiest based on highly reputable sources. This
  |    list will be called the "Optimal Nutrition Index" or the "ONI" list.
- |  - Cite your sources somewhere most likely the algorithm explainer page
  |  - Basically the algorithm will compare these two lists to each food's
  |    nutrition facts and ultimately determine if that food is MORE bad
  |    for you than good for you or vice versa based on certain criteria.
@@ -51,33 +53,23 @@
  |        nutrition which is a hard sell for now. This is why we have
  |        layers...
  |      - First, for each nutrition fact of that food, if it is in ONI
-          of bad nutrition data points then it will lose an int. For each
+          of bad nutrition data points then it will not gain an int. For each
           nutriton fact of that food that is in our ONI good list it will
           gain an integer. This will sum up to a "Layer 1 Score". Thus a
-          food's "layer 1 score" can only ever go as high as 50 points
-          or as low as 50 points.
-            - Max number of Points: 50
+          food's "layer 1 score" can only ever go as high as 30 points
+          or as low as 1 points.
+            - Max number of Points: 30
         - Second, the algorithm will consider the calories per 100 grams.
           Basically this will be based on a spectrum. We will take the daily
           recommended caloric intake for most people and divide that by our
           food's calories per 100 grams. This will tell us how many 100 grams servings of that food you can eat until reaching your daily caloric intake. Thus, our numeric spectrum goes from 1 to 2500. We then take this number, divide it by 100 and use that as our "Layer 2 Score" This assumes that the more of something you can eat without exceeding your recommended caloric intake the, healthier it is for you. Based on where a certain food falls on that spectrum, we will take that number and call it our "Layer 2 Score".
             - Max number of Points: 25
             - source for using 2500 calories as lifetime average. https://www.cnpp.usda.gov/sites/default/files/usda_food_patterns/EstimatedCalorieNeedsPerDayTable.pdf
-        - Third, We will consider protein versus carbs and complex carbs. It seems that
-          the relationship between these two is that they are inverses of each other. In
-          other words, the more protein over carbs a food has the better it is for you
-          while the more carbs over proteins a food has the worse it is for you. But what
-          if the foods have equal amounts of each? Seeing as how really any carb intake
-          whatsoever is not recommended as healthy for you, we will offset this by
-          counting every carb as 2. So if a food has 10 carb per serving, it will really
-          count as 20 carbs per serving. (This 2x factor will require some heavy empirical
-          evidence that carbs are really, really bad for you). Our "Layer 3 Score" will
-          consist of carbs per serving times 2 divided protein per serving. The idea here is that really any carbs are bad for you and thus our "Layer 3 Score"  should aim to be in the negatives. If it is then we will add that to our overall score as a postive
-          number. If the "Layer 3 Score " is in the positives then we will subtract
-          that nubmer from our overall score.
-        - Fourth, the algorithm will consider that food's food group. This will require a list of the bad food groups and the good groups and assign an int?
-          - Max number of points: 10
-
+        - Third, we will consider total trans-fats. According to the American Heart Association:
+          "Limiting the amount of trans fats to less than 1 percent of your total daily calories. That means if you need about 2,000 calories a day, less than 20 calories (or 2 grams) should come from trans fats" - For our purposes we will use 2500 calories a day which means a maximum recommended limit of 2.5 grams trans fat a day. Since all of our food data is measured per every 100 grams of the food in questions, we will take the amount of calories for every 100 grams of that food, divide 2500 by that number, (2500 / 300kcal) = 8.1, take that result, multiply our total-trans fat per every 100 grams figure. If the product of this exceeds 2.5 grams then we will subtract 15 points from the total score. If it doesn't then nothing will happen to the total score.
+        - Fourth, we will consider total sugar.
+        - Fifth, the algorithm will consider that food's food group. Currently there are 25 food groups listed in NDB. While most of these food groups don't really indicate how healthy any of the foods that full under it are, there are a few groups that once can confidently identify as mostly unhealthy i.e. fast food, sweets. and other food groups one can for sure say are healthy i.e. fruits, vegetables, legumes, nut & seed, fats & oils. Therefore for each food group we've identified as mostly healthy we will attribute 5 points max since food group doesn't matter as much as the previous layers.
+          - Max number of points: 15
 
 
 
