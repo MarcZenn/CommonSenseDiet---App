@@ -72,10 +72,20 @@
       templateUrl: 'app/views/errors/404.html'
     });
 
-    // Algorithm Explainer Page
+    // How It Works Page
     $routeProvider
     .when('/how-it-works', {
       templateUrl: 'app/views/static/how-it-works.html'
+    })
+    .otherwise({
+      controller: 'Error404Controller',
+      templateUrl: 'app/views/errors/404.html'
+    });
+
+    // Algorithm Explainer Page
+    $routeProvider
+    .when('/meet-ONNA', {
+      templateUrl: 'app/views/static/meet-ONNA.html'
     })
     .otherwise({
       controller: 'Error404Controller',
