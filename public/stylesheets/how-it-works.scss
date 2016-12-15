@@ -62,6 +62,47 @@
       color: blue;
     }
   }
+}
 
+.calories-spectrum-table{
+  width: 97%;
+  margin: 35px auto 0 auto;
+  border: 1px solid lightgrey;
 
+  thead {
+    tr {
+      text-align: left;
+
+      th {
+        padding: 10px;
+        font-family: Montserrat;
+        font-weight: 200;
+        margin: 0;
+        border-bottom: 1px solid lightgrey;
+        border-right: 1px solid lightgrey;
+        background-color: grey;
+        color: white;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      text-align: left;
+
+      td {
+        color: grey;
+        padding: 10px;
+        font-family: Open Sans;
+        font-weight: 200;
+        margin: 0;
+        border-bottom: 1px solid lightgrey;
+        border-right: 1px solid lightgrey;
+      }
+
+      td.table-of-nutrients-subheader {
+        background: lightgrey;
+      }
+    }
+  }
 }
