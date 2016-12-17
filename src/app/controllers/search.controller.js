@@ -7,7 +7,7 @@
     .controller('SearchController', SearchController);
 
 
-  function SearchController($document, $scope, getSearchResults, $log, getNutritionalData, $location, $rootScope, answerService) {
+  function SearchController($document, $scope, getSearchResults, $log, getNutritionalData, $location, $rootScope, ONNAService) {
     // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures!
     var vm = this;
 
@@ -19,7 +19,7 @@
      */
     vm.activate = function(searchterm) {
       return getSearchResults.getSearchResultsList(searchterm).then(function(data) {
-        
+
         if(data && data.list) {
 
           vm.searchresultsarray = data.list.item;
@@ -49,7 +49,7 @@
 
         if (vm.foodNutritionData) {
           // send data to service algorithm answer.service.js which will save the food's nutrition data to sessionStorage and return a promise.
-          answerService.yesNoMaybePromise(vm.foodNutritionData).then(function(answer) {
+          ONNAService.callONNA(vm.foodNutritionData).then(function(answer) {
             if (answer) {
               // We initialize the AnswerController when we redirect to its page answer.html. That controller will handle building our answer page and displaying food data from sessionStorage.
               return $location.path('answer');

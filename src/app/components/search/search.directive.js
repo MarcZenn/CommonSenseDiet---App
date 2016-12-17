@@ -26,7 +26,7 @@
       // This event handler is called by the ngKeyup directive in home.html and primary-search.html.
       vm.handleKeyupEvent = function() {
         // Wait until search input value is defined and longer than 4 characters before initiating API search.
-        if(vm.searchterm && vm.searchterm.length >= 4) {
+        if(vm.searchterm && vm.searchterm.length >= 3) {
           initializeSearch();
         }
       };

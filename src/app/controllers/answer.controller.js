@@ -28,7 +28,7 @@
     // This gets called from the search.controller.js $rootScope listener and loads local storage data once and once only which is when the init click event occurs. The function below reloads the data once you're already on the page and happen to refresh.
     vm.getLocalStorageData = function() {
       // Retrieve data that answer.service.js saved into sessionStorage
-      if(localStorageService.get('foodData')) {
+      if(localStorageService.get('foodData') && localStorageService.get('answer')) {
         // Hold the entire report in vm.stored. Hold final answer in vm.yesNoMaybe.
         vm.stored = localStorageService.get('foodData');
         vm.yesNoMaybe = localStorageService.get('answer').split(/UPC:|gtin:/g)[0].replace(/\,/g,"").toLowerCase();
