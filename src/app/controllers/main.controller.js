@@ -11,7 +11,6 @@
     // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures.
     var vm = this;
 
-
     vm.classAnimation = '';
     vm.creationDate = 1450389822870;
 
@@ -25,6 +24,7 @@
 
     $scope.$on('$destroy', function () {
       $timeout.cancel(activate)
+
     });
   }
 })();

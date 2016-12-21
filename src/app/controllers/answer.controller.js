@@ -59,8 +59,6 @@
           }
         });
 
-        $log.log(vm.stored.report);
-
       } else {
 
         $log.log('No data in localStorage or sessionStorage!');

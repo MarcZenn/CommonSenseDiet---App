@@ -18,6 +18,7 @@
       templateUrl: 'app/views/errors/404.html'
     });
 
+
     // About Page
     $routeProvider
     .when('/about', {
