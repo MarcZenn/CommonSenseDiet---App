@@ -28,7 +28,7 @@
       callONNA : ONNA,
       HealthScore: 100,
       pointsDeducted: 0,
-      ONI : ['Glucose (dextrose)', 'Cholesterol', 'Mercury', 'Sodium', 'Aspartic acid', 'Lactose', 'Sucrose', 'Tocopherol, gamma', 'Vitamin E (alpha-tocopherol)', 'Vitamin E, added', 'Tocopherol, delta', 'Theobromine', 'Dihydrophylloquinone', 'Alcohol, ethyl','Maltose', 'Galactose', 'Fructose', 'Starch',"Fatty acids, total trans-monoenoic", "Fatty acids, total trans-polyenoic", 'Palm Oil', 'Yellow 5', 'Color Added', 'Lactic Acid', 'Corn syrup', 'Yellow 6', 'Blue 1']
+      ONI : ['Glucose (dextrose)', 'Cholesterol', 'Mercury', 'Sodium', 'Aspartic acid', 'Sucrose', 'Tocopherol, gamma', 'Vitamin E, added', 'Tocopherol, delta', 'Theobromine', 'Dihydrophylloquinone', 'Alcohol, ethyl','Maltose', 'Galactose', 'Fructose', 'Starch',"Fatty acids, total trans-monoenoic", "Fatty acids, total trans-polyenoic", 'Palm Oil', 'Yellow 5', 'Color Added', 'Lactic Acid', 'Corn syrup', 'Yellow 6', 'Blue 1']
     };
 
     return service;
@@ -46,70 +46,87 @@
 
         // THIRD, step
         var checkONI = function() {
-          service.ONI.forEach( function(oniNutrient) {
+          service.ONI.forEach(function(oniNutrient) {
             data.report.food.nutrients.forEach(function(badNutrient) {
               if (oniNutrient == badNutrient.name) {
                 service.pointsDeducted += 1;
+                $log.log(oniNutrient);
               }
             });
           });
-          $log.log(service.pointsDeducted + ' point lost due to dangerous nutrients');
+          $log.log(service.pointsDeducted + ' points lost due to dangerous nutrients');
           return - service.pointsDeducted; // return number of points deducted.
         }
         var checkKcals = function() {
-          var energy = data.report.food.nutrients.filter(function(key) {
+          var kCals = data.report.food.nutrients.filter(function(key) {
             if (key.name == 'Energy' && key.unit == 'kcal') {
               return key.value;
             }
           });
-          if(energy[0].value <= 99) {
-            // If total kCals is less than 3 digits long
+          if(kCals[0].value <= 99) {
+            // if total kCals is less than 3 digits long
             service.pointsDeducted = 1;
-          } else if(energy[0].value >= 100) {
+          } else if(kCals[0].value >= 100) {
             // if total kCals is 3 digits or longer
-            service.pointsDeducted = Math.round(energy[0].value / 100);
+            service.pointsDeducted = Math.round(kCals[0].value / 100);
           }
-          $log.log(service.pointsDeducted + ' point lost due to calories');
-          return - service.pointsDeducted; // return number of points deducted.
+          $log.log(service.pointsDeducted + ' points lost due to calories');
+          return - service.pointsDeducted;
         }
         var checkTransFats = function() {
-
-
-          return - 0; // return number of points deducted.
+          var transFats = data.report.food.nutrients.filter(function(key) {
+            if (key.name == 'Fatty acids, total trans') {
+              return key.value;
+            }
+          });
+          if (transFats.length) {
+            service.pointsDeducted = transFats[0].value / .1 * 2;
+          } else {
+            service.pointsDeducted = 0;
+          }
+          $log.log(service.pointsDeducted + ' points lost due to trans fats');
+          return - service.pointsDeducted;
         }
         var checkSugar = function() {
-
-
-          return - 0; // return number of points deducted.
+          var sugar = data.report.food.nutrients.filter(function(key) {
+            if (key.name == 'Sugars, total') {
+              return key.value;
+            }
+          });
+          if (sugar.length) {
+            service.pointsDeducted = sugar[0].value / 1 * 1.5;
+          } else {
+            service.pointsDeducted = 0;
+          }
+          $log.log(service.pointsDeducted + ' points lost due to sugar');
+          return - service.pointsDeducted;
         }
 
         // FOURTH step
         var checkFoodGroup= function() {
-
-          return - 0; // return number of points deducted.
-        }
-        var checkSomething = function() {
-
-
-          return - 0; // return number of points deducted.
+          if(data.report.food.fg == 'Sweets' || data.report.food.fg == 'Fast Foods') {
+            service.pointsDeducted = 10;
+          }
+          $log.log(service.pointsDeducted + ' points lost due to food group');
+          return - service.pointsDeducted;
         }
 
         // FIFTH step
-        var primaryLayers  = [checkONI, checkKcals, checkSugar, checkTransFats,checkFoodGroup,checkSomething];
+        var evaluators  = [checkONI, checkKcals, checkSugar, checkTransFats, checkFoodGroup];
 
         // SIXTH step
         var executeAsynchronously = function(functions) {
           // Set newScore back to 100 everytime this function is called to avoid newScore being added on top of newScore when user chains searches together without refreshing.
-          var newScore = service.HealthScore;
+          var finalScore = service.HealthScore;
 
-          // call layers.
+          // get final health score
           functions.forEach(function(i) {
-              newScore = newScore + i.call();
+              finalScore = finalScore + i.call();
           });
 
-          $log.log(newScore);
+          $log.log(finalScore);
           // Set our final answer to true or false based on the final Health Score and save to sessionStorage.
-          if(newScore && newScore <= 69) {
+          if(finalScore && finalScore <= 69) {
 
             service.theAnswer = 'NO';
             localStorageService.set('answer', service.theAnswer);
@@ -128,7 +145,7 @@
         }
 
         // SEVENTH step
-        executeAsynchronously(primaryLayers);
+        executeAsynchronously(evaluators);
 
       } else if (!localStorageService.isSupported) {
 

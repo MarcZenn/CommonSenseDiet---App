@@ -18,7 +18,6 @@
       templateUrl: 'app/views/errors/404.html'
     });
 
-
     // About Page
     $routeProvider
     .when('/about', {
@@ -29,10 +28,10 @@
       templateUrl: 'app/views/errors/404.html'
     });
 
-    // Disclaimer Page
+    // Terms of Use Page
     $routeProvider
-    .when('/disclaimer', {
-      templateUrl: 'app/views/static/disclaimer.html'
+    .when('/terms-of-use', {
+      templateUrl: 'app/views/static/terms-of-use.html'
     })
     .otherwise({
       controller: 'Error404Controller',
@@ -92,7 +91,5 @@
       controller: 'Error404Controller',
       templateUrl: 'app/views/errors/404.html'
     });
-
   }
-
 })();

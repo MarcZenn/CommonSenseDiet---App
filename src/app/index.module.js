@@ -4,7 +4,6 @@
   // TODO:: Buy domain for this site and configure to heroku.
   // TODO:: HTTPS
   // TODO:: Add Google Analytics and Adsense - https://www.google.com/adsense/start/
-  // TODO:: Develop algorithm to dictate if given food is good or bad for you.
   // TODO:: hookup contact form.
   // TODO:: write spec tests for all services, controllers and factories.
   // TODO:: Make a list of beta testers and send invites.
