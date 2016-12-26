@@ -7,19 +7,19 @@
     .controller('SearchController', SearchController);
 
 
-  function SearchController($document, $scope, getSearchResults, $log, getNutritionalData, $location, $rootScope, ONNAService) {
+  function SearchController($document, $scope, getSearchResults, $log, $location, $rootScope, getNutritionalData, ONNAService) {
     // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures!
     var vm = this;
 
-    vm.searchresultsarray = [];
-
-    /* For Search Results Listing -
+    /* For Search Results List -
      *
-     * Called from search.directive.js upon ngkeyup. It will take the search query and init a new API call to get a list of foods based on the search query from getSearchResults.service.js then set what gets returned to the "view-model" vm.
+     * Called from search.directive.js upon ngkeyup event. It will take the search query and init a new API call to get a list of foods based on the search query from the view input then return an array of our results attached to the "view-model" as vm.searchresultsarray.
      */
-    vm.activate = function(searchterm) {
+    vm.search = function(searchterm) {
       return getSearchResults.getSearchResultsList(searchterm).then(function(data) {
-
+        // hide loading spinner
+        angular.element($document[0].querySelector('.search-icon')).addClass('not-visible');
+        
         if(data && data.list) {
 
           vm.searchresultsarray = data.list.item;
@@ -39,7 +39,7 @@
      *
      * This is a click event handler for the primary-search.html template (ngclick).   * When a search result is clicked on, it will take that result's ID (ndbno) and init a new API call to grab the rest of the nutritional data for that specific food. It then takes that data and passes it to our algorithm service/sessionStorage service which returns a promise with a 'yes', 'no', or 'mabye' string for answer.controller.js to use.
      */
-    vm.goToSearchResult = function(id) {
+     vm.goToSearchResult = function(id) {
 
       vm.foodNutritionData = null;
 
