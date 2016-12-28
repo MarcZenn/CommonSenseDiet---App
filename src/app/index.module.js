@@ -5,8 +5,8 @@
   // TODO:: HTTPS
   // TODO:: Fix stupid underscore bower component 404 issue
   // TODO:: Update README
+  // TODO:: if in production serve dist else serve src app.js - ugh
   // TODO:: Add Google Analytics and Adsense - https://www.google.com/adsense/start/
-  // TODO:: hookup contact form.
   // TODO:: move all API search hits to backend?
   // TODO:: How to account for a true 'serving-size' per food?????
   // TODO:: write spec tests for all services, controllers and factories.

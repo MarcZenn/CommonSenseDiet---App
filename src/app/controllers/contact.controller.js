@@ -16,7 +16,7 @@
 
     vm.processContactForm = function() {
 
-      return $http.post('/submitContactUsForm', vm.contactInfo)
+      return $http.post('/api/submitContactUsForm', vm.contactInfo)
           .then(returnSendSuccessful)
           .catch(sendFail);
 
