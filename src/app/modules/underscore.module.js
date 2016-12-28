@@ -3,10 +3,10 @@
 
   angular
     .module('underscore', [])
-    .factory('_', ['$window', function($window) {
+    .factory('_', _)
 
+    function _($window) {
       return $window._;
-
-    }]);
+    }
 
 })();

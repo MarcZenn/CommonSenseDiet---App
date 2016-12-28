@@ -16,10 +16,11 @@
      * Called from search.directive.js upon ngkeyup event. It will take the search query and init a new API call to get a list of foods based on the search query from the view input then return an array of our results attached to the "view-model" as vm.searchresultsarray.
      */
     vm.search = function(searchterm) {
+
       return getSearchResults.getSearchResultsList(searchterm).then(function(data) {
-        // hide loading spinner
-        angular.element($document[0].querySelector('.search-icon')).addClass('not-visible');
-        
+        // hide search load spinner
+        angular.element($document[0].querySelector('.loader')).addClass('not-visible');
+
         if(data && data.list) {
 
           vm.searchresultsarray = data.list.item;

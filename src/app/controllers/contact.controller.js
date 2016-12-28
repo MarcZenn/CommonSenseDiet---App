@@ -10,17 +10,19 @@
 		// controllerAs syntax
 		var vm = this;
 
-    vm.processContactForm = function() {
-      // Further form validation.
-      // $log.log(vm.email);
+    vm.contactInfo = {
+      email: vm.email
+    }
 
-      return $http.post('/submitContactUsForm')
+    vm.processContactForm = function() {
+
+      return $http.post('/submitContactUsForm', vm.contactInfo)
           .then(returnSendSuccessful)
           .catch(sendFail);
 
-
       function returnSendSuccessful(response) {
-        return response.data;
+        $log.log(response);
+        // return response.data;
       }
 
       function sendFail(err) {

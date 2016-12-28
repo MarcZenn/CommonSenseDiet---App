@@ -1,49 +1,17 @@
 'use strict';
 
-var express = require('express');
-var cors = require('cors');
-var bodyParser = require('body-parser');
-var http = require('http')
-
-var contactController = require('.././api/http/controllers/contactcontroller.js');
-
-// require database data modeling via mongoose
-var mongoose = require('mongoose');
-
-// Express Session allows us to use Cookies to keep track of
-// a user across multiple pages. We also need to be able to load
-// those cookies using the cookie parser
-var session = require('express-session');
-var cookieParser = require('cookie-parser');
-
-// Flash allows us to store quick one-time-use messages
-// between views that are removed once they are used.
-// Useful for error messages.
-var flash = require('connect-flash');
-
-
-// Use express and set it up
-var app = express();
-app.use(cors());
-app.set('views', __dirname + '/views');
-app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json())
-
-app.post('/submitContactUsForm', contactController.contactUs);
-// Connect to DB (for messing around in localhost)?
-// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost');
-
 var path = require('path');
+var port = process.env.PORT || 8080;
 var gulp = require('gulp');
 var conf = require('./conf');
 var browserSync = require('browser-sync').create();
 var browserSyncSpa = require('browser-sync-spa');
 var util = require('util');
 var proxyMiddleware = require('http-proxy-middleware');
+var nodemon = require('gulp-nodemon');
+var reload = browserSync.reload;
 
 function browserSyncInit(baseDir, browser) {
-  browser = browser === undefined ? 'default' : browser;
 
   var routes = null;
   if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
@@ -52,50 +20,52 @@ function browserSyncInit(baseDir, browser) {
     };
   }
 
-  /*``
-   * You can add a proxy to your backend by uncommenting the line below.
-   * You just have to configure a context which will we redirected and the target url.
-   * Example: $http.get('/users') requests will be automatically proxified.
-   *
-   * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
-   */
-
-  // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true});
-
   browserSync.instance = browserSync.init({
     startPath: '/',
     cors: true,
-    browser: browser,
-    port: 8080,
-    server: {
-      baseDir: baseDir,
-      routes: routes,
-      middleware: function (req, res, next) {
-          res.setHeader('Access-Control-Allow-Origin', '*');
-          res.setHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Accept");
-          res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
-          next();
-      }
-    },
+    browser: browser = browser === undefined ? 'default' : browser,
+    proxy: 'http://localhost:8081',
+    port: port
+    // https: true
   });
 }
 
 browserSync.use(browserSyncSpa({
-  selector: '[ng-app]'// Only needed for angular apps
+  selector: '[ng-app]' // Only needed for angular apps
 }));
 
-gulp.task('serve', ['setenvconstants','watch'], function () {
+// Run gulp tasks
+gulp.task('serve', ['browser-sync','setenvconstants','watch'], function () {
+  return;
+});
+gulp.task('browser-sync', ['nodemon'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
 });
-
 gulp.task('serve:dist', ['setenvconstants','build'], function () {
   browserSyncInit(conf.paths.dist);
 });
-
 gulp.task('serve:e2e', ['inject'], function () {
   browserSyncInit([conf.paths.tmp + '/serve', conf.paths.src], []);
 });
-
 gulp.task('serve:e2e-dist', ['build'], function () {
   browserSyncInit(conf.paths.dist, []);
+});
+gulp.task('nodemon', [], function(done) {
+    var running = false;
+
+    return nodemon({
+      script: 'api/app.js',
+      watch: ['api/**/*.*']
+    })
+    .on('start',function() {
+      if (!running) {
+        done();
+      }
+      running = true;
+    })
+    .on('restart', function() {
+      setTimeout(function(){
+        reload();
+      }, 500);
+    });
 });

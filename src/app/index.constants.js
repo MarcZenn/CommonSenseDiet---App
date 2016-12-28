@@ -8,6 +8,6 @@
   angular
     .module('commonSenseDietApp')
     .constant('malarkey', malarkey)
-    .constant('moment', moment);
+    .constant('moment', moment)
 
 })();

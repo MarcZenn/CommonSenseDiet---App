@@ -4,7 +4,7 @@
 <!-- Search Bar -->
 <div id="move-searchbar" class="searchbar-container">
   <input class="home-searchbar" type="text" ng-model="vm.searchterm" ng-model-options="{debounce: 200}" placeholder="Raw Oranges..." ng-change="vm.handleQueryInput()">
-  <img ng-click="vm.handleKeyupEvent()" class="search-icon not-visible" src="../../.././assets/images/search_icon_1.png"/>
+  <img ng-click="vm.handleQueryInput()" class="search-icon not-visible" src="../../.././assets/images/search_icon_1.png"/>
 </div>
 
 <!-- Search Results -->
