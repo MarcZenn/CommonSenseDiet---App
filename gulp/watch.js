@@ -19,8 +19,8 @@ gulp.task('watch', ['markups', 'inject'], function () {
   gulp.watch([
     path.join(conf.paths.src, '/app/**/*.css'),
     path.join(conf.paths.src, '/app/**/*.scss'),
-    path.join(conf.paths.src, '../public/**/*.scss'),
-    path.join(conf.paths.src, '../public/**/*.css')
+    path.join(conf.paths.src, '../src/public/**/*.scss'),
+    path.join(conf.paths.src, '../src/public/**/*.css')
   ], function(event) {
     if(isOnlyChange(event)) {
       gulp.start('styles-reload');

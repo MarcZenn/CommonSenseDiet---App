@@ -4,7 +4,6 @@
   // TODO:: Buy domain for this site and configure to heroku.
   // TODO:: HTTPS
   // TODO:: Fix stupid underscore bower component 404 issue
-  // TODO:: Update README
   // TODO:: if in production serve dist else serve src app.js - ugh
   // TODO:: Add Google Analytics and Adsense - https://www.google.com/adsense/start/
   // TODO:: move all API search hits to backend?

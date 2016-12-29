@@ -8,12 +8,12 @@ CURRENTLY UNDER CONSTRUCTION
 
 The CommonSenseDiet website is the simplest way to know if a certain food or
 dish is healthy for you (or not healthy for you) with a simple yes or no...thats it. Nothing more.
-Simply look up your foods/meals and get a YES or NO response. What do we know about nutrition?...
-Nothing! We just go off of ingredients and nutrition facts and give you our best, common sense, opinion.
+Simply look up your foods/meals and get a YES or NO response.
+
 Eating right is simple...Don't eat junk.
 
 While the developers of this project want to keep this app small, we are
-eager to maintin a robust, collaborative, open-source code base.
+eager to maintain a robust, collaborative, open-source code base.
 
 # Requirements
 
@@ -45,52 +45,134 @@ Once you have the repo in your local machine simply run the following commands:
 At the moment this is highly subject to change but will updated regularly.  
 
 ```
-├── app
-│   ├── components
-│   │   ├── getFoodNamesOnly
-│   │   │   ├── getFoodNamesOnly.service.js
-│   │   │   └── getFoodNamesOnly.service.spec.js
-│   │   ├── malarkey
-│   │   │   ├── malarkey.directive.js
-│   │   │   └── malarkey.directive.spec.js
-│   │   ├── navbar
-│   │   │   ├── navbar.directive.js
-│   │   │   └── navbar.directive.spec.js
-│   │   └── webDevTec
-│   │       ├── webDevTec.service.js
-│   │       └── webDevTec.service.spec.js
-│   ├── index.config.js
-│   ├── index.constants.js
-│   ├── index.module.js
-│   ├── index.route.js
-│   ├── index.run.js
-│   ├── index.scss
-│   ├── main
-│   │   ├── main.controller.js
-│   │   └── main.controller.spec.js
-│   ├── stylesheets
-│   │   ├── Partials
-│   │   │   ├── malarkey.scss
-│   │   │   └── navbar.scss
-│   │   └── home.scss
-│   └── views
-│       ├── pages
-│       │   └── home.html
-│       └── partials
-│           └── navbar.html
-├── assets
-│   └── images
-│       ├── angular.png
-│       ├── browsersync.png
-│       ├── gulp.png
-│       ├── jade.png
-│       ├── jasmine.png
-│       ├── karma.png
-│       ├── node-sass.png
-│       ├── protractor.png
-│       └── yeoman.png
-├── favicon.ico
-└── index.html
+.
+├── api
+│   ├── app.js
+│   └── http
+│       ├── controllers
+│       │   ├── emailController.js
+│       │   └── indexController.js
+│       └── routes
+│           └── web.js
+├── bower.json
+├── config.json
+├── dist
+│   ├── assets
+│   │   ├── favicons.ico
+│   │   └── images
+│   │       ├── angular.png
+│   │       ├── browsersync.png
+│   │       ├── gulp.png
+│   │       ├── jade.png
+│   │       ├── jasmine.png
+│   │       ├── karma.png
+│   │       ├── node-sass.png
+│   │       ├── protractor.png
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── maps
+│   │   ├── scripts
+│   │   └── styles
+│   ├── scripts
+│   └── styles
+├── envpreconfig.js
+├── gulp
+│   ├── build.js
+│   ├── conf.js
+│   ├── e2e-tests.js
+│   ├── inject.js
+│   ├── markups.js
+│   ├── scripts.js
+│   ├── server.js
+│   ├── styles.js
+│   ├── unit-tests.js
+│   └── watch.js
+├── gulpfile.js
+├── karma.conf.js
+├── package.json
+├── protractor.conf.js
+├── src
+│   ├── app
+│   │   ├── components
+│   │   │   ├── malarkey
+│   │   │   │   ├── malarkey.directive.js
+│   │   │   │   └── malarkey.directive.spec.js
+│   │   │   ├── partials
+│   │   │   │   ├── footer
+│   │   │   │   │   └── footer.directive.js
+│   │   │   │   └── navbar
+│   │   │   │       ├── navbar.directive.js
+│   │   │   │       └── navbar.directive.spec.js
+│   │   │   └── search
+│   │   │       └── search.directive.js
+│   │   ├── controllers
+│   │   │   ├── answer.controller.js
+│   │   │   ├── contact.controller.js
+│   │   │   ├── error404.controller.js
+│   │   │   ├── main.controller.js
+│   │   │   ├── main.controller.spec.js
+│   │   │   ├── partials
+│   │   │   │   ├── malarkey.controller.js
+│   │   │   │   └── navbar.controller.js
+│   │   │   └── search.controller.js
+│   │   ├── factories
+│   │   │   ├── getFoodNamesOnly.factory.js
+│   │   │   ├── getFoodNamesOnly.service.spec.js
+│   │   │   ├── getNutritionalData.factory.js
+│   │   │   └── getSearchResults.factory.js
+│   │   ├── index.config.js
+│   │   ├── index.constants.js
+│   │   ├── index.module.js
+│   │   ├── index.route.js
+│   │   ├── index.run.js
+│   │   ├── index.scss
+│   │   ├── modules
+│   │   │   ├── config.js
+│   │   │   └── underscore.module.js
+│   │   ├── services
+│   │   │   ├── ONNA.service.js
+│   │   │   └── paginator.service.js
+│   │   └── views
+│   │       ├── components
+│   │       │   └── primary-search.html
+│   │       ├── errors
+│   │       │   └── 404.html
+│   │       ├── pages
+│   │       │   ├── answer.html
+│   │       │   ├── contact.html
+│   │       │   ├── home.html
+│   │       │   └── submitNewFood.html
+│   │       ├── partials
+│   │       │   ├── footer.html
+│   │       │   └── navbar.html
+│   │       └── static
+│   │           ├── about.html
+│   │           ├── how-it-works.html
+│   │           ├── meet-ONNA.html
+│   │           ├── privacy-policy.html
+│   │           └── terms-of-use.html
+│   ├── assets
+│   │   └── images
+│   ├── favicon.ico
+│   ├── index.html
+│   └── public
+│       └── stylesheets
+│           ├── Partials
+│           │   ├── footer.scss
+│           │   ├── malarkey.scss
+│           │   ├── navbar.scss
+│           │   └── paginator.scss
+│           ├── about.scss
+│           ├── answer.scss
+│           ├── contactus.scss
+│           ├── global-selectors.scss
+│           ├── home.scss
+│           ├── how-it-works.scss
+│           ├── privacy-policy.scss
+│           ├── search.scss
+│           ├── terms-of-use.scss
+│           └── variables.scss
+└── user-guide.md
 
 ```
 

@@ -34,10 +34,9 @@ browserSync.use(browserSyncSpa({
   selector: '[ng-app]' // Only needed for angular apps
 }));
 
-// Run gulp tasks
-gulp.task('serve', ['browser-sync','setenvconstants','watch'], function () {
-  return;
-});
+// Run Gulp tasks
+gulp.task('serve', ['browser-sync','setenvconstants','watch']);
+
 gulp.task('browser-sync', ['nodemon'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
 });
@@ -55,7 +54,7 @@ gulp.task('nodemon', [], function(done) {
 
     return nodemon({
       script: 'api/app.js',
-      watch: ['api/**/*.*']
+      watch: ['api/**/*.*', 'src/**/*.*']
     })
     .on('start',function() {
       if (!running) {

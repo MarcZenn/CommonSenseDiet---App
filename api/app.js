@@ -18,8 +18,7 @@ var http = require('http');
 var port = process.env.PORT || 8081;
 var cors = require('cors');
 var path = require('path');
-// public routes
-var routes = require('./http/routes/web.js');
+var publicRoutes = require('./http/routes/web.js');
 
 // require database data modeling via mongoose
 var mongoose = require('mongoose');
@@ -37,24 +36,29 @@ var flash = require('connect-flash');
 
 // Use Express and set it up
 var app = express();
-app.use(cors()); // use cors
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json({type: '*/*', limit: '50mb'})); // Parse requests to JSON
-app.set('view engine', 'jade'); // set Jade as the view engine
-app.set('views', __dirname + '/.././src/app/views'); // tell server where to find our views
-app.use(express.static(__dirname + '/.././dist')); // tell our server where to find static assets
-app.use('/bower_components', express.static(path.resolve('.././bower_components'))); // make sure bower components are installed.
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
-  next();
-}); // enable cors
+// Parse requests to JSON
+app.use(bodyParser.json({type: '*/*', limit: '50mb'}));
+// set Jade as the view engine
+app.set('view engine', 'jade');
+// tell server where to find our views
+app.set('views', __dirname + '/.././src/app/views');
+// make sure bower components are installed.
+app.use('/underscore', express.static(path.resolve('.././node_modules/underscore')));
+// tell our server where to find static assets depending on the environment.
+process.env.NODE_ENV == 'production' ? app.use(express.static(path.join(__dirname + '/../..'))) : app.use(express.static(path.join(__dirname + '/.././dist')));
+// enable cors
+app.use(cors({
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "allowedHeaders": ["Origin, X-Requested-With, Content-Type, Accept, Authorization"],
+  "preflightContinue": false
+}));
 
-// get our index.html, our routes and render our Single Page Application.
-app.use('/api', routes);
+// Pull in our public routes
+app.use('/api', publicRoutes);
 
-
+// Listen
 app.listen(port, function(error) {
   if (error) {
     console.error(error);
