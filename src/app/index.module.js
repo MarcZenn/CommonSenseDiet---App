@@ -1,7 +1,6 @@
 (function() {
   'use strict';
   // TODO:: Learn how to deploy this damn thing....(heroku & codeship)
-  // TODO:: Buy domain for this site and configure to heroku.
   // TODO:: HTTPS
   // TODO:: Fix stupid underscore bower component 404 issue
   // TODO:: if in production serve dist else serve src app.js - ugh
