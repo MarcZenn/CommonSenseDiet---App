@@ -53,7 +53,7 @@ app.set('views', __dirname + '/.././src/app/views');
 // make sure bower components are installed.
 app.use('/underscore', express.static(path.resolve('.././node_modules/underscore')));
 // tell our server where to find static assets depending on the environment.
-process.env.NODE_ENV == 'production' ? app.use(express.static(path.join(__dirname + '/../..'))) : app.use(express.static(path.join(__dirname + '/.././dist')));
+process.env.NODE_ENV !== 'production' ? app.use(express.static(path.join(__dirname + '/../..'))) : app.use(express.static(path.join(__dirname + '/.././dist')));
 
 // Pull in our public routes
 app.use('/api', publicRoutes);
