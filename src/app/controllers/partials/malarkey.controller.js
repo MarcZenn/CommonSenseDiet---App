@@ -21,7 +21,7 @@
             $log.info('Activated Foods List Typer');
           })
           .catch(function () {
-            console.log("Promise Rejected");
+            $log.log('Promised Failed');
           });
         }
 
@@ -33,7 +33,7 @@
             return vm.foodnameslist ;
           })
           .catch(function () {
-            console.log("Promise Rejected");
+            $log.log('Promised Failed');
           });
         }
       }

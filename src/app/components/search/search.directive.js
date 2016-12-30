@@ -71,7 +71,7 @@
           }
         })
         .catch(function () {
-          console.log("Promise Rejected");
+          $log.log('Promised Failed');
         });
       }
     }

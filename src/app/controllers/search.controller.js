@@ -35,7 +35,7 @@
         }
       })
       .catch(function () {
-        console.log("Promise Rejected");
+        $log.log('Promised Failed');
       });
     }
 
@@ -58,6 +58,9 @@
               // We initialize the AnswerController when we redirect to its page answer.html. That controller will handle building our answer page and displaying food data from sessionStorage.
               return $location.path('answer');
             }
+          })
+          .catch(function () {
+            $log.log('Promised Failed');
           });
 
         } else {
@@ -66,7 +69,7 @@
         }
       })
       .catch(function () {
-        console.log("Promise Rejected");
+        $log.log('Promised Failed');
       });
     }
 

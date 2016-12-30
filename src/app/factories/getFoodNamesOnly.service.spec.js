@@ -39,7 +39,7 @@
           data = fetchedData;
         })
         .catch(function () {
-          console.log("Test Promise Rejected");
+          $log.log('Promised Failed');
         });
         $httpBackend.flush();
         expect(data).toEqual(jasmine.any(Array));
@@ -54,7 +54,7 @@
           data = fetchedData;
         })
         .catch(function () {
-          console.log("Test Promise Rejected");
+          $log.log('Promised Failed');
         });
         $httpBackend.flush();
         expect(data).toEqual(jasmine.any(Array));
