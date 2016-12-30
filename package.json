@@ -1,6 +1,6 @@
 {
   "name": "commonSenseDietApp",
-  "version": "0.0.1",``
+  "version": "0.0.1",
   "dependencies": {
     "body-parser": "^1.14.2",
     "connect-flash": "^0.1.1",
@@ -18,7 +18,7 @@
     "bower": "^1.7.7"
   },
   "scripts": {
-    "start": "gulp build && gulp serve",
+    "start": "gulp build && gulp serve"
   },
   "devDependencies": {
     "browser-sync": "~2.17.6",
