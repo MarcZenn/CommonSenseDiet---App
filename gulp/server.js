@@ -35,7 +35,7 @@ browserSync.use(browserSyncSpa({
 }));
 
 // Run Gulp tasks
-gulp.task('serve', ['browser-sync','setenvconstants','watch']);
+gulp.task('serve', ['setenvconstants','browser-sync','watch']);
 
 gulp.task('browser-sync', ['nodemon'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);

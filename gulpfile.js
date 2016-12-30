@@ -28,7 +28,7 @@ gulp.task('setenvconstants', function () {
   // then create the global module
   .pipe(gulpNgConfig('envconfig.module', {
     createModule: true,
-    environment: process.env.NODE_ENV || 'development'
+    environment: process.env.NODE_ENV
   }))
   .pipe(gulp.dest(path.join(conf.paths.src, '/app/modules')))
 });
