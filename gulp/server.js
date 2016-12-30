@@ -1,7 +1,7 @@
 'use strict';
 
 var path = require('path');
-var port = process.env.PORT || 8080;
+var port = 8080;
 var gulp = require('gulp');
 var conf = require('./conf');
 var browserSync = require('browser-sync').create();

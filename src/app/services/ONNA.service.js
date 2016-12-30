@@ -131,7 +131,7 @@
             service.theAnswer = 'NO';
             localStorageService.set('answer', service.theAnswer);
 
-            // EIGHT step success
+            // EIGHT step NO answer
             deferred.resolve(service.theAnswer);
 
           } else {
@@ -139,7 +139,7 @@
             service.theAnswer = 'YES';
             localStorageService.set('answer', service.theAnswer);
 
-            // EIGHT step fail
+            // EIGHT step YES answer
             deferred.resolve(service.theAnswer);
           }
         }

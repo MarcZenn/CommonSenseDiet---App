@@ -25,7 +25,6 @@
           });
         }
 
-        // I have no idea how this directive has access to getFoodNamesOnly.service.js..BUT I suspect it has to do with the fact that both this directive and the service are registered to the same angular module.('commonSenseDietApp'). i.e. "The service factory function generates the single object or function that represents the service to the rest of the application." - https://docs.angularjs.org/guide/services
         function getFoodNamesList() {
           return getFoodNamesOnly.getFoodNamesList(20).then(function(data) {
             vm.foodnameslist = data;

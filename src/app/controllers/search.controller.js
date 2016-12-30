@@ -54,13 +54,13 @@
         if (vm.foodNutritionData) {
           // send data to service algorithm answer.service.js which will save the food's nutrition data to sessionStorage and return a promise.
           ONNAService.callONNA(vm.foodNutritionData).then(function(answer) {
-            if (answer) {
+            if(answer) {
               // We initialize the AnswerController when we redirect to its page answer.html. That controller will handle building our answer page and displaying food data from sessionStorage.
               return $location.path('answer');
             }
           })
-          .catch(function () {
-            $log.log('Promised Failed');
+          .catch(function(error) {
+            $log.log(error);
           });
 
         } else {
@@ -68,8 +68,8 @@
           $log.log("could not get food's nutrition data from API");
         }
       })
-      .catch(function () {
-        $log.log('Promised Failed');
+      .catch(function(error) {
+        $log.log(error);
       });
     }
 

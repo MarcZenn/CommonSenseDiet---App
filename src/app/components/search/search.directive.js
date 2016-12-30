@@ -70,8 +70,8 @@
             vm.items =  vm.searchresultsarray.slice(vm.pager.startIndex, vm.pager.endIndex + 1);
           }
         })
-        .catch(function () {
-          $log.log('Promised Failed');
+        .catch(function() {
+          $log.log("Promise Failed");
         });
       }
     }
