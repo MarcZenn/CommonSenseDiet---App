@@ -10,19 +10,24 @@
 		// controllerAs syntax
 		var vm = this;
 
-    vm.contactInfo = {
-      email: vm.email
-    }
-
     vm.processContactForm = function() {
 
-      return $http.post('/api/submitContactUsForm', vm.contactInfo)
-          .then(returnSendSuccessful)
-          .catch(sendFail);
+      var email = vm;
+
+      return $http({
+               method: 'POST',
+               url: '/api/submitContactUsForm',
+               async : true,
+               headers: {
+                 'Content-Type': 'application/json'
+               },
+               data: email
+              })
+              .then(returnSendSuccessful)
+              .catch(sendFail);
 
       function returnSendSuccessful(response) {
-        $log.log(response);
-        // return response.data;
+        return response.data.message
       }
 
       function sendFail(err) {

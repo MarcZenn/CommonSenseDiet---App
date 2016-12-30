@@ -36,9 +36,16 @@ var flash = require('connect-flash');
 
 // Use Express and set it up
 var app = express();
-app.use(bodyParser.urlencoded({extended: true}));
+// enable cors
+app.use(cors({
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "allowedHeaders": ["Origin, X-Requested-With, Accept, Content-Type, Authorization"],
+  "preflightContinue": false
+}));
 // Parse requests to JSON
 app.use(bodyParser.json({type: '*/*', limit: '50mb'}));
+app.use(bodyParser.urlencoded({extended: true}));
 // set Jade as the view engine
 app.set('view engine', 'jade');
 // tell server where to find our views
@@ -47,13 +54,6 @@ app.set('views', __dirname + '/.././src/app/views');
 app.use('/underscore', express.static(path.resolve('.././node_modules/underscore')));
 // tell our server where to find static assets depending on the environment.
 process.env.NODE_ENV == 'production' ? app.use(express.static(path.join(__dirname + '/../..'))) : app.use(express.static(path.join(__dirname + '/.././dist')));
-// enable cors
-app.use(cors({
-  "origin": "*",
-  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-  "allowedHeaders": ["Origin, X-Requested-With, Content-Type, Accept, Authorization"],
-  "preflightContinue": false
-}));
 
 // Pull in our public routes
 app.use('/api', publicRoutes);

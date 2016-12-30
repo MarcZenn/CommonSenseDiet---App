@@ -14,7 +14,7 @@ router.route('/').get(indexController.getIndex);
  *
  * Emails Controller
  * ---------------------------------------------------------------------------*/
-router.route('/submitContactUsForm').post(emailController.processContactUs);
+router.route('/submitContactUsForm').post(emailController.sendContactUsEmail);
 
 
 

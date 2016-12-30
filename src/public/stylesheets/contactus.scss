@@ -1,3 +1,16 @@
+.contact-us-title {
+	width: 90%;
+	margin: 20px auto;
+	text-align: center;
+	margin: 100px 0 0 0;
+
+	h1 {
+		font-family: Raleway;
+		font-size: 40px;
+		color: grey;
+	}
+}
+
 .contact-us-form {
 	width: 90%;
 	padding: 1rem;
@@ -29,50 +42,31 @@
 	}
 	input:focus {
 		outline:none;
-		border-color: #FF790D;
+		border-color: #36CE08;
 	}
 
 	textarea:focus {
 		outline:none;
-		border-color: #FF790D;
+		border-color: #36CE08;
 	}
 }
 
 #submit-contact-form-btn {
-	padding: 50px;
+	padding: 40px;
 	height: 50px;
 	width: 70%;
 	display: block;
 	margin: 50px auto;
 	background: white;
-	border: 1px solid #BD0B07;
+	border: 1px solid #FF790D;
 	border-radius: 5px;
-	color: #BD0B07;
+	color: #FF790D;
 	line-height: 1px;
 	font-size: 30px;
 
 	&:hover {
 		cursor: pointer;
-		background: #BD0B07;
+		background: #FF790D;
 		color: white;
-	}
-}
-
-.contact-us-title {
-	width: 90%;
-	margin: 20px auto;
-	text-align: center;
-
-
-	h1 {
-		font-family: Futura;
-		font-size: 60px;
-		color: grey;
-	}
-	p {
-		font-family: Montserrat;
-		color: #BD0B07;
-		opacity: 0.5;
-		font-size: 25px;
 	}
 }

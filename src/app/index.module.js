@@ -11,6 +11,7 @@
   // TODO:: write spec tests for all services, controllers and factories.
   // TODO:: Make a list of beta testers and send invites.
   // TODO:: 'variable-ize' css colors
+  // TODO:: You need to add your custom domain to send email from it. Your sandbox domain is only for testing purposes....
   // TODO:: how to Incorporate serving size or add a maybe response or more layers?
   // TODO:: Seek IP patent for algorithm once past beta testing.
   // TODO:: Consider switching Food Data provider to these guys - https://www.labelinsight.com/developers/pricing or these guys http://platform.fatsecret.com/api/Default.aspx?screen=prem
