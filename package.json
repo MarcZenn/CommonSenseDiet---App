@@ -14,7 +14,8 @@
     "mailgun-js": "^0.7.15",
     "mongoose": "^4.3.5",
     "normalize.css": "^3.0.3",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "bower": "^1.7.7"
   },
   "scripts": {
     "start": "gulp build && gulp serve",
