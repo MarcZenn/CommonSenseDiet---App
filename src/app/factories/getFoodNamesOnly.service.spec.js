@@ -37,6 +37,9 @@
         var data;
         getFoodNamesOnly.getFoodNamesList(1).then(function(fetchedData) {
           data = fetchedData;
+        })
+        .catch(function () {
+          console.log("Test Promise Rejected");
         });
         $httpBackend.flush();
         expect(data).toEqual(jasmine.any(Array));
@@ -49,6 +52,9 @@
         var data;
         getFoodNamesOnly.getFoodNamesList().then(function(fetchedData) {
           data = fetchedData;
+        })
+        .catch(function () {
+          console.log("Test Promise Rejected");
         });
         $httpBackend.flush();
         expect(data).toEqual(jasmine.any(Array));

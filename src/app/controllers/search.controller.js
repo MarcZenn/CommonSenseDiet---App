@@ -33,6 +33,9 @@
 
           return vm.searchresultsarray;
         }
+      })
+      .catch(function () {
+        console.log("Promise Rejected");
       });
     }
 
@@ -61,6 +64,9 @@
 
           $log.log("could not get food's nutrition data from API");
         }
+      })
+      .catch(function () {
+        console.log("Promise Rejected");
       });
     }
 

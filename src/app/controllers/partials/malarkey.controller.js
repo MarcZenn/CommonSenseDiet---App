@@ -19,6 +19,9 @@
         function activate() {
           return getFoodNamesList().then(function() {
             $log.info('Activated Foods List Typer');
+          })
+          .catch(function () {
+            console.log("Promise Rejected");
           });
         }
 
@@ -28,6 +31,9 @@
             vm.foodnameslist = data;
 
             return vm.foodnameslist ;
+          })
+          .catch(function () {
+            console.log("Promise Rejected");
           });
         }
       }

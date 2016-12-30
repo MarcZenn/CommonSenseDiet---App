@@ -69,6 +69,9 @@
             // get current page of items
             vm.items =  vm.searchresultsarray.slice(vm.pager.startIndex, vm.pager.endIndex + 1);
           }
+        })
+        .catch(function () {
+          console.log("Promise Rejected");
         });
       }
     }
