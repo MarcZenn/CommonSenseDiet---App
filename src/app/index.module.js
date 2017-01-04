@@ -1,7 +1,6 @@
 (function() {
   'use strict';
 
-  // TODO:: Learn how to deploy this damn thing....(heroku & codeship)
   // TODO:: HTTPS
   // TODO:: Fix stupid underscore bower component 404 issue
   // TODO:: if in production serve dist else serve src app.js - ugh
@@ -17,6 +16,6 @@
   // TODO:: Consider switching Food Data provider to these guys - https://www.labelinsight.com/developers/pricing or these guys http://platform.fatsecret.com/api/Default.aspx?screen=prem
 
   angular
-    .module('commonSenseDietApp', ['ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ngRoute', 'envconfig.module', 'underscore', 'LocalStorageModule']);
+    .module('commonSenseDietApp', ['ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ngRoute', 'underscore', 'LocalStorageModule']);
 
 })();

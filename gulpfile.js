@@ -9,29 +9,7 @@ var path = require('path');
 var gulp = require('gulp');
 var conf = require('./gulp/conf');
 var wrench = require('wrench');
-var clientenv = require('./clientenv.js');
 var fs = require('fs');
-var gulpNgConfig = require('gulp-ng-config');
-
-/**
- *  Environment Constants for different environments (variables).
- *  This creates a global angular module at build which can be
- *  use to expose env variables across the app!
- *
- */
-gulp.task('setenvconstants', function () {
-  // first write the json file to pass into gulp.src
-  fs.writeFileSync('./config.json',
-    JSON.stringify(clientenv)
-  );
-  gulp.src('./config.json')
-  // then create the global module
-  .pipe(gulpNgConfig('envconfig.module', {
-    createModule: true,
-    environment: process.env.NODE_ENV || 'development'
-  }))
-  .pipe(gulp.dest(path.join(conf.paths.src, '/app/modules')))
-});
 
 
 /**
