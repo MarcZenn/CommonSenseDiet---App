@@ -6,7 +6,7 @@
  ----------------------------------------------------------------------------
                       SERVE ASSETS LOCALLY W/ Browser-Sync
 
-  Run the command below in your terminal to hotload and serve assets via gulp and Browser-Sync
+  Run the command below in your terminal to build and serve assets via gulp and Browser-Sync
 
   $ npm start
 
@@ -14,7 +14,6 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-var http = require('http');
 var port = process.env.PORT || 8081;
 var cors = require('cors');
 var path = require('path');
@@ -39,7 +38,7 @@ var app = express();
 // enable cors
 app.use(cors({
   "origin": "*",
-  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "methods": "GET, HEAD, PUT, PATCH, POST, DELETE",
   "allowedHeaders": ["Origin, X-Requested-With, Accept, Content-Type, Authorization"],
   "preflightContinue": false
 }));
@@ -51,18 +50,19 @@ app.set('view engine', 'jade');
 // tell server where to find our views
 app.set('views', __dirname + '/.././src/app/views');
 // make sure bower components are installed.
-app.use('/underscore', express.static(path.resolve('.././node_modules/underscore')));
+app.use('/bower_components', express.static(path.resolve(__dirname + '.././bower_components/underscore/underscore.js')));
 // tell our server where to find static assets depending on the environment.
-process.env.NODE_ENV !== 'production' ? app.use(express.static(path.join(__dirname + '/../..'))) : app.use(express.static(path.join(__dirname + '/.././dist')));
+process.env.NODE_ENV == 'production' ? app.use(express.static(path.join(__dirname + '/../..'))) : app.use(express.static(path.join(__dirname + '/.././dist')));
 
 // Pull in our public routes
 app.use('/api', publicRoutes);
+
 
 // Listen
 app.listen(port, function(error) {
   if (error) {
     console.error(error);
   } else {
-    console.info("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", port, port);
+    console.info("==> 🌎  Client Listening on port %s. Switch to http://localhost:%s/ in your browser.", port, port);
   }
 });

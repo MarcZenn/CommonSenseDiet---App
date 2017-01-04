@@ -27,6 +27,7 @@
               .catch(sendFail);
 
       function returnSendSuccessful(response) {
+        $log.log(response);
         return response.data.message
       }
 

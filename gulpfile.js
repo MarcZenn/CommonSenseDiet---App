@@ -9,7 +9,7 @@ var path = require('path');
 var gulp = require('gulp');
 var conf = require('./gulp/conf');
 var wrench = require('wrench');
-var envpreconfig = require('./envpreconfig.js');
+var clientenv = require('./clientenv.js');
 var fs = require('fs');
 var gulpNgConfig = require('gulp-ng-config');
 
@@ -22,13 +22,13 @@ var gulpNgConfig = require('gulp-ng-config');
 gulp.task('setenvconstants', function () {
   // first write the json file to pass into gulp.src
   fs.writeFileSync('./config.json',
-    JSON.stringify(envpreconfig)
+    JSON.stringify(clientenv)
   );
   gulp.src('./config.json')
   // then create the global module
   .pipe(gulpNgConfig('envconfig.module', {
     createModule: true,
-    environment: process.env.NODE_ENV
+    environment: process.env.NODE_ENV || 'development'
   }))
   .pipe(gulp.dest(path.join(conf.paths.src, '/app/modules')))
 });

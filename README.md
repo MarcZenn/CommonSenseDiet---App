@@ -75,7 +75,7 @@ At the moment this is highly subject to change but will updated regularly.
 │   │   └── styles
 │   ├── scripts
 │   └── styles
-├── envpreconfig.js
+├── clientenv.js
 ├── gulp
 │   ├── build.js
 │   ├── conf.js

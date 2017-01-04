@@ -1,5 +1,6 @@
 (function() {
   'use strict';
+
   // TODO:: Learn how to deploy this damn thing....(heroku & codeship)
   // TODO:: HTTPS
   // TODO:: Fix stupid underscore bower component 404 issue

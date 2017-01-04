@@ -1,7 +1,7 @@
 'use strict';
 
 var path = require('path');
-var port = 8080;
+var port = 5000;
 var gulp = require('gulp');
 var conf = require('./conf');
 var browserSync = require('browser-sync').create();
@@ -14,6 +14,7 @@ var reload = browserSync.reload;
 function browserSyncInit(baseDir, browser) {
 
   var routes = null;
+
   if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
     routes = {
       '/bower_components': 'bower_components'
@@ -24,9 +25,9 @@ function browserSyncInit(baseDir, browser) {
     startPath: '/',
     cors: true,
     browser: browser = browser === undefined ? 'default' : browser,
-    proxy: 'http://localhost:8081',
-    port: port
-    // https: true
+    proxy: 'localhost:8081', // app listens on this port
+    port: port, // BrowserSync listens on this port
+    notify: true
   });
 }
 
@@ -54,7 +55,11 @@ gulp.task('nodemon', [], function(done) {
 
     return nodemon({
       script: 'api/app.js',
-      watch: ['api/**/*.*', 'src/**/*.*']
+      watch: ['api/**/*.*', 'src/**/*.*'],
+      ignore: [
+        'gulpfile.js',
+        'node_modules/'
+      ]
     })
     .on('start',function() {
       if (!running) {
