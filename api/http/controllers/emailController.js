@@ -1,6 +1,6 @@
 var http = require('http');
 var mailgun = require('mailgun-js')({
-  apiKey: 'ass',
+  apiKey: process.env.MAILGUN_API_SECRETKEY,
   domain: process.env.MAILGUN_DEST_DOMAIN
 });
 

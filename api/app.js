@@ -11,7 +11,7 @@
   $ npm start
 
 --------------------------------------------------------------------------- */
-process.env.NODE_ENV !== 'production' ? require('dotenv').config() : null;
+process.env.NODE_ENV !== 'production' ? require('dotenv').config() : null; // needed in order to access env variables in dev.
 var express = require('express');
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 8081;
@@ -52,7 +52,7 @@ app.set('views', __dirname + '/.././src/app/views');
 // make sure bower components are installed.
 app.use('/bower_components', express.static(path.resolve(__dirname + '.././bower_components/underscore/underscore.js')));
 // tell our server where to find static assets depending on the environment.
-process.env.NODE_ENV == 'production' ? app.use(express.static(path.join(__dirname + '/../..'))) : app.use(express.static(path.join(__dirname + '/.././dist')));
+process.env.NODE_ENV !== 'production' ? app.use(express.static(path.join(__dirname + '/../../'))) : app.use(express.static(path.join(__dirname + '/.././dist')));
 
 // Pull in our public routes
 app.use('/api', publicRoutes);
@@ -63,6 +63,6 @@ app.listen(port, function(error) {
   if (error) {
     console.error(error);
   } else {
-    console.info("==> 🌎  Client Listening on port %s. Switch to http://localhost:%s/ in your browser.", port, port);
+    console.info("==> 🌎  Listening on port %s. Switch to http://localhost:%s/ in your browser.", port, port);
   }
 });

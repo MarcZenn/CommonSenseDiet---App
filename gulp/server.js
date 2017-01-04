@@ -27,6 +27,7 @@ function browserSyncInit(baseDir, browser) {
     browser: browser = browser === undefined ? 'default' : browser,
     proxy: 'localhost:8081', // app listens on this port
     port: port, // BrowserSync listens on this port
+    open: false,
     notify: true
   });
 }
@@ -41,7 +42,7 @@ gulp.task('serve', ['browser-sync','watch']);
 gulp.task('browser-sync', ['nodemon'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
 });
-gulp.task('serve:dist', ['setenvconstants','build'], function () {
+gulp.task('serve:dist', ['build'], function () {
   browserSyncInit(conf.paths.dist);
 });
 gulp.task('serve:e2e', ['inject'], function () {
