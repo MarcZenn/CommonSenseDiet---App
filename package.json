@@ -55,7 +55,7 @@
     "wrench": "~1.5.8"
   },
   "scripts": {
-    "start": "gulp build && gulp serve",
+    "start": "node api/app.js",
     "postinstall": "bower install"
   },
   "devDependencies": {
