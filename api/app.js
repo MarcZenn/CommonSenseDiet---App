@@ -18,6 +18,7 @@ var port = process.env.PORT || 8081;
 var cors = require('cors');
 var path = require('path');
 var publicRoutes = require('./http/routes/web.js');
+process.env.NODE_ENV !== 'production' ? require('dotenv').config() : null;
 
 // require database data modeling via mongoose
 var mongoose = require('mongoose');

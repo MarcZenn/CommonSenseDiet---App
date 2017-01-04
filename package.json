@@ -62,7 +62,8 @@
     "chalk": "~1.1.1",
     "del": "~2.0.2",
     "estraverse": "~4.1.0",
-    "phantomjs": "~1.9.18"
+    "phantomjs": "~1.9.18",
+    "dotenv": "^2.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
