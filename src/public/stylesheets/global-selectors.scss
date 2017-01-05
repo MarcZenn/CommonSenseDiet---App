@@ -13,6 +13,10 @@ a {
   text-decoration: none;
 }
 
+footer {
+  margin: 50px 0 0 0;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -88,9 +92,4 @@ a {
    font-size: 15px;
    line-height: 1.33;
    margin: 0 10px;
- }
-
- .btn:hover {
-   background: #BDBDBD;
-   color: white;
  }

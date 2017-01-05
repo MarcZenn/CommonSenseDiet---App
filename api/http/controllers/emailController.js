@@ -1,8 +1,4 @@
-var http = require('http');
-var mailgun = require('mailgun-js')({
-  apiKey: process.env.MAILGUN_API_SECRETKEY,
-  domain: process.env.MAILGUN_DEST_DOMAIN
-});
+var mailgun = require('mailgun-js')({apiKey: process.env.MAILGUN_API_SECRETKEY,domain: process.env.MAILGUN_DEST_DOMAIN});
 
 module.exports = {
     sendContactUsEmail : function(req, res) {

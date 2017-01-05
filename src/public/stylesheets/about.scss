@@ -9,20 +9,19 @@ body, html{
 
 	a.primary-cta-btn {
     display: block;
-		margin: 50px auto 200px auto;
+		margin: 55px auto 200px auto;
 		width: 50%;
 		padding: 20px;
-		border-radius: 5px;
 		font-family: Montserrat;
 		text-transform: uppercase;
-		background-color: #FF790D;
-		border: 1px solid #FF790D;
+		background-color: #FCD04B;
+		border: 1px solid #FCD04B;
 		color: white;
 
 		&:hover {
 			border: 1px solid #FF790D;
-			background-color: white;
-			color: #FF790D;
+			background-color: #FF790D;
+			color: white;
 		}
   }
 }
@@ -41,7 +40,7 @@ body, html{
 	margin: 105px 0 60px 0;
 
 	span.highlight {
-		color: #417b0b;
+		color: #27AE60;
 	}
 }
 

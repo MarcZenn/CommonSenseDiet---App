@@ -1,11 +1,10 @@
 .contact-us-title {
-	width: 90%;
 	margin: 20px auto;
 	text-align: center;
 	margin: 100px 0 0 0;
 
 	h1 {
-		font-family: Raleway;
+		font-family: Rubik;
 		font-size: 40px;
 		color: grey;
 	}
@@ -57,15 +56,15 @@
 	width: 70%;
 	display: block;
 	margin: 50px auto;
-	background: white;
-	border: 1px solid #FF790D;
-	border-radius: 5px;
-	color: #FF790D;
+	background-color: #FCD04B;
+	border: 1px solid #FCD04B;
+	color: white;
 	line-height: 1px;
 	font-size: 30px;
 
 	&:hover {
 		cursor: pointer;
+		background-color: #FF790D;
 		background: #FF790D;
 		color: white;
 	}

@@ -6,9 +6,9 @@
  ----------------------------------------------------------------------------
                       SERVE ASSETS LOCALLY W/ Browser-Sync
 
-  Run the command below in your terminal to build and serve assets via gulp and Browser-Sync
+Run the command below in your terminal to build, serve & hotload assets via gulp and Browser-Sync:
 
-  $ npm start
+  $ gulp watch
 
 --------------------------------------------------------------------------- */
 process.env.NODE_ENV !== 'production' ? require('dotenv').config() : null; // needed in order to access env variables in dev.
