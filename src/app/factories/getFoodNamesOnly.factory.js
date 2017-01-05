@@ -8,11 +8,10 @@
 
   /** @ngInject */
   // Angular services are substitutable objects that are wired together using dependency injection(DI). You can use services to organize and share code across your app via global templating.
-  function getFoodNamesOnly($log, $http, $location) {
+  function getFoodNamesOnly($log, $http) {
 
     // Here we define a service and a method function and access our API variables from our .clientenv file.
     var service = {
-      baseUrl: $location.absUrl(),
       getFoodNamesList: getFoodNamesList
     }
 
@@ -26,7 +25,7 @@
       }
 
       // Here we calling our Node server which will call NDB Food List API using our .env variables but not without concatenating a limit integer and our API key. We utilize an angular try-catch and depending on if successful or not we display error getFoodNamesFail() or return data returnFoodNamesList() to malarkey.controller.js. For a list of all request parameters visit - https://ndb.nal.usda.gov/ndb/doc/apilist/API-LIST.md
-      return $http.get(service.baseUrl + '/api/getFoodNamesOnly/' + limit)
+      return $http.get('/api/getFoodNamesOnly/' + limit)
           .then(returnFoodNamesList)
           .catch(getFoodNamesFail);
 

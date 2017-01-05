@@ -2,6 +2,7 @@
 
 var path = require('path');
 var port = 5000;
+var host = process.env.NODE_ENV !== 'production' ? 'localhost:8081' : 'commonsensedietapp.herokuapp.com'
 var gulp = require('gulp');
 var conf = require('./conf');
 var browserSync = require('browser-sync').create();
@@ -25,7 +26,7 @@ function browserSyncInit(baseDir, browser) {
     startPath: '/',
     cors: true,
     browser: browser = browser === undefined ? 'default' : browser,
-    proxy: 'localhost:8081', // app listens on this port
+    proxy: host, // app listens on this port?
     port: port, // BrowserSync listens on this port
     open: false,
     notify: true
