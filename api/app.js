@@ -55,7 +55,7 @@ app.use('/bower_components', express.static(path.resolve(__dirname + '.././bower
 process.env.NODE_ENV == 'production' ? app.use(express.static(path.join(__dirname + '/../../'))) : app.use(express.static(path.join(__dirname + '/.././dist')));
 
 // Pull in our public routes
-process.env.NODE_ENV == 'production' ? app.use('/api', publicRoutes) : app.use('/api', publicRoutes)
+process.env.NODE_ENV !== 'production' ? app.use('/api', publicRoutes) : app.use('/api', publicRoutes)
 
 
 // Listen
