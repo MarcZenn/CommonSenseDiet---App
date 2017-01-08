@@ -1,7 +1,6 @@
 (function() {
   'use strict';
 
-  // TODO:: Fix stupid underscore bower component 404 issue
   // TODO:: if in production serve dist else serve src app.js - ugh
   // TODO:: Add Google Analytics and Adsense - https://www.google.com/adsense/start/
   // TODO:: How to account for a true 'serving-size' per food?????

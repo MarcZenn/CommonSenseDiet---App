@@ -8,7 +8,6 @@ module.exports = {
         subject: req.body.headline,
         text: req.body.message
       }
-      mailgun
 
       mailgun.messages().send(data, function (error, body) {
         if(error) {

@@ -26,8 +26,9 @@ function browserSyncInit(baseDir, browser) {
     startPath: '/',
     cors: true,
     browser: browser = browser === undefined ? 'default' : browser,
-    proxy: host, // app listens on this port?
+    proxy: host, // app listens on this host & port
     port: port, // BrowserSync listens on this port
+    routes: routes,
     open: false,
     notify: true
   });

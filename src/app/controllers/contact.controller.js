@@ -6,13 +6,18 @@
 		.controller('ContactController', ContactController);
 
 
-	function ContactController($http, $log) {
+	function ContactController($http, $log, $scope, $timeout) {
 		// controllerAs syntax
 		var vm = this;
 
     vm.processContactForm = function() {
 
       var email = vm;
+      vm.submitSuccess == false;
+
+      $scope.$on('$destroy', function () {
+        $timeout.cancel(returnSendSuccessful);
+      });
 
       return $http({
                method: 'POST',
@@ -27,16 +32,17 @@
               .catch(sendFail);
 
       function returnSendSuccessful(response) {
-        $log.log(response);
-        return response.data.message
+        if(response.statusText == 'OK') {
+          $timeout(function() {
+            vm.submitSuccess = true;
+          });
+        }
       }
 
       function sendFail(err) {
         return $log.error(err.data);
       }
     }
-
-
 	}
 
 })();

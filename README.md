@@ -1,13 +1,12 @@
 # CommonSenseDiet- A Simple Web-App
-Version 1.0 12/17/2015
-CURRENTLY UNDER CONSTRUCTION
+Version 1.0 12/17/2015 - Beta
 
 
 
 # What Is It?
 
 The CommonSenseDiet website is the simplest way to know if a certain food or
-dish is healthy for you (or not healthy for you) with a simple yes or no...thats it. Nothing more.
+dish is healthy for you (or not healthy for you) with a simple yes or no answer...thats it. Nothing more.
 Simply look up your foods/meals and get a YES or NO response.
 
 Eating right is simple...Don't eat junk.
@@ -37,7 +36,8 @@ Once you have the repo in your local machine simply run the following commands:
 * run `npm install -g bower` to install bower globally if you don't already have it installed.
 * run `npm install` to install the required dependencies and devdependencies.
 * run `bower install` to install angular dependencies
-* run `gulp serve` to launch a browser sync server on your source files
+* run `gulp build` to build, minify, & uglify into dist.
+* run `gulp serve` to launch a browser-sync/express server on your source files
 * run `gulp test` to run your unit tests with Karma in watch mode
 
 # Directory Structure

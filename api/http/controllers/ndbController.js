@@ -20,11 +20,9 @@ module.exports = {
       call.end();
     },
     getFoodNamesOnly : function(req, res) {
-      var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-      console.log(fullUrl)
       var call = https.get(process.env.NDB_API_URL + '/ndb/list?format=json&It=f' + '&max=' + req.params.limit + '&sort=n&offset=15&api_key=' + process.env.NDB_API_KEY, function(resp) {
-        // console.log('STATUS: ' + resp.statusCode);
-        // console.log('HEADERS: ' + JSON.stringify(resp.headers));
+        console.log('STATUS: ' + resp.statusCode);
+        console.log('HEADERS: ' + JSON.stringify(resp.headers));
         resp.setEncoding('utf8');
         var list = '';
         resp.on('data', function(chunk) {
