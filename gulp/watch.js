@@ -23,6 +23,7 @@ gulp.task('watch', ['browser-sync', 'markups', 'inject'], function () {
     path.join(conf.paths.src, '../src/public/**/*.css')
   ], function(event) {
     if(isOnlyChange(event)) {
+      gulp.start('build');
       gulp.start('styles-reload');
     } else {
       gulp.start('inject-reload');
@@ -32,6 +33,7 @@ gulp.task('watch', ['browser-sync', 'markups', 'inject'], function () {
   // watch JS file (scripts)
   gulp.watch(path.join(conf.paths.src, '/app/**/*.js'), function(event) {
     if(isOnlyChange(event)) {
+      gulp.start('build');
       gulp.start('scripts-reload');
     } else {
       gulp.start('inject-reload');
