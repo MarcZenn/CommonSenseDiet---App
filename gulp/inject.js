@@ -3,6 +3,7 @@
 var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
+var defer = require("gulp-defer");
 
 var $ = require('gulp-load-plugins')();
 
@@ -42,5 +43,6 @@ gulp.task('inject', ['scripts', 'styles'], function () {
     .pipe($.inject(injectStyles, injectOptions))
     .pipe($.inject(injectScripts, injectOptions))
     .pipe(wiredep(_.extend({}, conf.wiredep)))
+    .pipe(defer())
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve')));
 });

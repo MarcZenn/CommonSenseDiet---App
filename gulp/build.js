@@ -26,7 +26,6 @@ gulp.task('partials', ['markups'], function () {
     .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
 });
 
-// This task named html is calling inject task in the inject.js file.
 gulp.task('html', ['inject', 'partials'], function () {
   var partialsInjectFile = gulp.src(path.join(conf.paths.tmp, '/partials/templateCacheHtml.js'), { read: false });
   var partialsInjectOptions = {
