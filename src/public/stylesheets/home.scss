@@ -49,6 +49,13 @@
 
   div {
     display: inline-block;
+
+    a {
+      &:hover {
+        background-color: grey;
+        color: white;
+      }
+    }
   }
 }
 
