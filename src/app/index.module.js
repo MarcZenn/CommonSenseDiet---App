@@ -2,7 +2,8 @@
   'use strict';
 
   // TODO:: fix serve.static from src issue!
-  // TODO:: Add Google Analytics and Adsense - https://www.google.com/adsense/start/
+  // TODO:: Pay for valid SSL Certificate when possible.
+  // TODO:: Add Google Adsense - https://www.google.com/adsense/start/
   // TODO:: How to account for a true 'serving-size' per food?????
   // TODO:: write spec tests for all services, controllers and factories.
   // TODO:: Make a list of beta testers and send invites.

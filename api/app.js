@@ -12,6 +12,7 @@ Run the command below in your terminal to build, serve & hotload assets via gulp
 
 --------------------------------------------------------------------------- */
 process.env.NODE_ENV !== 'production' ? require('dotenv').config() : null; // needed in order to access env variables in dev.
+var compression = require('compression')
 var express = require('express');
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 8081;
@@ -35,6 +36,10 @@ var flash = require('connect-flash');
 
 // Use Express and set it up
 var app = express();
+
+// compress all responses
+app.use(compression())
+
 // enable cors
 app.use(cors({
   "origin": "*",
@@ -42,21 +47,25 @@ app.use(cors({
   "allowedHeaders": ["Origin, X-Requested-With, Accept, Content-Type, Authorization"],
   "preflightContinue": false
 }));
+
 // Parse requests to JSON
 app.use(bodyParser.json({type: '*/*', limit: '50mb'}));
 app.use(bodyParser.urlencoded({extended: true}));
+
 // set Jade as the view engine
 app.set('view engine', 'jade');
+
 // tell server where to find our views
 app.set('views', __dirname + '/.././src/app/views');
+
 // make sure bower components are installed.
 app.use('/bower_components', express.static(path.resolve(__dirname + '.././bower_components/underscore/underscore.js')));
+
 // tell our server where to find static assets depending on the environment.
 app.use(express.static(path.join(__dirname + '/.././dist')));
 
 // Pull in our public routes
 process.env.NODE_ENV !== 'production' ? app.use('/api', publicRoutes) : app.use('/api', publicRoutes)
-
 
 // Listen
 app.listen(port, function(error) {

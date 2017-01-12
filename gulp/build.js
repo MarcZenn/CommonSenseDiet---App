@@ -3,6 +3,7 @@
 var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
+var defer = require("gulp-defer");
 
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
@@ -65,6 +66,7 @@ gulp.task('html', ['inject', 'partials'], function () {
       conditionals: true
     }))
     .pipe(htmlFilter.restore)
+    .pipe(defer())
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')))
     .pipe($.size({ title: path.join(conf.paths.dist, '/'), showFiles: true }));
   });
