@@ -96,8 +96,8 @@ gulp.task('other', function () {
 
 gulp.task('images', function () {
   gulp.src('src/assets/images/*')
-      .pipe(imagemin())
-      .pipe(gulp.dest(path.join(conf.paths.dist, '/assets/images/')));
+    .pipe(imagemin())
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/assets/images/')));
 });
 
 gulp.task('clean', function () {
