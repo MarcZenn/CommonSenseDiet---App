@@ -2,6 +2,7 @@
   'use strict';
 
   // TODO:: fix serve.static from src issue!
+  // TODO:: instead of 'yes', 'no' strings use 1 or 0.
   // TODO:: Pay for valid SSL Certificate when possible.
   // TODO:: Add Google Adsense - https://www.google.com/adsense/start/
   // TODO:: How to account for a true 'serving-size' per food?????

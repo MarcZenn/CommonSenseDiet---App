@@ -31,7 +31,8 @@
       if(localStorageService.get('foodData') && localStorageService.get('answer')) {
         // Hold the entire report in vm.stored. Hold final answer in vm.yesNoMaybe.
         vm.stored = localStorageService.get('foodData');
-        vm.yesNoMaybe = localStorageService.get('answer').split(/UPC:|gtin:/g)[0].replace(/\,/g,"").toLowerCase();
+        vm.yesNoMaybe = localStorageService.get('answer').toLowerCase();
+        vm.stored.report.food.name = vm.stored.report.food.name.split(/UPC:|gtin:/g)[0].replace(/\,/g,"").toLowerCase();
 
         // Check to see if chosen nutrient groups have nutrients listed under them aka exist in the data. If so then display in view.
         vm.stored.report.food.nutrients.forEach(function(nutrient) {
