@@ -7,9 +7,26 @@
     .controller('SearchController', SearchController);
 
 
-  function SearchController($document, $scope, getSearchResults, $log, $location, $rootScope, getNutritionalData, ONNAService) {
+  function SearchController($document, $scope, getSearchResults, $log, $location, $rootScope, getNutritionalData, ONNAService, Paginator) {
     // Using this pattern allows us to maintain a reference to the THIS scope as a means to 'reveal' public properties and methods for use as the 'view model'. It also has the added benefit of providing a lexical binding which can be referenced inside of closures!
     var vm = this;
+    vm.pager = {};
+    vm.totalResults = 0;
+
+    // Paginator function accessible to view-model where invoked via ngclick. Using our Paginator.service.js and then render list to DOM.
+    vm.setPage = function(page, length) {
+      if(page < 1 || page > vm.pager.totalPages) {
+        return;
+      }
+      // total number of search results
+      vm.totalResults = length;
+      // current page
+      vm.page = page;
+      // get pager object from service
+      vm.pager = Paginator.getPaginator(length, page);
+      // get current page of items
+      vm.items =  vm.searchresultsarray.slice(vm.pager.startIndex, vm.pager.endIndex + 1);
+    }
 
     /* For Search Results List -
      *

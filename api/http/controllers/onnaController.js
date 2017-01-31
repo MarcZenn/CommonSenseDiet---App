@@ -69,7 +69,7 @@ module.exports = {
       };
       function checkFoodGroup() {
         if(data.report.food.fg == 'Sweets' || data.report.food.fg == 'Fast Foods') {
-          service.pointsDeducted = 10;
+          service.pointsDeducted = 20;
         }
         console.log(service.pointsDeducted + ' points lost due to food group');
         return - service.pointsDeducted;

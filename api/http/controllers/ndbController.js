@@ -20,7 +20,7 @@ module.exports = {
       call.end();
     },
     getFoodNamesOnly : function(req, res) {
-      var call = https.get(process.env.NDB_API_URL + '/ndb/list?format=json&It=f' + '&max=' + req.params.limit + '&sort=n&offset=15&api_key=' + process.env.NDB_API_KEY, function(resp) {
+      var call = https.get(process.env.NDB_API_URL + '/ndb/list?format=json&It=f' + '&max=' + req.params.limit + '&sort=n&offset=35&api_key=' + process.env.NDB_API_KEY, function(resp) {
         console.log('STATUS: ' + resp.statusCode);
         console.log('HEADERS: ' + JSON.stringify(resp.headers));
         resp.setEncoding('utf8');
