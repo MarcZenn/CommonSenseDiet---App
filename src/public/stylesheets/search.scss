@@ -38,8 +38,8 @@
 			margin:  0 0 15px 20px;
 			font-family: Raleway;
 			font-weight: 500;
-			font-size: 30px;
-			color: #f6d239;
+			font-size: 27px;
+			color: grey;
 		}
 
 		p.result-id {
@@ -50,7 +50,7 @@
 
 		span {
 			font-family: Rubik;
-			color: #BD0B07;
+			color: #417B0B;
 		}
 
     &:hover{
@@ -96,6 +96,7 @@
     width: 53px;
     height: 53px;
     margin: 0 0 -21px 0;
+		opacity: 0.65;
 
 		&:hover {
 			cursor: pointer;
